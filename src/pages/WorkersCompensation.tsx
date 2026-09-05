@@ -1,5 +1,4 @@
-import { Briefcase, PhoneCall, CheckCircle, ShieldCheck, FileCheck, Stethoscope, Clock, Zap, FileText, ChevronRight, Activity, Crosshair, HelpCircle, ArrowRight } from 'lucide-react';
-import { Link } from '@tanstack/react-router';
+import { Briefcase, PhoneCall, CheckCircle, ShieldCheck, Stethoscope, Clock, FileText, ChevronRight, Activity, Crosshair, HelpCircle } from 'lucide-react';
 
 export function WorkersCompensation() {
   return (

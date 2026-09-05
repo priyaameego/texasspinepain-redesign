@@ -1,4 +1,4 @@
-import { ShieldCheck, Phone, Mail, CheckCircle, ChevronRight, CreditCard, Heart, HelpCircle, ClipboardCheck, Umbrella, CircleDollarSign, HeartPulse, Stethoscope, Home } from 'lucide-react';
+import { ShieldCheck, Phone, Mail, CheckCircle, CreditCard, Heart, HelpCircle, ClipboardCheck, Umbrella, CircleDollarSign, HeartPulse, Stethoscope, Home } from 'lucide-react';
 import { Link } from '@tanstack/react-router';
 
 const insurers = [

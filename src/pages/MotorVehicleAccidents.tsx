@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { 
   Car, PhoneCall, CheckCircle2, ShieldCheck, Stethoscope, Briefcase, 
   Activity, Zap, Clock, MapPin, AlertCircle, FileText, Scale, ChevronDown, 
-  ChevronRight, ArrowRight, Home, Heart, Phone, Mail, Building2, Truck,
+  ArrowRight, Home, Phone, Mail, Building2, Truck,
   HelpCircle, Check
 } from 'lucide-react';
 import { Link } from '@tanstack/react-router';

@@ -1,6 +1,6 @@
 import { Link } from '@tanstack/react-router';
-import { Phone, Stethoscope, Accessibility, User, Brain, Zap, Activity, Bone, Star, CheckCircle2, ChevronRight, ShieldCheck, Check, Heart } from 'lucide-react';
-import React, { useState, useEffect, useRef } from 'react';
+import { Stethoscope, Accessibility, User, Brain, Zap, Activity, Bone, ChevronRight, Check, Heart } from 'lucide-react';
+import { useState, useEffect, useRef } from 'react';
 import { TestimonialSlider } from '../components/TestimonialSlider';
 
 // Custom lightweight counter to avoid module interop issues

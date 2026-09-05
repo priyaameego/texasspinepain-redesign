@@ -1,4 +1,4 @@
-import { HelpCircle, ChevronRight, ChevronDown, ChevronUp, MessageSquare, Phone, Mail, Home, Heart, Bookmark } from 'lucide-react';
+import { HelpCircle, ChevronDown, ChevronUp, MessageSquare, Home, Heart, Bookmark } from 'lucide-react';
 import { Link } from '@tanstack/react-router';
 import { useState } from 'react';
 

@@ -1,8 +1,8 @@
-import { ReactNode, useState, useEffect } from 'react';
+import { useState, useEffect, type ReactNode } from 'react';
 import { Link, useLocation } from '@tanstack/react-router';
 import { 
-  Phone, Printer, Mail, Headset, Plus, Home, 
-  ChevronDown, Star, Search, Menu, X, Bell, ArrowUp,
+  Phone, Printer, Mail, 
+  ChevronDown, Star, Menu, X, ArrowUp,
   Clock, MapPin, ChevronRight
 } from 'lucide-react';
 

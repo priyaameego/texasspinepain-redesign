@@ -1,4 +1,4 @@
-import { Check, ChevronRight } from 'lucide-react';
+import { Check } from 'lucide-react';
 import { Link } from '@tanstack/react-router';
 
 export function DrPriteshPatel() {

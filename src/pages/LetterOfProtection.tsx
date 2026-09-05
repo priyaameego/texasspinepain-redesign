@@ -1,5 +1,4 @@
 import { FileText, PhoneCall, CheckCircle, ShieldCheck, Clock, ChevronRight, HelpCircle, Car, Briefcase, Scale, AlertCircle } from 'lucide-react';
-import { Link } from '@tanstack/react-router';
 
 export function LetterOfProtection() {
   return (

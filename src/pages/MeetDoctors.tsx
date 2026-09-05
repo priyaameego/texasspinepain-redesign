@@ -25,7 +25,7 @@ export function MeetDoctors() {
                 <p className="text-gray-600 mb-8 leading-relaxed">
                   Led by Dr. Pritesh Patel, DO, this Dallas pain center focuses on individualized treatment plans that prioritize each patient's well-being.
                 </p>
-                <Link to="/meet-doctors/dr-pritesh-patel" className="inline-flex items-center bg-[#1e4682] hover:bg-[#163566] text-white px-8 py-3 rounded-sm font-semibold transition-colors">
+                <Link to="/dr-pritesh-patel" className="inline-flex items-center bg-[#1e4682] hover:bg-[#163566] text-white px-8 py-3 rounded-sm font-semibold transition-colors">
                   View Full Profile <ChevronRight className="ml-2 w-4 h-4" />
                 </Link>
              </div>
