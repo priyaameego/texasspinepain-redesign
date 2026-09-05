@@ -107,8 +107,24 @@ export function MotorVehicleAccidents() {
                 After a <strong className="font-semibold text-gray-900">motor vehicle accident</strong> in Dallas, getting immediate medical attention isn't just important—it's crucial for your health and legal protection. At <strong className="font-semibold text-[#1e4682]">Spine &amp; Pain Institute of Texas</strong>, Dr. Pritesh Patel, DO, and our specialized team provide comprehensive <strong className="font-semibold text-gray-900">auto accident injury treatment</strong> for patients throughout <strong className="font-semibold text-gray-900">Dallas, Plano, Richardson, Garland, Irving, and North Texas</strong>.
               </p>
 
+              {/* Doctor / Clinic Credential Trust Chips */}
+              <div className="flex flex-wrap items-center gap-2.5 pt-1">
+                <span className="inline-flex items-center gap-1.5 bg-[#f0f8fb] border border-[#d4ecf6] rounded-full px-3 py-1 text-xs text-gray-700 font-medium shadow-xs">
+                  <ShieldCheck className="w-3.5 h-3.5 text-[#17a2b8]" />
+                  Board-Certified Fellowship-Trained
+                </span>
+                <span className="inline-flex items-center gap-1.5 bg-amber-50 border border-amber-200/70 rounded-full px-3 py-1 text-xs text-amber-900 font-medium shadow-xs">
+                  <span className="text-amber-500 font-bold">★ 4.7/5</span>
+                  Patient Satisfaction
+                </span>
+                <span className="inline-flex items-center gap-1.5 bg-blue-50 border border-blue-100 rounded-full px-3 py-1 text-xs text-[#1e4682] font-medium shadow-xs">
+                  <Clock className="w-3.5 h-3.5 text-[#1e4682]" />
+                  Same-Day Emergency Slots
+                </span>
+              </div>
+
               {/* Highlights List */}
-              <div className="bg-white rounded-xl p-5 sm:p-6 border border-gray-200 shadow-sm">
+              <div className="bg-white rounded-xl p-5 sm:p-6 border border-gray-200 shadow-sm hover:shadow-md transition-shadow">
                 <h2 className="text-sm font-bold uppercase tracking-wider text-[#1e4682] mb-4">
                   Why Accident Victims Trust Our Care
                 </h2>
@@ -248,9 +264,9 @@ export function MotorVehicleAccidents() {
             ].map((item, idx) => (
               <div 
                 key={idx} 
-                className={`bg-white rounded-xl p-6 sm:p-7 shadow-sm hover:shadow-md transition-shadow ${item.border} border-x border-b border-gray-100`}
+                className={`bg-white rounded-xl p-6 sm:p-7 shadow-sm hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 ${item.border} border-x border-b border-gray-100 group`}
               >
-                <div className={`w-12 h-12 rounded-lg ${item.bg} ${item.color} flex items-center justify-center mb-5`}>
+                <div className={`w-12 h-12 rounded-lg ${item.bg} ${item.color} flex items-center justify-center mb-5 group-hover:scale-110 transition-transform duration-300`}>
                   <item.icon className="w-6 h-6" />
                 </div>
                 <h3 className="text-xl font-bold text-gray-900 mb-2.5">
@@ -283,9 +299,9 @@ export function MotorVehicleAccidents() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
             
             {/* Card 1: Car Accidents in Dallas */}
-            <div className="bg-gradient-to-br from-white to-[#fbfdff] rounded-2xl p-6 sm:p-8 border border-gray-200 shadow-sm hover:border-[#17a2b8]/50 transition-all">
+            <div className="bg-gradient-to-br from-white to-[#fbfdff] rounded-2xl p-6 sm:p-8 border border-gray-200 shadow-sm hover:shadow-xl hover:-translate-y-1.5 hover:border-[#17a2b8]/50 transition-all duration-300 group">
               <div className="flex items-center gap-3 mb-4">
-                <div className="w-10 h-10 rounded-lg bg-blue-50 text-[#1e4682] flex items-center justify-center shrink-0">
+                <div className="w-10 h-10 rounded-lg bg-blue-50 text-[#1e4682] flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform duration-300">
                   <Car className="w-5 h-5" />
                 </div>
                 <h3 className="text-xl sm:text-2xl font-bold text-gray-900">
@@ -312,9 +328,9 @@ export function MotorVehicleAccidents() {
             </div>
 
             {/* Card 2: Motorcycle Accidents */}
-            <div className="bg-gradient-to-br from-white to-[#fbfdff] rounded-2xl p-6 sm:p-8 border border-gray-200 shadow-sm hover:border-[#17a2b8]/50 transition-all">
+            <div className="bg-gradient-to-br from-white to-[#fbfdff] rounded-2xl p-6 sm:p-8 border border-gray-200 shadow-sm hover:shadow-xl hover:-translate-y-1.5 hover:border-[#17a2b8]/50 transition-all duration-300 group">
               <div className="flex items-center gap-3 mb-4">
-                <div className="w-10 h-10 rounded-lg bg-teal-50 text-[#17a2b8] flex items-center justify-center shrink-0">
+                <div className="w-10 h-10 rounded-lg bg-teal-50 text-[#17a2b8] flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform duration-300">
                   <Zap className="w-5 h-5" />
                 </div>
                 <h3 className="text-xl sm:text-2xl font-bold text-gray-900">
@@ -341,9 +357,9 @@ export function MotorVehicleAccidents() {
             </div>
 
             {/* Card 3: Truck & 18-Wheeler Accidents */}
-            <div className="bg-gradient-to-br from-white to-[#fbfdff] rounded-2xl p-6 sm:p-8 border border-gray-200 shadow-sm hover:border-[#17a2b8]/50 transition-all">
+            <div className="bg-gradient-to-br from-white to-[#fbfdff] rounded-2xl p-6 sm:p-8 border border-gray-200 shadow-sm hover:shadow-xl hover:-translate-y-1.5 hover:border-[#17a2b8]/50 transition-all duration-300 group">
               <div className="flex items-center gap-3 mb-4">
-                <div className="w-10 h-10 rounded-lg bg-blue-50 text-[#1e4682] flex items-center justify-center shrink-0">
+                <div className="w-10 h-10 rounded-lg bg-blue-50 text-[#1e4682] flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform duration-300">
                   <Truck className="w-5 h-5" />
                 </div>
                 <h3 className="text-xl sm:text-2xl font-bold text-gray-900">
@@ -369,9 +385,9 @@ export function MotorVehicleAccidents() {
             </div>
 
             {/* Card 4: Pedestrian & Bicycle Accidents */}
-            <div className="bg-gradient-to-br from-white to-[#fbfdff] rounded-2xl p-6 sm:p-8 border border-gray-200 shadow-sm hover:border-[#17a2b8]/50 transition-all">
+            <div className="bg-gradient-to-br from-white to-[#fbfdff] rounded-2xl p-6 sm:p-8 border border-gray-200 shadow-sm hover:shadow-xl hover:-translate-y-1.5 hover:border-[#17a2b8]/50 transition-all duration-300 group">
               <div className="flex items-center gap-3 mb-4">
-                <div className="w-10 h-10 rounded-lg bg-teal-50 text-[#17a2b8] flex items-center justify-center shrink-0">
+                <div className="w-10 h-10 rounded-lg bg-teal-50 text-[#17a2b8] flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform duration-300">
                   <Activity className="w-5 h-5" />
                 </div>
                 <h3 className="text-xl sm:text-2xl font-bold text-gray-900">
@@ -418,8 +434,8 @@ export function MotorVehicleAccidents() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             
             {/* Neck & Spine */}
-            <div className="bg-white rounded-xl p-6 sm:p-7 shadow-sm border border-gray-200">
-              <div className="w-10 h-10 rounded-lg bg-blue-50 text-[#1e4682] flex items-center justify-center mb-4">
+            <div className="bg-white rounded-xl p-6 sm:p-7 shadow-sm border border-gray-200 hover:shadow-lg hover:-translate-y-1 hover:border-[#17a2b8]/50 transition-all duration-300 group">
+              <div className="w-10 h-10 rounded-lg bg-blue-50 text-[#1e4682] flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
                 <Activity className="w-5 h-5" />
               </div>
               <h3 className="text-xl font-bold text-gray-900 mb-3 border-b border-gray-100 pb-2">
@@ -442,8 +458,8 @@ export function MotorVehicleAccidents() {
             </div>
 
             {/* Back Injuries */}
-            <div className="bg-white rounded-xl p-6 sm:p-7 shadow-sm border border-gray-200">
-              <div className="w-10 h-10 rounded-lg bg-teal-50 text-[#17a2b8] flex items-center justify-center mb-4">
+            <div className="bg-white rounded-xl p-6 sm:p-7 shadow-sm border border-gray-200 hover:shadow-lg hover:-translate-y-1 hover:border-[#17a2b8]/50 transition-all duration-300 group">
+              <div className="w-10 h-10 rounded-lg bg-teal-50 text-[#17a2b8] flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
                 <ShieldCheck className="w-5 h-5" />
               </div>
               <h3 className="text-xl font-bold text-gray-900 mb-3 border-b border-gray-100 pb-2">
@@ -466,8 +482,8 @@ export function MotorVehicleAccidents() {
             </div>
 
             {/* Soft Tissue Injuries */}
-            <div className="bg-white rounded-xl p-6 sm:p-7 shadow-sm border border-gray-200">
-              <div className="w-10 h-10 rounded-lg bg-blue-50 text-[#1e4682] flex items-center justify-center mb-4">
+            <div className="bg-white rounded-xl p-6 sm:p-7 shadow-sm border border-gray-200 hover:shadow-lg hover:-translate-y-1 hover:border-[#17a2b8]/50 transition-all duration-300 group">
+              <div className="w-10 h-10 rounded-lg bg-blue-50 text-[#1e4682] flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
                 <Zap className="w-5 h-5" />
               </div>
               <h3 className="text-xl font-bold text-gray-900 mb-3 border-b border-gray-100 pb-2">
@@ -490,8 +506,8 @@ export function MotorVehicleAccidents() {
             </div>
 
             {/* Neurological Injuries */}
-            <div className="bg-white rounded-xl p-6 sm:p-7 shadow-sm border border-gray-200">
-              <div className="w-10 h-10 rounded-lg bg-teal-50 text-[#17a2b8] flex items-center justify-center mb-4">
+            <div className="bg-white rounded-xl p-6 sm:p-7 shadow-sm border border-gray-200 hover:shadow-lg hover:-translate-y-1 hover:border-[#17a2b8]/50 transition-all duration-300 group">
+              <div className="w-10 h-10 rounded-lg bg-teal-50 text-[#17a2b8] flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
                 <Activity className="w-5 h-5" />
               </div>
               <h3 className="text-xl font-bold text-gray-900 mb-3 border-b border-gray-100 pb-2">
@@ -514,8 +530,8 @@ export function MotorVehicleAccidents() {
             </div>
 
             {/* Joint & Extremity Injuries */}
-            <div className="bg-white rounded-xl p-6 sm:p-7 shadow-sm border border-gray-200 sm:col-span-2 lg:col-span-1">
-              <div className="w-10 h-10 rounded-lg bg-blue-50 text-[#1e4682] flex items-center justify-center mb-4">
+            <div className="bg-white rounded-xl p-6 sm:p-7 shadow-sm border border-gray-200 hover:shadow-lg hover:-translate-y-1 hover:border-[#17a2b8]/50 transition-all duration-300 group sm:col-span-2 lg:col-span-1">
+              <div className="w-10 h-10 rounded-lg bg-blue-50 text-[#1e4682] flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
                 <Stethoscope className="w-5 h-5" />
               </div>
               <h3 className="text-xl font-bold text-gray-900 mb-3 border-b border-gray-100 pb-2">
