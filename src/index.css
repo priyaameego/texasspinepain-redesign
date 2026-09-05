@@ -1,0 +1,96 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary-50: #eef8fb;
+  --color-primary-100: #d4ecf6;
+  --color-primary-200: #adddf0;
+  --color-primary-300: #76c5e6;
+  --color-primary-400: #38a5d7;
+  --color-primary-500: #1c9dbf;
+  --color-primary-600: #187a9d;
+  --color-primary-700: #16627f;
+  --color-primary-800: #16526a;
+  --color-primary-900: #164559;
+  
+  --color-secondary-50: #f4f6f9;
+  --color-secondary-100: #e6eaf3;
+  --color-secondary-200: #d3dbe8;
+  --color-secondary-300: #b5c3d7;
+  --color-secondary-400: #91a3c0;
+  --color-secondary-500: #7687a8;
+  --color-secondary-600: #5d6b8d;
+  --color-secondary-700: #4b5674;
+  --color-secondary-800: #1a458a;
+  --color-secondary-900: #112d5d;
+
+  --font-sans: "Outfit", "Inter", sans-serif;
+  --font-serif: "Playfair Display", serif;
+}
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-white text-gray-800 antialiased selection:bg-primary-500 selection:text-white;
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-bold tracking-tight;
+    font-family: var(--font-serif);
+  }
+
+  /* Premium image rendering */
+  img {
+    image-rendering: -webkit-optimize-contrast;
+  }
+
+  /* Smooth focus rings */
+  *:focus-visible {
+    @apply outline-none ring-2 ring-primary-500 ring-offset-2;
+    transition: box-shadow 0.2s ease;
+  }
+}
+
+/* Premium scrollbar */
+@layer utilities {
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #f1f5f9;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #94a3b8;
+    border-radius: 4px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #64748b;
+  }
+}
+
+/* Fade-in animation for page loads */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.6s ease-out forwards;
+}
