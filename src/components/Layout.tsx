@@ -47,7 +47,7 @@ export function Layout({ children }: { children: ReactNode }) {
 
   const isTransparent = !scrolled && isHome;
   const textColorClass = isTransparent ? 'text-white drop-shadow-md' : 'text-primary-700';
-  const logoClass = `transition-all duration-300 object-contain ${scrolled ? 'h-14' : 'h-16'} ${isTransparent ? 'brightness-0 invert' : ''}`;
+  const logoClass = `transition-all duration-300 object-contain ${scrolled ? 'h-16 md:h-18' : 'h-20 md:h-24'} ${isTransparent ? 'brightness-0 invert' : ''}`;
 
   return (
     <div className="min-h-screen flex flex-col font-sans overflow-x-hidden">

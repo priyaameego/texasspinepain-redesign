@@ -1,7 +1,19 @@
 import { Link } from '@tanstack/react-router';
-import { Stethoscope, Accessibility, User, Brain, Zap, Activity, Bone, ChevronRight, Check, Heart } from 'lucide-react';
+import { ChevronRight, Check, Heart } from 'lucide-react';
 import { useState, useEffect, useRef } from 'react';
 import { TestimonialSlider } from '../components/TestimonialSlider';
+import { 
+  PainManagementIcon, 
+  BackPainIcon, 
+  LowerBackPainIcon, 
+  NeckPainIcon, 
+  HeadachesIcon, 
+  SciaticaIcon, 
+  NeuropathyIcon, 
+  LegPainIcon, 
+  FacePainIcon, 
+  KneePainIcon 
+} from '../components/ConditionIcons';
 
 // Custom lightweight counter to avoid module interop issues
 function AnimatedCounter({ end, duration = 2500 }: { end: number, duration?: number }) {
@@ -45,19 +57,21 @@ function AnimatedCounter({ end, duration = 2500 }: { end: number, duration?: num
 }
 
 const conditions = [
-  { name: 'Pain Management', icon: Stethoscope, route: '/pain-management' },
-  { name: 'Back Pain', icon: Accessibility, route: '/back-pain' },
-  { name: 'Lower Back Pain', icon: Accessibility, route: '/lower-back-pain' },
-  { name: 'Neck Pain', icon: User, route: '/neck-pain' },
-  { name: 'Headaches', icon: Brain, route: '/headaches' },
-  { name: 'Sciatica', icon: Zap, route: '/sciatica' },
-  { name: 'Neuropathy', icon: Activity, route: '/neuropathy' },
-  { name: 'Leg Pain', icon: Bone, route: '/leg-pain' },
-  { name: 'Face Pain', icon: User, route: '/face-pain' },
-  { name: 'Knee Pain', icon: Bone, route: '/knee-pain' },
+  { name: 'Pain Management', icon: PainManagementIcon, route: '/pain-management' },
+  { name: 'Back Pain', icon: BackPainIcon, route: '/back-pain' },
+  { name: 'Lower Back Pain', icon: LowerBackPainIcon, route: '/lower-back-pain' },
+  { name: 'Neck Pain', icon: NeckPainIcon, route: '/neck-pain' },
+  { name: 'Headaches', icon: HeadachesIcon, route: '/headaches' },
+  { name: 'Sciatica', icon: SciaticaIcon, route: '/sciatica' },
+  { name: 'Neuropathy', icon: NeuropathyIcon, route: '/neuropathy' },
+  { name: 'Leg Pain', icon: LegPainIcon, route: '/leg-pain' },
+  { name: 'Face Pain', icon: FacePainIcon, route: '/face-pain' },
+  { name: 'Knee Pain', icon: KneePainIcon, route: '/knee-pain' },
 ];
 
 export function Home() {
+  const [hoveredCondition, setHoveredCondition] = useState<number | null>(null);
+
   return (
     <div className="flex flex-col min-h-screen">
       <style>{`
@@ -108,22 +122,39 @@ export function Home() {
       </section>
 
       {/* Conditions Grid Section matching screenshot */}
-      <section className="bg-[#1e4682] py-20 lg:py-28 relative z-10">
+      <section className="bg-[#1b3e70] py-20 lg:py-28 relative z-10">
         <div className="container mx-auto px-4 lg:px-8">
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-x-6 gap-y-16">
             {conditions.map((condition, index) => {
               const Icon = condition.icon;
+              const isHovered = hoveredCondition === index;
+
               return (
-                <div key={index} className="bg-white rounded-md shadow-xl flex flex-col items-center justify-center pt-8 pb-10 px-4 relative transform transition-transform hover:-translate-y-1 hover:shadow-2xl h-52 lg:h-60">
-                  <Icon className="w-14 h-14 text-secondary-900 mb-6 stroke-1 opacity-90" />
-                  <h3 className="text-center font-bold text-gray-700 text-sm lg:text-base leading-tight">
+                <div 
+                  key={index} 
+                  onMouseEnter={() => setHoveredCondition(index)}
+                  onMouseLeave={() => setHoveredCondition(null)}
+                  className={`rounded-md shadow-xl flex flex-col items-center justify-start pt-6 pb-12 px-4 relative transform transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl h-56 lg:h-64 cursor-pointer ${
+                    isHovered ? 'bg-[#17a2b8]' : 'bg-white'
+                  }`}
+                >
+                  <div className="mb-4 transition-transform duration-300 transform group-hover:scale-105">
+                    <Icon className="w-18 h-18 lg:w-20 lg:h-20 transition-colors duration-300" active={isHovered} />
+                  </div>
+                  <h3 className={`text-center font-bold text-sm lg:text-base leading-tight transition-colors duration-300 ${
+                    isHovered ? 'text-white' : 'text-gray-800'
+                  }`}>
                     {condition.name}
                   </h3>
                   
                   {/* Overlapping Button */}
                   <Link 
                     to={condition.route} 
-                    className="absolute -bottom-5 bg-[#17a2b8] hover:bg-[#138496] text-white px-6 py-2.5 rounded shadow-md font-semibold text-xs lg:text-sm transition-colors whitespace-nowrap"
+                    className={`absolute -bottom-5 px-6 py-2.5 rounded shadow-md font-semibold text-xs lg:text-sm transition-all duration-300 whitespace-nowrap border ${
+                      isHovered 
+                        ? 'bg-white text-[#17a2b8] border-white hover:bg-gray-100' 
+                        : 'bg-[#17a2b8] text-white border-[#17a2b8] hover:bg-[#138496]'
+                    }`}
                   >
                     More details
                   </Link>
