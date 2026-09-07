@@ -54,7 +54,7 @@ export function MotorVehicleAccidents() {
           <h1 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4 tracking-tight">
             Motor Vehicle Accidents
           </h1>
-          <nav aria-label="Breadcrumb" className="flex items-center text-sm text-[#1e4682] bg-white w-max px-4 py-2 rounded-md shadow-sm border border-gray-100">
+          <nav aria-label="Breadcrumb" className="flex items-center text-sm text-[#0b192b] bg-white w-max px-4 py-2 rounded-md shadow-sm border border-gray-100">
             <Link to="/" className="hover:text-primary-600 transition-colors flex items-center">
               <Home className="w-4 h-4 mr-1.5 text-[#17a2b8]" />
               <span>Home</span>
@@ -79,12 +79,12 @@ export function MotorVehicleAccidents() {
             </div>
             
             <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-gray-900 leading-tight mb-5">
-              Expert Auto Accident Injury Treatment in <span className="text-[#1e4682]">Dallas, Texas</span>
+              Expert Auto Accident Injury Treatment in <span className="text-[#0b192b]">Dallas, Texas</span>
             </h1>
 
             {/* Subheading Badges / Highlights */}
             <div className="flex flex-wrap items-center gap-2 sm:gap-3 text-xs sm:text-sm font-medium text-gray-700">
-              <span className="inline-flex items-center px-3 py-1.5 rounded-md bg-blue-50 text-[#1e4682] font-semibold border border-blue-100">
+              <span className="inline-flex items-center px-3 py-1.5 rounded-md bg-blue-50 text-[#0b192b] font-semibold border border-blue-100">
                 Same-Day Emergency Appointments Available
               </span>
               <span className="hidden sm:inline text-gray-300">|</span>
@@ -104,7 +104,7 @@ export function MotorVehicleAccidents() {
             {/* Left Content */}
             <div className="lg:col-span-7 xl:col-span-7 space-y-6">
               <p className="text-base sm:text-lg text-gray-700 leading-relaxed">
-                After a <strong className="font-semibold text-gray-900">motor vehicle accident</strong> in Dallas, getting immediate medical attention isn't just important—it's crucial for your health and legal protection. At <strong className="font-semibold text-[#1e4682]">Spine &amp; Pain Institute of Texas</strong>, Dr. Pritesh Patel, DO, and our specialized team provide comprehensive <strong className="font-semibold text-gray-900">auto accident injury treatment</strong> for patients throughout <strong className="font-semibold text-gray-900">Dallas, Plano, Richardson, Garland, Irving, and North Texas</strong>.
+                After a <strong className="font-semibold text-gray-900">motor vehicle accident</strong> in Dallas, getting immediate medical attention isn't just important—it's crucial for your health and legal protection. At <strong className="font-semibold text-[#0b192b]">Spine &amp; Pain Institute of Texas</strong>, Dr. Pritesh Patel, DO, and our specialized team provide comprehensive <strong className="font-semibold text-gray-900">auto accident injury treatment</strong> for patients throughout <strong className="font-semibold text-gray-900">Dallas, Plano, Richardson, Garland, Irving, and North Texas</strong>.
               </p>
 
               {/* Doctor / Clinic Credential Trust Chips */}
@@ -117,15 +117,15 @@ export function MotorVehicleAccidents() {
                   <span className="text-amber-500 font-bold">★ 4.7/5</span>
                   Patient Satisfaction
                 </span>
-                <span className="inline-flex items-center gap-1.5 bg-blue-50 border border-blue-100 rounded-full px-3 py-1 text-xs text-[#1e4682] font-medium shadow-xs">
-                  <Clock className="w-3.5 h-3.5 text-[#1e4682]" />
+                <span className="inline-flex items-center gap-1.5 bg-blue-50 border border-blue-100 rounded-full px-3 py-1 text-xs text-[#0b192b] font-medium shadow-xs">
+                  <Clock className="w-3.5 h-3.5 text-[#0b192b]" />
                   Same-Day Emergency Slots
                 </span>
               </div>
 
               {/* Highlights List */}
               <div className="bg-white rounded-xl p-5 sm:p-6 border border-gray-200 shadow-sm hover:shadow-md transition-shadow">
-                <h2 className="text-sm font-bold uppercase tracking-wider text-[#1e4682] mb-4">
+                <h2 className="text-sm font-bold uppercase tracking-wider text-[#0b192b] mb-4">
                   Why Accident Victims Trust Our Care
                 </h2>
                 <ul className="space-y-3">
@@ -162,7 +162,7 @@ export function MotorVehicleAccidents() {
                   <div className="my-4">
                     <a 
                       href="tel:+14693130040" 
-                      className="inline-flex items-center text-2xl sm:text-3xl font-extrabold text-[#1e4682] hover:text-[#17a2b8] transition-colors"
+                      className="inline-flex items-center text-2xl sm:text-3xl font-extrabold text-[#0b192b] hover:text-[#17a2b8] transition-colors"
                     >
                       <PhoneCall className="w-6 h-6 mr-3 text-[#17a2b8]" />
                       (469) 313-0040
@@ -204,7 +204,7 @@ export function MotorVehicleAccidents() {
         <div className="container mx-auto px-4 lg:px-8 max-w-6xl">
           <div className="text-center max-w-3xl mx-auto mb-14">
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Why Choose Our Dallas <span className="text-[#1e4682]">Auto Accident Clinic</span>?
+              Why Choose Our Dallas <span className="text-[#0b192b]">Auto Accident Clinic</span>?
             </h2>
             <p className="text-gray-600 text-base sm:text-lg leading-relaxed">
               Our clinic is dedicated to helping victims of <strong className="text-gray-800">motor vehicle accidents</strong> in Dallas and across North Texas recover safely and return to daily life as quickly as possible.
@@ -223,9 +223,9 @@ export function MotorVehicleAccidents() {
               },
               {
                 icon: Stethoscope,
-                color: "text-[#1e4682]",
+                color: "text-[#0b192b]",
                 bg: "bg-blue-50",
-                border: "border-t-4 border-[#1e4682]",
+                border: "border-t-4 border-[#0b192b]",
                 title: "Comprehensive Diagnostics",
                 desc: "On-site X-rays, MRI and CT referrals, EMG/NCV testing, and detailed physical and neurological exams."
               },
@@ -239,9 +239,9 @@ export function MotorVehicleAccidents() {
               },
               {
                 icon: Briefcase,
-                color: "text-[#1e4682]",
+                color: "text-[#0b192b]",
                 bg: "bg-blue-50",
-                border: "border-t-4 border-[#1e4682]",
+                border: "border-t-4 border-[#0b192b]",
                 title: "Attorney Coordination",
                 desc: <>We work directly with <strong className="text-gray-800">personal injury attorneys</strong> and accept <strong className="text-gray-800">Letters of Protection</strong>.</>
               },
@@ -255,9 +255,9 @@ export function MotorVehicleAccidents() {
               },
               {
                 icon: MapPin,
-                color: "text-[#1e4682]",
+                color: "text-[#0b192b]",
                 bg: "bg-blue-50",
-                border: "border-t-4 border-[#1e4682]",
+                border: "border-t-4 border-[#0b192b]",
                 title: "North Texas Coverage",
                 desc: "Serving patients from Dallas, Plano, Richardson, Garland, Mesquite, Irving, Carrollton, Farmers Branch, Addison, and beyond."
               }
@@ -289,7 +289,7 @@ export function MotorVehicleAccidents() {
               <Car className="w-4 h-4" /> Collision Types
             </div>
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Types of <span className="text-[#1e4682]">Motor Vehicle Accidents</span> We Treat
+              Types of <span className="text-[#0b192b]">Motor Vehicle Accidents</span> We Treat
             </h2>
             <p className="text-gray-600 text-base sm:text-lg leading-relaxed">
               Dallas sees thousands of <strong className="text-gray-800">motor vehicle collisions</strong> each year. Whether your crash happened on I-35, I-635, US-75, or a city street, our team understands the unique injury patterns associated with different types of accidents.
@@ -301,7 +301,7 @@ export function MotorVehicleAccidents() {
             {/* Card 1: Car Accidents in Dallas */}
             <div className="bg-gradient-to-br from-white to-[#fbfdff] rounded-2xl p-6 sm:p-8 border border-gray-200 shadow-sm hover:shadow-xl hover:-translate-y-1.5 hover:border-[#17a2b8]/50 transition-all duration-300 group">
               <div className="flex items-center gap-3 mb-4">
-                <div className="w-10 h-10 rounded-lg bg-blue-50 text-[#1e4682] flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform duration-300">
+                <div className="w-10 h-10 rounded-lg bg-blue-50 text-[#0b192b] flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform duration-300">
                   <Car className="w-5 h-5" />
                 </div>
                 <h3 className="text-xl sm:text-2xl font-bold text-gray-900">
@@ -359,7 +359,7 @@ export function MotorVehicleAccidents() {
             {/* Card 3: Truck & 18-Wheeler Accidents */}
             <div className="bg-gradient-to-br from-white to-[#fbfdff] rounded-2xl p-6 sm:p-8 border border-gray-200 shadow-sm hover:shadow-xl hover:-translate-y-1.5 hover:border-[#17a2b8]/50 transition-all duration-300 group">
               <div className="flex items-center gap-3 mb-4">
-                <div className="w-10 h-10 rounded-lg bg-blue-50 text-[#1e4682] flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform duration-300">
+                <div className="w-10 h-10 rounded-lg bg-blue-50 text-[#0b192b] flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform duration-300">
                   <Truck className="w-5 h-5" />
                 </div>
                 <h3 className="text-xl sm:text-2xl font-bold text-gray-900">
@@ -420,7 +420,7 @@ export function MotorVehicleAccidents() {
       <section id="mva-injuries" className="py-16 md:py-24 bg-[#f8fbff] border-b border-gray-100">
         <div className="container mx-auto px-4 lg:px-8 max-w-6xl">
           <div className="text-center max-w-3xl mx-auto mb-14">
-            <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#1e4682] mb-3">
+            <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#0b192b] mb-3">
               <Stethoscope className="w-4 h-4" /> Diagnostic &amp; Treatment Scope
             </div>
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4">
@@ -435,7 +435,7 @@ export function MotorVehicleAccidents() {
             
             {/* Neck & Spine */}
             <div className="bg-white rounded-xl p-6 sm:p-7 shadow-sm border border-gray-200 hover:shadow-lg hover:-translate-y-1 hover:border-[#17a2b8]/50 transition-all duration-300 group">
-              <div className="w-10 h-10 rounded-lg bg-blue-50 text-[#1e4682] flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+              <div className="w-10 h-10 rounded-lg bg-blue-50 text-[#0b192b] flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
                 <Activity className="w-5 h-5" />
               </div>
               <h3 className="text-xl font-bold text-gray-900 mb-3 border-b border-gray-100 pb-2">
@@ -483,7 +483,7 @@ export function MotorVehicleAccidents() {
 
             {/* Soft Tissue Injuries */}
             <div className="bg-white rounded-xl p-6 sm:p-7 shadow-sm border border-gray-200 hover:shadow-lg hover:-translate-y-1 hover:border-[#17a2b8]/50 transition-all duration-300 group">
-              <div className="w-10 h-10 rounded-lg bg-blue-50 text-[#1e4682] flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+              <div className="w-10 h-10 rounded-lg bg-blue-50 text-[#0b192b] flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
                 <Zap className="w-5 h-5" />
               </div>
               <h3 className="text-xl font-bold text-gray-900 mb-3 border-b border-gray-100 pb-2">
@@ -531,7 +531,7 @@ export function MotorVehicleAccidents() {
 
             {/* Joint & Extremity Injuries */}
             <div className="bg-white rounded-xl p-6 sm:p-7 shadow-sm border border-gray-200 hover:shadow-lg hover:-translate-y-1 hover:border-[#17a2b8]/50 transition-all duration-300 group sm:col-span-2 lg:col-span-1">
-              <div className="w-10 h-10 rounded-lg bg-blue-50 text-[#1e4682] flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+              <div className="w-10 h-10 rounded-lg bg-blue-50 text-[#0b192b] flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
                 <Stethoscope className="w-5 h-5" />
               </div>
               <h3 className="text-xl font-bold text-gray-900 mb-3 border-b border-gray-100 pb-2">
@@ -554,7 +554,7 @@ export function MotorVehicleAccidents() {
             </div>
 
             {/* Same-day prompt card to complete grid */}
-            <div className="bg-gradient-to-br from-[#1e4682] to-[#163566] text-white rounded-xl p-6 sm:p-7 shadow-md flex flex-col justify-between sm:col-span-2 lg:col-span-1">
+            <div className="bg-gradient-to-br from-[#0b192b] to-[#163566] text-white rounded-xl p-6 sm:p-7 shadow-md flex flex-col justify-between sm:col-span-2 lg:col-span-1">
               <div>
                 <span className="inline-block text-xs uppercase font-bold tracking-wider text-teal-300 mb-2">Immediate Evaluation</span>
                 <h3 className="text-xl font-bold mb-3">Injured in an Accident?</h3>
@@ -622,7 +622,7 @@ export function MotorVehicleAccidents() {
             <div className="bg-[#fbfdff] rounded-2xl p-6 sm:p-8 border border-gray-200 shadow-sm flex flex-col justify-between">
               <div>
                 <div className="flex items-center gap-3 mb-6">
-                  <span className="w-9 h-9 rounded-full bg-[#1e4682] text-white font-bold flex items-center justify-center text-base">
+                  <span className="w-9 h-9 rounded-full bg-[#0b192b] text-white font-bold flex items-center justify-center text-base">
                     2
                   </span>
                   <h3 className="text-xl sm:text-2xl font-bold text-gray-900">
@@ -639,7 +639,7 @@ export function MotorVehicleAccidents() {
                     { bold: "Follow through with treatment", text: "– do not delay medically-necessary care." }
                   ].map((step, idx) => (
                     <li key={idx} className="flex items-start">
-                      <span className="font-bold text-[#1e4682] mr-3 mt-0.5 shrink-0">{idx + 1}.</span>
+                      <span className="font-bold text-[#0b192b] mr-3 mt-0.5 shrink-0">{idx + 1}.</span>
                       <div>
                         <strong className="font-semibold text-gray-900">{step.bold}</strong> {step.text}
                       </div>
@@ -668,7 +668,7 @@ export function MotorVehicleAccidents() {
       <section id="diagnostics" className="py-16 md:py-24 bg-[#f8fbff] border-b border-gray-100">
         <div className="container mx-auto px-4 lg:px-8 max-w-6xl">
           <div className="max-w-3xl mb-12">
-            <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#1e4682] mb-3">
+            <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#0b192b] mb-3">
               <Stethoscope className="w-4 h-4" /> State-of-the-art Testing
             </div>
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4">
@@ -681,7 +681,7 @@ export function MotorVehicleAccidents() {
             {/* Advanced Imaging & Testing */}
             <div className="bg-white rounded-2xl p-6 sm:p-8 border border-gray-200 shadow-sm">
               <div className="flex items-center gap-3 mb-5">
-                <div className="w-10 h-10 rounded-lg bg-blue-50 text-[#1e4682] flex items-center justify-center shrink-0">
+                <div className="w-10 h-10 rounded-lg bg-blue-50 text-[#0b192b] flex items-center justify-center shrink-0">
                   <Activity className="w-5 h-5" />
                 </div>
                 <h3 className="text-xl sm:text-2xl font-bold text-gray-900">
@@ -742,7 +742,7 @@ export function MotorVehicleAccidents() {
               <Zap className="w-4 h-4" /> Customized Healing
             </div>
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Advanced Treatment Options for <span className="text-[#1e4682]">Motor Vehicle Accident</span> Injuries
+              Advanced Treatment Options for <span className="text-[#0b192b]">Motor Vehicle Accident</span> Injuries
             </h2>
             <p className="text-gray-600 text-base sm:text-lg leading-relaxed">
               We customize your treatment plan based on your injuries, goals, and lifestyle. Our approach combines interventional pain management, rehabilitation, and regenerative techniques.
@@ -753,7 +753,7 @@ export function MotorVehicleAccidents() {
             
             {/* Pain Management Therapies */}
             <div className="bg-[#fbfdff] rounded-xl p-6 border border-gray-200 shadow-sm hover:border-[#17a2b8]/50 transition-colors">
-              <h3 className="text-lg font-bold text-[#1e4682] mb-4 pb-2 border-b border-gray-200">
+              <h3 className="text-lg font-bold text-[#0b192b] mb-4 pb-2 border-b border-gray-200">
                 Pain Management Therapies
               </h3>
               <ul className="space-y-2.5 text-gray-700 text-sm">
@@ -774,7 +774,7 @@ export function MotorVehicleAccidents() {
 
             {/* Rehabilitation Services */}
             <div className="bg-[#fbfdff] rounded-xl p-6 border border-gray-200 shadow-sm hover:border-[#17a2b8]/50 transition-colors">
-              <h3 className="text-lg font-bold text-[#1e4682] mb-4 pb-2 border-b border-gray-200">
+              <h3 className="text-lg font-bold text-[#0b192b] mb-4 pb-2 border-b border-gray-200">
                 Rehabilitation Services
               </h3>
               <ul className="space-y-2.5 text-gray-700 text-sm">
@@ -795,7 +795,7 @@ export function MotorVehicleAccidents() {
 
             {/* Regenerative Medicine */}
             <div className="bg-[#fbfdff] rounded-xl p-6 border border-gray-200 shadow-sm hover:border-[#17a2b8]/50 transition-colors">
-              <h3 className="text-lg font-bold text-[#1e4682] mb-4 pb-2 border-b border-gray-200">
+              <h3 className="text-lg font-bold text-[#0b192b] mb-4 pb-2 border-b border-gray-200">
                 Regenerative Medicine
               </h3>
               <ul className="space-y-2.5 text-gray-700 text-sm">
@@ -815,7 +815,7 @@ export function MotorVehicleAccidents() {
 
             {/* Specialized Techniques */}
             <div className="bg-[#fbfdff] rounded-xl p-6 border border-gray-200 shadow-sm hover:border-[#17a2b8]/50 transition-colors">
-              <h3 className="text-lg font-bold text-[#1e4682] mb-4 pb-2 border-b border-gray-200">
+              <h3 className="text-lg font-bold text-[#0b192b] mb-4 pb-2 border-b border-gray-200">
                 Specialized Techniques
               </h3>
               <ul className="space-y-2.5 text-gray-700 text-sm">
@@ -847,7 +847,7 @@ export function MotorVehicleAccidents() {
               <FileText className="w-4 h-4" /> Legal &amp; Financial Protection
             </div>
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Letter of Protection (LOP) for <span className="text-[#1e4682]">Motor Vehicle Accident</span> Cases
+              Letter of Protection (LOP) for <span className="text-[#0b192b]">Motor Vehicle Accident</span> Cases
             </h2>
             <p className="text-gray-700 text-base sm:text-lg leading-relaxed">
               A <strong className="font-semibold text-gray-900">Letter of Protection (LOP)</strong> is a legal agreement between your personal injury attorney and our medical practice that guarantees payment for your treatment from your future settlement. This allows you to receive the <strong className="font-semibold text-gray-900">motor vehicle accident injury care</strong> you need without worrying about immediate medical bills.
@@ -883,7 +883,7 @@ export function MotorVehicleAccidents() {
             {/* How Our LOP Process Works */}
             <div className="bg-white rounded-2xl p-6 sm:p-8 border border-gray-200 shadow-sm">
               <h3 className="text-xl font-bold text-gray-900 mb-6 flex items-center">
-                <Clock className="w-6 h-6 text-[#1e4682] mr-2.5" />
+                <Clock className="w-6 h-6 text-[#0b192b] mr-2.5" />
                 How Our LOP Process Works
               </h3>
               <ol className="space-y-3.5 text-gray-700 text-sm sm:text-base">
@@ -895,7 +895,7 @@ export function MotorVehicleAccidents() {
                   "Payment is made from your settlement once your case resolves."
                 ].map((step, idx) => (
                   <li key={idx} className="flex items-start">
-                    <span className="w-6 h-6 rounded-full bg-blue-50 text-[#1e4682] font-bold flex items-center justify-center mr-3 text-xs shrink-0 mt-0.5 border border-blue-100">
+                    <span className="w-6 h-6 rounded-full bg-blue-50 text-[#0b192b] font-bold flex items-center justify-center mr-3 text-xs shrink-0 mt-0.5 border border-blue-100">
                       {idx + 1}
                     </span>
                     <span>{step}</span>
@@ -934,7 +934,7 @@ export function MotorVehicleAccidents() {
       <section id="attorney-collaboration" className="py-16 md:py-24 bg-white border-b border-gray-100">
         <div className="container mx-auto px-4 lg:px-8 max-w-6xl">
           <div className="max-w-3xl mb-12">
-            <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#1e4682] mb-3">
+            <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#0b192b] mb-3">
               <Scale className="w-4 h-4" /> Legal Partnership
             </div>
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4">
@@ -950,7 +950,7 @@ export function MotorVehicleAccidents() {
             {/* For Your Legal Team */}
             <div className="bg-[#fbfdff] rounded-2xl p-6 sm:p-8 border border-gray-200 shadow-sm">
               <div className="flex items-center gap-3 mb-5">
-                <div className="w-10 h-10 rounded-lg bg-blue-50 text-[#1e4682] flex items-center justify-center shrink-0">
+                <div className="w-10 h-10 rounded-lg bg-blue-50 text-[#0b192b] flex items-center justify-center shrink-0">
                   <Briefcase className="w-5 h-5" />
                 </div>
                 <h3 className="text-xl sm:text-2xl font-bold text-gray-900">
@@ -1002,7 +1002,7 @@ export function MotorVehicleAccidents() {
 
           {/* Medical Documentation for Legal Cases */}
           <div className="bg-blue-50/60 rounded-2xl p-6 sm:p-8 border border-blue-100">
-            <h3 className="text-xl font-bold text-[#1e4682] mb-4 flex items-center">
+            <h3 className="text-xl font-bold text-[#0b192b] mb-4 flex items-center">
               <FileText className="w-5 h-5 mr-2.5 text-[#17a2b8]" />
               Medical Documentation for Legal Cases
             </h3>
@@ -1015,7 +1015,7 @@ export function MotorVehicleAccidents() {
                 "Expert medical opinions and prognosis"
               ].map((item, idx) => (
                 <li key={idx} className="flex items-start">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#1e4682] mt-2 mr-2.5 shrink-0"></span>
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#0b192b] mt-2 mr-2.5 shrink-0"></span>
                   <span>{item}</span>
                 </li>
               ))}
@@ -1033,7 +1033,7 @@ export function MotorVehicleAccidents() {
               <AlertCircle className="w-4 h-4" /> Timely Intervention
             </div>
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Why Immediate Treatment After a <span className="text-[#1e4682]">Motor Vehicle Accident</span> Is Critical
+              Why Immediate Treatment After a <span className="text-[#0b192b]">Motor Vehicle Accident</span> Is Critical
             </h2>
           </div>
 
@@ -1067,7 +1067,7 @@ export function MotorVehicleAccidents() {
             {/* Legal Reasons */}
             <div className="bg-white rounded-2xl p-6 sm:p-8 border border-gray-200 shadow-sm">
               <div className="flex items-center gap-3 mb-5">
-                <div className="w-10 h-10 rounded-lg bg-blue-50 text-[#1e4682] flex items-center justify-center shrink-0">
+                <div className="w-10 h-10 rounded-lg bg-blue-50 text-[#0b192b] flex items-center justify-center shrink-0">
                   <Scale className="w-5 h-5" />
                 </div>
                 <h3 className="text-xl sm:text-2xl font-bold text-gray-900">
@@ -1082,7 +1082,7 @@ export function MotorVehicleAccidents() {
                   "Provide expert medical opinions that support your claim."
                 ].map((item, i) => (
                   <li key={i} className="flex items-start">
-                    <CheckCircle2 className="w-4 h-4 text-[#1e4682] mt-1 mr-2.5 shrink-0" />
+                    <CheckCircle2 className="w-4 h-4 text-[#0b192b] mt-1 mr-2.5 shrink-0" />
                     <span>{item}</span>
                   </li>
                 ))}
@@ -1097,7 +1097,7 @@ export function MotorVehicleAccidents() {
       <section id="insurance" className="py-16 md:py-24 bg-white border-b border-gray-100">
         <div className="container mx-auto px-4 lg:px-8 max-w-6xl">
           <div className="max-w-3xl mb-12">
-            <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#1e4682] mb-3">
+            <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#0b192b] mb-3">
               <ShieldCheck className="w-4 h-4" /> Clear Coverage
             </div>
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4">
@@ -1149,7 +1149,7 @@ export function MotorVehicleAccidents() {
                   "No need to determine fault before using your PIP benefits"
                 ].map((item, idx) => (
                   <li key={idx} className="flex items-start">
-                    <CheckCircle2 className="w-4 h-4 text-[#1e4682] mt-1 mr-2.5 shrink-0" />
+                    <CheckCircle2 className="w-4 h-4 text-[#0b192b] mt-1 mr-2.5 shrink-0" />
                     <span>{item}</span>
                   </li>
                 ))}
@@ -1180,7 +1180,7 @@ export function MotorVehicleAccidents() {
             {/* Communities */}
             <div className="lg:col-span-7 bg-white rounded-2xl p-6 sm:p-8 border border-gray-200 shadow-sm space-y-6">
               <div>
-                <h3 className="text-lg sm:text-xl font-bold text-[#1e4682] mb-2 flex items-center">
+                <h3 className="text-lg sm:text-xl font-bold text-[#0b192b] mb-2 flex items-center">
                   <Building2 className="w-5 h-5 mr-2 text-[#17a2b8]" />
                   Primary Service Area
                 </h3>
@@ -1190,7 +1190,7 @@ export function MotorVehicleAccidents() {
               </div>
 
               <div className="pt-4 border-t border-gray-100">
-                <h3 className="text-lg sm:text-xl font-bold text-[#1e4682] mb-2 flex items-center">
+                <h3 className="text-lg sm:text-xl font-bold text-[#0b192b] mb-2 flex items-center">
                   <MapPin className="w-5 h-5 mr-2 text-[#17a2b8]" />
                   Additional Communities
                 </h3>
@@ -1203,7 +1203,7 @@ export function MotorVehicleAccidents() {
             {/* Major Highways */}
             <div className="lg:col-span-5 bg-white rounded-2xl p-6 sm:p-8 border border-gray-200 shadow-sm">
               <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-4 flex items-center">
-                <Car className="w-5 h-5 mr-2 text-[#1e4682]" />
+                <Car className="w-5 h-5 mr-2 text-[#0b192b]" />
                 Easy Access from Major Highways
               </h3>
               <ul className="space-y-3 text-gray-700 text-sm sm:text-base">
@@ -1230,7 +1230,7 @@ export function MotorVehicleAccidents() {
       <section id="mva-appointment-form" className="py-16 md:py-24 bg-white">
         <div className="container mx-auto px-4 lg:px-8 max-w-5xl">
           
-          <div className="bg-gradient-to-br from-[#1e4682] to-[#122e5a] rounded-3xl p-8 sm:p-12 text-white shadow-2xl relative overflow-hidden text-center">
+          <div className="bg-gradient-to-br from-[#0b192b] to-[#122e5a] rounded-3xl p-8 sm:p-12 text-white shadow-2xl relative overflow-hidden text-center">
             <div className="absolute -top-24 -right-24 w-72 h-72 bg-[#17a2b8]/20 rounded-full blur-3xl pointer-events-none"></div>
             <div className="absolute -bottom-24 -left-24 w-72 h-72 bg-blue-400/10 rounded-full blur-3xl pointer-events-none"></div>
 
@@ -1250,7 +1250,7 @@ export function MotorVehicleAccidents() {
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
                 <a 
                   href="tel:+14693130040" 
-                  className="w-full sm:w-auto inline-flex items-center justify-center bg-white hover:bg-gray-100 text-[#1e4682] font-extrabold text-base sm:text-lg px-8 py-4 rounded-xl shadow-lg transition-transform hover:-translate-y-0.5"
+                  className="w-full sm:w-auto inline-flex items-center justify-center bg-white hover:bg-gray-100 text-[#0b192b] font-extrabold text-base sm:text-lg px-8 py-4 rounded-xl shadow-lg transition-transform hover:-translate-y-0.5"
                 >
                   <Phone className="w-5 h-5 mr-2.5 text-[#17a2b8]" />
                   Call (469) 313-0040 Now
@@ -1287,11 +1287,11 @@ export function MotorVehicleAccidents() {
         <div className="container mx-auto px-4 lg:px-8 max-w-4xl">
           
           <div className="text-center mb-12">
-            <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#1e4682] mb-3">
+            <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#0b192b] mb-3">
               <HelpCircle className="w-4 h-4 text-[#17a2b8]" /> Patient Questions
             </div>
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Frequently Asked Questions About <span className="text-[#1e4682]">Motor Vehicle Accident</span> Care
+              Frequently Asked Questions About <span className="text-[#0b192b]">Motor Vehicle Accident</span> Care
             </h2>
           </div>
 
@@ -1303,14 +1303,14 @@ export function MotorVehicleAccidents() {
                   key={idx} 
                   className={`rounded-xl transition-all border ${
                     isOpen 
-                      ? 'border-[#1e4682] shadow-md overflow-hidden' 
+                      ? 'border-[#0b192b] shadow-md overflow-hidden' 
                       : 'border-gray-200 bg-white hover:border-gray-300 shadow-sm'
                   }`}
                 >
                   <button 
                     onClick={() => toggleFaq(idx)} 
                     className={`w-full text-left p-5 sm:p-6 flex items-center justify-between gap-4 transition-colors ${
-                      isOpen ? 'bg-[#1e4682] text-white font-semibold' : 'bg-white text-gray-900 font-bold'
+                      isOpen ? 'bg-[#0b192b] text-white font-semibold' : 'bg-white text-gray-900 font-bold'
                     }`}
                     aria-expanded={isOpen}
                   >
@@ -1337,11 +1337,11 @@ export function MotorVehicleAccidents() {
               Have questions about your specific accident or insurance coverage?
             </p>
             <div className="flex flex-wrap items-center justify-center gap-4 text-sm font-semibold">
-              <a href="tel:+14693130040" className="inline-flex items-center text-[#1e4682] hover:underline">
+              <a href="tel:+14693130040" className="inline-flex items-center text-[#0b192b] hover:underline">
                 <Phone className="w-4 h-4 mr-1.5 text-[#17a2b8]" /> 469-313-0040
               </a>
               <span className="text-gray-300">|</span>
-              <a href="mailto:info@texasspinepain.com" className="inline-flex items-center text-[#1e4682] hover:underline">
+              <a href="mailto:info@texasspinepain.com" className="inline-flex items-center text-[#0b192b] hover:underline">
                 <Mail className="w-4 h-4 mr-1.5 text-[#17a2b8]" /> info@texasspinepain.com
               </a>
             </div>

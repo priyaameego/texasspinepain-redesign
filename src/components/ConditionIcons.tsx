@@ -7,8 +7,8 @@ interface IconProps extends React.SVGProps<SVGSVGElement> {
 
 // 1. Pain Management: Patient on medical bed/table with medical treatment graphic
 export function PainManagementIcon({ className = "w-16 h-16", active = false, ...props }: IconProps) {
-  const mainColor = active ? "#FFFFFF" : "#132a4a";
-  const accentColor = active ? "#E0F2FE" : "#17a2b8";
+  const mainColor = active ? "#FFFFFF" : "#bae6fd";
+  const accentColor = active ? "#E0F2FE" : "#2dd4bf";
   return (
     <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" className={className} {...props}>
       {/* Medical treatment bed / couch */}
@@ -30,8 +30,8 @@ export function PainManagementIcon({ className = "w-16 h-16", active = false, ..
 
 // 2. Back Pain: Upper body silhouette from back with highlighted spine vertebrae and pain rays
 export function BackPainIcon({ className = "w-16 h-16", active = false, ...props }: IconProps) {
-  const mainColor = active ? "#FFFFFF" : "#132a4a";
-  const accentColor = active ? "#E0F2FE" : "#ef4444";
+  const mainColor = active ? "#FFFFFF" : "#bae6fd";
+  const accentColor = active ? "#E0F2FE" : "#fb7185";
   return (
     <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" className={className} {...props}>
       {/* Head & Neck */}
@@ -43,12 +43,12 @@ export function BackPainIcon({ className = "w-16 h-16", active = false, ...props
       <path d="M25 35L18 45L22 55L28 50" fill={mainColor} />
       <path d="M75 35L82 45L78 55L72 50" fill={mainColor} />
       {/* Spine line with vertebrae */}
-      <line x1="50" y1="32" x2="50" y2="72" stroke={active ? "#17a2b8" : "#FFFFFF"} strokeWidth="3" strokeDasharray="3 2" />
+      <line x1="50" y1="32" x2="50" y2="72" stroke={active ? "#17a2b8" : "#2dd4bf"} strokeWidth="3" strokeDasharray="3 2" />
       {/* Vertebrae nodes */}
-      <circle cx="50" cy="38" r="2.5" fill={active ? "#17a2b8" : "#FFFFFF"} />
-      <circle cx="50" cy="46" r="2.5" fill={active ? "#17a2b8" : "#FFFFFF"} />
-      <circle cx="50" cy="54" r="2.5" fill={active ? "#17a2b8" : "#FFFFFF"} />
-      <circle cx="50" cy="62" r="2.5" fill={active ? "#17a2b8" : "#FFFFFF"} />
+      <circle cx="50" cy="38" r="2.5" fill={active ? "#17a2b8" : "#2dd4bf"} />
+      <circle cx="50" cy="46" r="2.5" fill={active ? "#17a2b8" : "#2dd4bf"} />
+      <circle cx="50" cy="54" r="2.5" fill={active ? "#17a2b8" : "#2dd4bf"} />
+      <circle cx="50" cy="62" r="2.5" fill={active ? "#17a2b8" : "#2dd4bf"} />
       {/* Radiating pain sparks on sides of spine */}
       <path d="M38 42L32 40M37 50L30 50M38 58L32 60" stroke={accentColor} strokeWidth="2.5" strokeLinecap="round" />
       <path d="M62 42L68 40M63 50L70 50M62 58L68 60" stroke={accentColor} strokeWidth="2.5" strokeLinecap="round" />
@@ -58,8 +58,8 @@ export function BackPainIcon({ className = "w-16 h-16", active = false, ...props
 
 // 3. Lower Back Pain: Torso with hands on lower back and lower lumbar pain radiating
 export function LowerBackPainIcon({ className = "w-16 h-16", active = false, ...props }: IconProps) {
-  const mainColor = active ? "#FFFFFF" : "#132a4a";
-  const accentColor = active ? "#E0F2FE" : "#ef4444";
+  const mainColor = active ? "#FFFFFF" : "#bae6fd";
+  const accentColor = active ? "#E0F2FE" : "#fb7185";
   return (
     <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" className={className} {...props}>
       {/* Head */}
@@ -81,8 +81,8 @@ export function LowerBackPainIcon({ className = "w-16 h-16", active = false, ...
 
 // 4. Neck Pain: Side profile head & neck silhouette with pain radiating at back of neck
 export function NeckPainIcon({ className = "w-16 h-16", active = false, ...props }: IconProps) {
-  const mainColor = active ? "#FFFFFF" : "#132a4a";
-  const accentColor = active ? "#E0F2FE" : "#ef4444";
+  const mainColor = active ? "#FFFFFF" : "#bae6fd";
+  const accentColor = active ? "#E0F2FE" : "#fb7185";
   return (
     <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" className={className} {...props}>
       {/* Head profile facing left */}
@@ -94,15 +94,15 @@ export function NeckPainIcon({ className = "w-16 h-16", active = false, ...props
       <circle cx="63" cy="46" r="4" fill={accentColor} />
       <path d="M72 40C76 43 78 48 76 53" stroke={accentColor} strokeWidth="2.5" strokeLinecap="round" />
       <path d="M78 35C84 40 86 50 82 58" stroke={accentColor} strokeWidth="2.5" strokeLinecap="round" />
-      <path d="M53 46H58" stroke={active ? "#17a2b8" : "#FFFFFF"} strokeWidth="2" />
+      <path d="M53 46H58" stroke={active ? "#17a2b8" : "#2dd4bf"} strokeWidth="2" />
     </svg>
   );
 }
 
 // 5. Headaches: Front head silhouette with radiating pain waves around forehead & scalp
 export function HeadachesIcon({ className = "w-16 h-16", active = false, ...props }: IconProps) {
-  const mainColor = active ? "#FFFFFF" : "#132a4a";
-  const accentColor = active ? "#E0F2FE" : "#ef4444";
+  const mainColor = active ? "#FFFFFF" : "#bae6fd";
+  const accentColor = active ? "#E0F2FE" : "#fb7185";
   return (
     <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" className={className} {...props}>
       {/* Head front silhouette */}
@@ -110,9 +110,9 @@ export function HeadachesIcon({ className = "w-16 h-16", active = false, ...prop
       {/* Neck & Collar */}
       <path d="M44 78H56V88H44V78Z" fill={mainColor} />
       {/* Expression / face details (subtle negative space) */}
-      <path d="M40 48C42 46 45 46 47 48" stroke={active ? "#17a2b8" : "#FFFFFF"} strokeWidth="2" strokeLinecap="round" />
-      <path d="M53 48C55 46 58 46 60 48" stroke={active ? "#17a2b8" : "#FFFFFF"} strokeWidth="2" strokeLinecap="round" />
-      <path d="M46 60C48 62 52 62 54 60" stroke={active ? "#17a2b8" : "#FFFFFF"} strokeWidth="2" strokeLinecap="round" />
+      <path d="M40 48C42 46 45 46 47 48" stroke={active ? "#17a2b8" : "#2dd4bf"} strokeWidth="2" strokeLinecap="round" />
+      <path d="M53 48C55 46 58 46 60 48" stroke={active ? "#17a2b8" : "#2dd4bf"} strokeWidth="2" strokeLinecap="round" />
+      <path d="M46 60C48 62 52 62 54 60" stroke={active ? "#17a2b8" : "#2dd4bf"} strokeWidth="2" strokeLinecap="round" />
       {/* Radiating headache spark arcs around head */}
       <path d="M24 28C28 22 34 18 42 16" stroke={accentColor} strokeWidth="2.5" strokeLinecap="round" />
       <path d="M76 28C72 22 66 18 58 16" stroke={accentColor} strokeWidth="2.5" strokeLinecap="round" />
@@ -125,8 +125,8 @@ export function HeadachesIcon({ className = "w-16 h-16", active = false, ...prop
 
 // 6. Sciatica: Body posture leaning forward with sciatic nerve line down lower back and leg
 export function SciaticaIcon({ className = "w-16 h-16", active = false, ...props }: IconProps) {
-  const mainColor = active ? "#FFFFFF" : "#132a4a";
-  const accentColor = active ? "#E0F2FE" : "#ef4444";
+  const mainColor = active ? "#FFFFFF" : "#bae6fd";
+  const accentColor = active ? "#E0F2FE" : "#fb7185";
   return (
     <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" className={className} {...props}>
       {/* Head */}
@@ -153,8 +153,8 @@ export function SciaticaIcon({ className = "w-16 h-16", active = false, ...props
 
 // 7. Neuropathy: Foot silhouette with nerve pain sparks around toes and sole
 export function NeuropathyIcon({ className = "w-16 h-16", active = false, ...props }: IconProps) {
-  const mainColor = active ? "#FFFFFF" : "#132a4a";
-  const accentColor = active ? "#E0F2FE" : "#ef4444";
+  const mainColor = active ? "#FFFFFF" : "#bae6fd";
+  const accentColor = active ? "#E0F2FE" : "#fb7185";
   return (
     <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" className={className} {...props}>
       {/* Lower leg & ankle */}
@@ -173,14 +173,14 @@ export function NeuropathyIcon({ className = "w-16 h-16", active = false, ...pro
 
 // 8. Leg Pain: Leg silhouette (thigh, knee, calf) with pain sparks on calf/shin
 export function LegPainIcon({ className = "w-16 h-16", active = false, ...props }: IconProps) {
-  const mainColor = active ? "#FFFFFF" : "#132a4a";
-  const accentColor = active ? "#E0F2FE" : "#ef4444";
+  const mainColor = active ? "#FFFFFF" : "#bae6fd";
+  const accentColor = active ? "#E0F2FE" : "#fb7185";
   return (
     <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" className={className} {...props}>
       {/* Thigh to Foot silhouette */}
       <path d="M42 12H58L56 38C58 44 58 50 54 58L52 78L62 82V88H34V82L42 78L44 58C42 50 40 44 42 38L42 12Z" fill={mainColor} />
       {/* Knee highlight line */}
-      <path d="M44 44C48 42 52 42 55 44" stroke={active ? "#17a2b8" : "#FFFFFF"} strokeWidth="2" strokeLinecap="round" />
+      <path d="M44 44C48 42 52 42 55 44" stroke={active ? "#17a2b8" : "#2dd4bf"} strokeWidth="2" strokeLinecap="round" />
       {/* Radiating leg pain sparks at calf / shin area */}
       <path d="M34 56L26 54M33 66L24 68M35 74L28 78" stroke={accentColor} strokeWidth="2.5" strokeLinecap="round" />
       <path d="M60 56L68 54M61 66L70 68M59 74L66 78" stroke={accentColor} strokeWidth="2.5" strokeLinecap="round" />
@@ -190,8 +190,8 @@ export function LegPainIcon({ className = "w-16 h-16", active = false, ...props 
 
 // 9. Face Pain: Face profile/front with trigeminal/facial nerve pain sparks on cheek/jaw
 export function FacePainIcon({ className = "w-16 h-16", active = false, ...props }: IconProps) {
-  const mainColor = active ? "#FFFFFF" : "#132a4a";
-  const accentColor = active ? "#E0F2FE" : "#ef4444";
+  const mainColor = active ? "#FFFFFF" : "#bae6fd";
+  const accentColor = active ? "#E0F2FE" : "#fb7185";
   return (
     <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" className={className} {...props}>
       {/* Head silhouette */}
@@ -199,10 +199,10 @@ export function FacePainIcon({ className = "w-16 h-16", active = false, ...props
       {/* Neck */}
       <path d="M45 78H55V88H45V78Z" fill={mainColor} />
       {/* Facial features */}
-      <path d="M40 44C42 42 45 42 47 44" stroke={active ? "#17a2b8" : "#FFFFFF"} strokeWidth="2" strokeLinecap="round" />
-      <path d="M53 44C55 42 58 42 60 44" stroke={active ? "#17a2b8" : "#FFFFFF"} strokeWidth="2" strokeLinecap="round" />
-      <path d="M50 45V54L53 56" stroke={active ? "#17a2b8" : "#FFFFFF"} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-      <path d="M45 62C48 64 52 64 55 62" stroke={active ? "#17a2b8" : "#FFFFFF"} strokeWidth="2" strokeLinecap="round" />
+      <path d="M40 44C42 42 45 42 47 44" stroke={active ? "#17a2b8" : "#2dd4bf"} strokeWidth="2" strokeLinecap="round" />
+      <path d="M53 44C55 42 58 42 60 44" stroke={active ? "#17a2b8" : "#2dd4bf"} strokeWidth="2" strokeLinecap="round" />
+      <path d="M50 45V54L53 56" stroke={active ? "#17a2b8" : "#2dd4bf"} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+      <path d="M45 62C48 64 52 64 55 62" stroke={active ? "#17a2b8" : "#2dd4bf"} strokeWidth="2" strokeLinecap="round" />
       {/* Radiating face pain sparks over cheek & jaw */}
       <path d="M64 48L72 46M66 58L74 60M60 66L66 72" stroke={accentColor} strokeWidth="2.5" strokeLinecap="round" />
       <circle cx="64" cy="52" r="3" fill={accentColor} />
@@ -213,8 +213,8 @@ export function FacePainIcon({ className = "w-16 h-16", active = false, ...props
 
 // 10. Knee Pain: Leg bending with joint knee cap and pain sparks around knee
 export function KneePainIcon({ className = "w-16 h-16", active = false, ...props }: IconProps) {
-  const mainColor = active ? "#FFFFFF" : "#132a4a";
-  const accentColor = active ? "#E0F2FE" : "#ef4444";
+  const mainColor = active ? "#FFFFFF" : "#bae6fd";
+  const accentColor = active ? "#E0F2FE" : "#fb7185";
   return (
     <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" className={className} {...props}>
       {/* Thigh down to Knee bending to Shin */}
@@ -222,7 +222,7 @@ export function KneePainIcon({ className = "w-16 h-16", active = false, ...props
       {/* Calf & Foot extension */}
       <path d="M58 45L68 78H54L48 48L58 45Z" fill={mainColor} opacity="0.9" />
       {/* Patella / Knee Joint line */}
-      <circle cx="50" cy="45" r="5" stroke={active ? "#17a2b8" : "#FFFFFF"} strokeWidth="2" fill="none" />
+      <circle cx="50" cy="45" r="5" stroke={active ? "#17a2b8" : "#2dd4bf"} strokeWidth="2" fill="none" />
       {/* Radiating pain sparks around knee joint */}
       <path d="M38 42L30 38M36 50L28 52M44 34L42 26" stroke={accentColor} strokeWidth="2.5" strokeLinecap="round" />
       <path d="M60 38L68 34M62 48L70 52M56 35L60 28" stroke={accentColor} strokeWidth="2.5" strokeLinecap="round" />

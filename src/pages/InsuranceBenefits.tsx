@@ -1,175 +1,461 @@
-import { ShieldCheck, Phone, Mail, CheckCircle, CreditCard, Heart, HelpCircle, ClipboardCheck, Umbrella, CircleDollarSign, HeartPulse, Stethoscope, Home } from 'lucide-react';
+import { useState, useRef, useEffect } from 'react';
+import { ShieldCheck, Phone, Mail, CheckCircle, CreditCard, Heart, HelpCircle, ClipboardCheck, Umbrella, CircleDollarSign, HeartPulse, Stethoscope, Home, ChevronLeft, ChevronRight, Sparkles, Plus } from 'lucide-react';
 import { Link } from '@tanstack/react-router';
 
 const insurers = [
   { name: 'Aetna', detail: 'Including Aetna Better Health and Aetna Healthcare' },
-  { name: 'Blue Cross Blue Shield (BCBS)', detail: 'PPO, HMO' },
-  { name: 'Cigna', detail: 'PPO, HMO, Medicare' },
-  { name: 'Humana', detail: 'PPO, HMO' },
-  { name: 'UnitedHealthcare (UHC)', detail: 'HMO, PPO, EPO, Medicare' },
-  { name: 'Medicare & Medicare Advantage', detail: 'All qualifying plans' },
-  { name: 'Tricare', detail: 'Military & veterans coverage' },
+  { name: 'Blue Cross Blue Shield (BCBS)', detail: 'PPO, HMO, & POS Plans Accepted' },
+  { name: 'Cigna', detail: 'PPO, HMO, & Medicare Advantage' },
+  { name: 'Humana', detail: 'PPO, HMO, & Choice Care' },
+  { name: 'UnitedHealthcare (UHC)', detail: 'HMO, PPO, EPO, & Medicare' },
+  { name: 'Medicare & Medicare Advantage', detail: 'All qualifying Part B & Supplemental' },
+  { name: 'Tricare', detail: 'Military & Veterans Healthcare Coverage' },
+];
+
+const insuranceImages = [
+  { src: '/insurance1.jpg', alt: 'Insurance Partner 1' },
+  { src: '/insurance2.jpg', alt: 'Insurance Partner 2' },
+  { src: '/insurance3.jpg', alt: 'Insurance Partner 3' },
+  { src: '/insurance5.jpg', alt: 'Insurance Partner 4' },
+  { src: '/insurance6.jpg', alt: 'Insurance Partner 5' },
+  { src: '/insurance9.jpg', alt: 'Galaxy Health Insurance' },
+  { src: '/insurance14.jpg', alt: 'First Health Network' },
+  { src: '/insurance16.jpg', alt: 'Coventry Health Care' },
+  { src: '/insurance18.jpg', alt: 'Insurance Partner 18' },
+  { src: '/insurance20.jpg', alt: 'Insurance Partner 20' },
+  { src: '/insurance21.jpg', alt: 'Insurance Partner 21' },
 ];
 
 const guidanceItems = [
-  { icon: CircleDollarSign, title: 'Financial Assistance', desc: 'Highlights the availability of payment plans and financial help for patients.', color: 'from-blue-500 to-blue-600' },
-  { icon: ClipboardCheck, title: 'Verification Process', desc: 'Details the steps patients should take to confirm their insurance coverage.', color: 'from-sky-500 to-sky-600' },
-  { icon: HeartPulse, title: 'Medicare Coverage', desc: 'Describes the specific services covered under Medicare for pain management.', color: 'from-indigo-500 to-indigo-600' },
-  { icon: Umbrella, title: 'Comprehensive Coverage', desc: 'Represents the wide range of insurance plans accepted to ensure accessibility.', color: 'from-teal-500 to-teal-600' },
-  { icon: Stethoscope, title: 'Holistic Approach', desc: "Emphasizes the institute's comprehensive and effective pain management strategies.", color: 'from-cyan-500 to-cyan-600' },
+  { 
+    id: 0,
+    icon: Umbrella, 
+    title: 'Comprehensive Coverage', 
+    desc: 'Represents the wide range of insurance plans accepted to ensure accessibility.', 
+    color: 'from-blue-600 to-indigo-700',
+    accentColor: '#2563eb'
+  },
+  { 
+    id: 1,
+    icon: ClipboardCheck, 
+    title: 'Verification Process', 
+    desc: 'Details the steps patients should take to confirm their insurance coverage.', 
+    color: 'from-sky-500 to-teal-600',
+    accentColor: '#0284c7'
+  },
+  { 
+    id: 2,
+    icon: CircleDollarSign, 
+    title: 'Financial Assistance', 
+    desc: 'Highlights the availability of payment plans and financial help for patients.', 
+    color: 'from-teal-500 to-emerald-600',
+    accentColor: '#0d9488'
+  },
+  { 
+    id: 3,
+    icon: HeartPulse, 
+    title: 'Medicare Coverage', 
+    desc: 'Describes the specific services covered under Medicare for pain management.', 
+    color: 'from-emerald-500 to-teal-700',
+    accentColor: '#10b981'
+  },
+  { 
+    id: 4,
+    icon: Stethoscope, 
+    title: 'Holistic Approach', 
+    desc: "Emphasizes the institute's comprehensive and effective pain management strategies.", 
+    color: 'from-teal-600 to-[#0b192b]',
+    accentColor: '#0f766e'
+  },
 ];
 
 export function InsuranceBenefits() {
-  return (
-    <div className="flex flex-col min-h-screen pt-28 bg-white">
+  const sliderRef = useRef<HTMLDivElement>(null);
+  const [activeGuidance, setActiveGuidance] = useState(2); // Default to center "Financial Assistance"
+  const [scrollY, setScrollY] = useState(0);
 
-      {/* Breadcrumb Header */}
-      <div className="bg-[#f8fbff] py-16 px-4 lg:px-8 border-b border-gray-100">
-        <div className="container mx-auto">
-          <h1 className="text-3xl md:text-4xl font-bold text-gray-700 mb-6">Insurance Benefits at Spine & Pain Institute of Texas</h1>
-          <div className="flex items-center text-sm text-[#1e4682] bg-white w-max px-4 py-2 rounded shadow-sm">
-            <Link to="/" className="hover:text-blue-500"><Home className="w-4 h-4" /></Link>
-            <span className="mx-2 text-gray-400">»</span>
-            <span className="font-medium">Insurance Benefits</span>
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrollY(window.scrollY);
+    };
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const scrollLeft = () => {
+    if (sliderRef.current) {
+      sliderRef.current.scrollBy({ left: -300, behavior: 'smooth' });
+    }
+  };
+
+  const scrollRight = () => {
+    if (sliderRef.current) {
+      sliderRef.current.scrollBy({ left: 300, behavior: 'smooth' });
+    }
+  };
+
+  const activeItem = guidanceItems[activeGuidance];
+
+  return (
+    <div className="flex flex-col min-h-screen pt-24 bg-white">
+
+      {/* Editorial Subpage 3D Animated Hero Header */}
+      <div className="bg-[#0b192b] text-white py-16 lg:py-24 px-4 lg:px-8 relative overflow-hidden">
+        
+        {/* Animated Ambient Glow & Grid Backdrop */}
+        <div 
+          className="absolute inset-0 bg-gradient-to-r from-[#0b192b] via-[#0b192b]/95 to-teal-950/40 transition-transform duration-300"
+          style={{ transform: `translate3d(0, ${scrollY * 0.15}px, 0)` }}
+        />
+        <div className="absolute top-0 right-1/4 w-96 h-96 bg-teal-500/10 rounded-full blur-3xl pointer-events-none" />
+        
+        <div className="container mx-auto max-w-7xl relative z-10">
+          <div className="flex items-center gap-2 text-xs font-semibold text-teal-300 uppercase tracking-widest mb-4">
+            <Link to="/" className="hover:text-white flex items-center gap-1 transition-colors">
+              <Home className="w-3.5 h-3.5" /> Home
+            </Link>
+            <span className="text-slate-500">/</span>
+            <span className="text-slate-200">Insurance Benefits</span>
+          </div>
+          
+          <div className="inline-flex items-center gap-2 bg-teal-500/15 border border-teal-400/30 px-3.5 py-1.5 rounded-full text-teal-300 text-xs font-bold uppercase tracking-widest mb-4">
+            <Sparkles className="w-3.5 h-3.5 text-teal-300" />
+            <span>Accessible In-Network Healthcare</span>
+          </div>
+
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-serif text-white tracking-tight mb-4 leading-tight">
+            Insurance Benefits at Spine &amp; Pain Institute of Texas
+          </h1>
+          <p className="text-slate-300 text-base sm:text-lg font-normal max-w-2xl leading-relaxed">
+            We work with major insurance providers and Medicare to make expert, double board-certified spine care accessible to everyone in Dallas.
+          </p>
+
+          <div className="mt-8 flex flex-wrap items-center gap-4">
+            <a 
+              href="#appointment" 
+              className="bg-teal-500 hover:bg-teal-400 text-white font-bold px-7 py-3.5 rounded-xl transition-all shadow-lg shadow-teal-500/25 hover:shadow-teal-500/40 hover:-translate-y-0.5 text-xs uppercase tracking-wider flex items-center gap-2"
+            >
+              <ShieldCheck className="w-4 h-4" />
+              <span>Verify My Insurance</span>
+            </a>
+
+            <a 
+              href="tel:4693130040" 
+              className="bg-white/10 hover:bg-white/20 border border-white/20 text-white font-bold px-7 py-3.5 rounded-xl transition-all text-xs uppercase tracking-wider backdrop-blur-md flex items-center gap-2"
+            >
+              <Phone className="w-4 h-4 text-teal-300" /> 
+              <span>Call (469) 313-0040</span>
+            </a>
           </div>
         </div>
       </div>
 
-      {/* Hero Banner */}
-      <section className="bg-[#1e4682] py-20 lg:py-28 relative overflow-hidden">
-        <div className="absolute inset-0 bg-[#163566]/70 z-10 mix-blend-multiply"></div>
-        <img
-          src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?q=80&w=2000&auto=format&fit=crop"
-          alt="Insurance Benefits"
-          className="absolute inset-0 w-full h-full object-cover object-center opacity-30 z-0"
-        />
-        {/* Decorative particles */}
-        <div className="absolute top-10 left-[12%] w-3 h-3 bg-white/15 rounded-full z-20"></div>
-        <div className="absolute top-20 left-[25%] w-2 h-2 bg-white/10 rounded-full z-20"></div>
-        <div className="absolute top-14 right-[20%] w-4 h-4 bg-white/15 rounded-full z-20"></div>
-        <div className="absolute bottom-16 left-[40%] w-2 h-2 bg-white/10 rounded-full z-20"></div>
-        <div className="absolute bottom-20 right-[15%] w-3 h-3 bg-white/15 rounded-full z-20"></div>
+      {/* ─── LUXURY INTERACTIVE 3D RADIAL SEMI-CIRCLE DIAGRAM SECTION ─── */}
+      <section className="py-20 lg:py-28 bg-slate-50 border-b border-slate-200/70 relative overflow-hidden">
+        
+        {/* Ambient Radial Background Glows */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-teal-500/5 rounded-full blur-3xl pointer-events-none" />
 
-        <div className="container mx-auto px-4 lg:px-8 text-center text-white relative z-20">
-          <div className="inline-flex items-center bg-white/10 backdrop-blur-md px-4 py-2 rounded-full text-blue-100 font-semibold mb-6 border border-white/20">
-            <ShieldCheck className="w-5 h-5 mr-2" /> Insurance Benefits
-          </div>
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-white">We Make Insurance<br className="hidden sm:block" /> Work for You</h2>
-          <p className="text-xl text-blue-100 max-w-3xl mx-auto font-light leading-relaxed mb-10">
-            We understand that managing your pain should not be complicated by concerns about insurance coverage. We strive to make our services accessible to as many patients as possible.
-          </p>
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <a href="#appointment" className="bg-[#17a2b8] hover:bg-[#138496] text-white px-8 py-4 rounded-md font-bold text-lg transition-colors shadow-lg w-full sm:w-auto">
-              Verify My Insurance
-            </a>
-            <a href="tel:4693130040" className="bg-white/10 hover:bg-white/20 backdrop-blur-md border border-white/30 text-white px-8 py-4 rounded-md font-bold text-lg transition-colors flex items-center justify-center w-full sm:w-auto">
-              <Phone className="w-5 h-5 mr-2" /> 469-313-0040
-            </a>
-          </div>
-        </div>
-      </section>
-
-      {/* Insurance Benefits and Guidance — Premium Cards */}
-      <section className="py-24 bg-white overflow-hidden">
-        <div className="container mx-auto px-4 lg:px-8 max-w-6xl">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl lg:text-4xl font-bold text-gray-800 mb-3">Insurance Benefits and Guidance</h2>
-            <p className="text-gray-500 text-lg max-w-2xl mx-auto">Everything you need to know about your coverage and how we can help.</p>
+        <div className="container mx-auto px-4 lg:px-8 max-w-7xl relative z-10">
+          
+          {/* Section Header */}
+          <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
+            <span className="text-teal-600 font-bold uppercase tracking-widest text-xs block mb-2">
+              Spine &amp; Pain Institute of Texas
+            </span>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-serif font-bold text-slate-900 mb-4 tracking-tight">
+              Insurance Benefits and Guidance
+            </h2>
+            <p className="text-slate-600 text-base sm:text-lg">
+              At Spine &amp; Pain Institute of Texas, we understand that managing your pain should not be complicated by concerns about insurance coverage. We strive to make quality spine and interventional care as seamless and accessible as possible.
+            </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {guidanceItems.map((item, idx) => (
-              <div key={idx} className={`group relative bg-white rounded-xl border border-gray-100 p-8 shadow-sm hover:shadow-xl transition-all duration-500 hover:-translate-y-2 overflow-hidden ${idx === 4 ? 'sm:col-span-2 lg:col-span-1' : ''}`}>
-                <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r opacity-0 group-hover:opacity-100 transition-opacity duration-500" style={{ backgroundImage: `linear-gradient(to right, var(--tw-gradient-stops))` }}></div>
-                <div className={`bg-gradient-to-br ${item.color} w-14 h-14 rounded-xl flex items-center justify-center mb-6 shadow-lg group-hover:scale-110 transition-transform duration-500`}>
-                  <item.icon className="w-7 h-7 text-white" />
+          {/* 3D Semi-Circular Radial Interactive Composition */}
+          <div className="max-w-5xl mx-auto">
+            
+            {/* 5 Surrounding Feature Cards & Semi-Circle Arc Wheel Container */}
+            <div className="flex flex-col items-center">
+              
+              {/* SVG 3D Semi-Circular Arc Wheel */}
+              <div className="relative w-full max-w-2xl h-[280px] sm:h-[340px] flex items-end justify-center my-4">
+                
+                {/* SVG Semi-Circle Arch Wedges */}
+                <svg viewBox="0 0 400 220" className="w-full h-full drop-shadow-2xl overflow-visible">
+                  <defs>
+                    <linearGradient id="arcGrad0" x1="0%" y1="100%" x2="100%" y2="0%">
+                      <stop offset="0%" stopColor="#1e3a8a" />
+                      <stop offset="100%" stopColor="#3b82f6" />
+                    </linearGradient>
+                    <linearGradient id="arcGrad1" x1="0%" y1="100%" x2="100%" y2="0%">
+                      <stop offset="0%" stopColor="#0284c7" />
+                      <stop offset="100%" stopColor="#38bdf8" />
+                    </linearGradient>
+                    <linearGradient id="arcGrad2" x1="0%" y1="100%" x2="100%" y2="0%">
+                      <stop offset="0%" stopColor="#0d9488" />
+                      <stop offset="100%" stopColor="#2dd4bf" />
+                    </linearGradient>
+                    <linearGradient id="arcGrad3" x1="0%" y1="100%" x2="100%" y2="0%">
+                      <stop offset="0%" stopColor="#059669" />
+                      <stop offset="100%" stopColor="#34d399" />
+                    </linearGradient>
+                    <linearGradient id="arcGrad4" x1="0%" y1="100%" x2="100%" y2="0%">
+                      <stop offset="0%" stopColor="#0f766e" />
+                      <stop offset="100%" stopColor="#0b192b" />
+                    </linearGradient>
+                    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+                      <feGaussianBlur stdDeviation="4" result="blur" />
+                      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+                    </filter>
+                  </defs>
+
+                  {/* 5 Semi-Circle Arc Segments */}
+                  {/* Outer Radius 180, Inner Radius 90, Center (200, 200) */}
+                  {/* Segment 0: 180° to 144° */}
+                  <path
+                    d="M 20 200 A 180 180 0 0 1 54.2 94.2 L 127.1 147.1 A 90 90 0 0 0 110 200 Z"
+                    fill="url(#arcGrad0)"
+                    stroke="#ffffff"
+                    strokeWidth="3"
+                    className={`cursor-pointer transition-all duration-300 hover:opacity-90 ${activeGuidance === 0 ? 'filter drop-shadow-lg scale-105' : 'opacity-85'}`}
+                    onClick={() => setActiveGuidance(0)}
+                    onMouseEnter={() => setActiveGuidance(0)}
+                  />
+                  
+                  {/* Segment 1: 144° to 108° */}
+                  <path
+                    d="M 54.2 94.2 A 180 180 0 0 1 144.4 28.9 L 172.2 114.4 A 90 90 0 0 0 127.1 147.1 Z"
+                    fill="url(#arcGrad1)"
+                    stroke="#ffffff"
+                    strokeWidth="3"
+                    className={`cursor-pointer transition-all duration-300 hover:opacity-90 ${activeGuidance === 1 ? 'filter drop-shadow-lg scale-105' : 'opacity-85'}`}
+                    onClick={() => setActiveGuidance(1)}
+                    onMouseEnter={() => setActiveGuidance(1)}
+                  />
+
+                  {/* Segment 2: 108° to 72° (Top Center) */}
+                  <path
+                    d="M 144.4 28.9 A 180 180 0 0 1 255.6 28.9 L 227.8 114.4 A 90 90 0 0 0 172.2 114.4 Z"
+                    fill="url(#arcGrad2)"
+                    stroke="#ffffff"
+                    strokeWidth="3"
+                    className={`cursor-pointer transition-all duration-300 hover:opacity-90 ${activeGuidance === 2 ? 'filter drop-shadow-lg scale-105' : 'opacity-85'}`}
+                    onClick={() => setActiveGuidance(2)}
+                    onMouseEnter={() => setActiveGuidance(2)}
+                  />
+
+                  {/* Segment 3: 72° to 36° */}
+                  <path
+                    d="M 255.6 28.9 A 180 180 0 0 1 345.8 94.2 L 272.9 147.1 A 90 90 0 0 0 227.8 114.4 Z"
+                    fill="url(#arcGrad3)"
+                    stroke="#ffffff"
+                    strokeWidth="3"
+                    className={`cursor-pointer transition-all duration-300 hover:opacity-90 ${activeGuidance === 3 ? 'filter drop-shadow-lg scale-105' : 'opacity-85'}`}
+                    onClick={() => setActiveGuidance(3)}
+                    onMouseEnter={() => setActiveGuidance(3)}
+                  />
+
+                  {/* Segment 4: 36° to 0° */}
+                  <path
+                    d="M 345.8 94.2 A 180 180 0 0 1 380 200 L 290 200 A 90 90 0 0 0 272.9 147.1 Z"
+                    fill="url(#arcGrad4)"
+                    stroke="#ffffff"
+                    strokeWidth="3"
+                    className={`cursor-pointer transition-all duration-300 hover:opacity-90 ${activeGuidance === 4 ? 'filter drop-shadow-lg scale-105' : 'opacity-85'}`}
+                    onClick={() => setActiveGuidance(4)}
+                    onMouseEnter={() => setActiveGuidance(4)}
+                  />
+
+                  {/* Icon Overlays on Wedges */}
+                  <g className="pointer-events-none text-white fill-white">
+                    {/* Segment 0 Icon - Umbrella */}
+                    <circle cx="75" cy="150" r="14" fill="rgba(255,255,255,0.2)" />
+                    {/* Segment 1 Icon - Clipboard */}
+                    <circle cx="130" cy="92" r="14" fill="rgba(255,255,255,0.2)" />
+                    {/* Segment 2 Icon - Dollar */}
+                    <circle cx="200" cy="70" r="14" fill="rgba(255,255,255,0.25)" />
+                    {/* Segment 3 Icon - Heart */}
+                    <circle cx="270" cy="92" r="14" fill="rgba(255,255,255,0.2)" />
+                    {/* Segment 4 Icon - Stethoscope */}
+                    <circle cx="325" cy="150" r="14" fill="rgba(255,255,255,0.2)" />
+                  </g>
+                </svg>
+
+                {/* Central Glowing 3D Medical Cross Node */}
+                <div className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/3 z-20 flex flex-col items-center">
+                  <div className="w-24 h-24 sm:w-28 sm:h-28 rounded-full bg-white shadow-2xl border-4 border-teal-500 flex items-center justify-center relative p-3">
+                    <div className="w-full h-full rounded-full bg-gradient-to-br from-teal-500 to-[#0b192b] flex items-center justify-center shadow-inner text-white">
+                      <activeItem.icon className="w-10 h-10 sm:w-12 sm:h-12 transition-all duration-300" />
+                    </div>
+                  </div>
                 </div>
-                <h3 className="font-bold text-gray-800 text-xl mb-3">{item.title}</h3>
-                <p className="text-gray-500 leading-relaxed text-[15px]">{item.desc}</p>
+
               </div>
-            ))}
+
+              {/* 5 Guidance Selector Pills / Grid for Easy Desktop & Mobile Interaction */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 w-full mt-14">
+                {guidanceItems.map((item, idx) => {
+                  const IconComp = item.icon;
+                  const isActive = activeGuidance === idx;
+                  return (
+                    <button
+                      key={idx}
+                      onClick={() => setActiveGuidance(idx)}
+                      onMouseEnter={() => setActiveGuidance(idx)}
+                      className={`rounded-2xl p-5 text-left border transition-all duration-300 cursor-pointer flex flex-col justify-between ${
+                        isActive
+                          ? 'bg-white border-teal-500 shadow-xl shadow-teal-500/10 scale-105 z-10'
+                          : 'bg-white/60 hover:bg-white border-slate-200 shadow-sm opacity-80 hover:opacity-100'
+                      }`}
+                    >
+                      <div className="flex items-center justify-between mb-3">
+                        <div className={`w-10 h-10 rounded-xl flex items-center justify-center text-white bg-gradient-to-br ${item.color}`}>
+                          <IconComp className="w-5 h-5" />
+                        </div>
+                        <span className={`text-xs font-bold px-2 py-0.5 rounded-full ${isActive ? 'bg-teal-100 text-teal-700' : 'bg-slate-100 text-slate-500'}`}>
+                          0{idx + 1}
+                        </span>
+                      </div>
+                      <div>
+                        <h4 className="font-serif font-bold text-slate-900 text-base mb-1">
+                          {item.title}
+                        </h4>
+                        <p className="text-slate-500 text-xs leading-relaxed line-clamp-2">
+                          {item.desc}
+                        </p>
+                      </div>
+                    </button>
+                  );
+                })}
+              </div>
+
+              {/* Active Selection Display Banner */}
+              <div className="w-full bg-white rounded-3xl p-8 sm:p-10 border border-slate-200/90 shadow-xl mt-8 flex flex-col sm:flex-row items-center gap-6">
+                <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${activeItem.color} text-white flex items-center justify-center shrink-0 shadow-lg`}>
+                  <activeItem.icon className="w-8 h-8" />
+                </div>
+                <div className="text-center sm:text-left">
+                  <span className="text-teal-600 text-xs font-bold uppercase tracking-widest block mb-1">
+                    Guidance Detail 0{activeGuidance + 1} of 05
+                  </span>
+                  <h3 className="font-serif font-bold text-slate-900 text-2xl mb-2">
+                    {activeItem.title}
+                  </h3>
+                  <p className="text-slate-600 text-base leading-relaxed">
+                    {activeItem.desc}
+                  </p>
+                </div>
+              </div>
+
+            </div>
+
           </div>
+
         </div>
       </section>
 
-      {/* Accepted Insurance Plans */}
-      <section className="py-20 bg-[#f8fbff] border-t border-gray-100">
-        <div className="container mx-auto px-4 lg:px-8 max-w-6xl">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl lg:text-4xl font-bold text-gray-800 mb-4">Accepted Insurance Plans</h2>
-            <p className="text-gray-500 text-lg max-w-2xl mx-auto">
+      {/* ─── 2. ACCEPTED INSURANCE PLANS GRID ─── */}
+      <section className="py-20 lg:py-28 bg-white border-b border-slate-200/70 relative overflow-hidden">
+        
+        {/* Subtle Background Glow */}
+        <div className="absolute -top-40 -left-40 w-96 h-96 bg-teal-500/5 rounded-full blur-3xl pointer-events-none" />
+
+        <div className="container mx-auto px-4 lg:px-8 max-w-7xl relative z-10">
+          <div className="text-center max-w-3xl mx-auto mb-14">
+            <span className="text-teal-600 font-bold uppercase tracking-widest text-xs block mb-2">
+              In-Network Providers
+            </span>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-serif font-bold text-slate-900 mb-4 tracking-tight">
+              Accepted Insurance Plans
+            </h2>
+            <p className="text-slate-600 text-base sm:text-lg">
               We accept most major insurance plans to ensure that our patients receive the care they need.
             </p>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
             {insurers.map((ins, idx) => (
-              <div key={idx} className="bg-white rounded-xl p-6 shadow-sm hover:shadow-lg border border-gray-100 hover:border-[#17a2b8]/40 transition-all duration-300 group cursor-default hover:-translate-y-1">
+              <div 
+                key={idx} 
+                className="bg-slate-50/80 rounded-2xl p-6 shadow-md hover:shadow-xl border border-slate-200 hover:border-teal-500/50 transition-all duration-300 group cursor-default hover:-translate-y-1"
+              >
                 <div className="flex items-start gap-4">
-                  <div className="bg-gradient-to-br from-[#1e4682] to-[#2563eb] w-12 h-12 rounded-xl flex items-center justify-center shrink-0 shadow-md group-hover:scale-110 transition-transform duration-300">
-                    <ShieldCheck className="w-6 h-6 text-white" />
+                  <div className="bg-[#0b192b] group-hover:bg-teal-600 text-teal-300 group-hover:text-white w-12 h-12 rounded-xl flex items-center justify-center shrink-0 shadow-md transition-colors">
+                    <ShieldCheck className="w-6 h-6" />
                   </div>
                   <div>
-                    <h3 className="font-bold text-gray-800 text-lg mb-1 group-hover:text-[#1e4682] transition-colors">{ins.name}</h3>
-                    <p className="text-gray-400 text-sm">{ins.detail}</p>
+                    <h3 className="font-serif font-bold text-slate-900 text-lg mb-1 group-hover:text-teal-600 transition-colors">
+                      {ins.name}
+                    </h3>
+                    <p className="text-slate-500 text-xs font-medium leading-normal">
+                      {ins.detail}
+                    </p>
                   </div>
                 </div>
               </div>
             ))}
           </div>
 
-          <div className="bg-white border border-blue-100 rounded-xl p-6 text-center shadow-sm">
-            <p className="text-gray-500">
-              Please note that this list is not exhaustive. We recommend contacting our office to verify if we accept your specific insurance plan.
+          <div className="bg-slate-50 border border-slate-200/90 rounded-2xl p-6 text-center shadow-sm max-w-3xl mx-auto">
+            <p className="text-slate-600 text-sm font-medium">
+              Please note that this list is not exhaustive. We recommend contacting our office at <a href="tel:4693130040" className="text-teal-600 font-bold hover:underline">(469) 313-0040</a> to verify if we accept your specific insurance plan.
             </p>
           </div>
         </div>
       </section>
 
-      {/* Verifying Coverage + Out of Pocket */}
-      <section className="py-20 bg-white">
-        <div className="container mx-auto px-4 lg:px-8 max-w-6xl">
+      {/* ─── 3. VERIFYING COVERAGE & OUT-OF-POCKET COSTS ─── */}
+      <section className="py-20 lg:py-28 bg-slate-50 border-b border-slate-200/70">
+        <div className="container mx-auto px-4 lg:px-8 max-w-7xl">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
 
-            <div className="bg-white rounded-xl shadow-md p-10 border border-gray-100 hover:shadow-xl transition-shadow duration-300">
-              <div className="bg-gradient-to-br from-teal-500 to-teal-600 w-14 h-14 rounded-xl flex items-center justify-center mb-6 shadow-lg">
-                <ShieldCheck className="w-7 h-7 text-white" />
+            {/* Verifying Your Coverage Card */}
+            <div className="bg-white rounded-3xl p-8 sm:p-10 border border-slate-200/80 shadow-md hover:shadow-xl transition-shadow duration-300">
+              <div className="bg-teal-600 w-14 h-14 rounded-2xl flex items-center justify-center mb-6 shadow-lg text-white">
+                <ShieldCheck className="w-7 h-7" />
               </div>
-              <h2 className="text-2xl font-bold text-gray-800 mb-6">Verifying Your Coverage</h2>
-              <p className="text-gray-500 mb-6 leading-relaxed">
+              <h2 className="text-2xl sm:text-3xl font-serif font-bold text-slate-900 mb-6">
+                Verifying Your Coverage
+              </h2>
+              <p className="text-slate-600 mb-6 leading-relaxed text-sm sm:text-base">
                 To ensure a smooth experience, we advise patients to:
               </p>
-              <ul className="space-y-4">
+              <ul className="space-y-4 mb-6">
                 {[
                   'Contact your insurance provider directly to verify your coverage for pain management services.',
                   'Inquire about any co-payments, co-insurance, or deductibles that may apply.',
                   'Check if our clinic is in-network with your plan.',
                 ].map((item, i) => (
-                  <li key={i} className="flex items-start gap-3 text-gray-600">
-                    <CheckCircle className="w-5 h-5 text-[#17a2b8] mt-0.5 shrink-0" />
+                  <li key={i} className="flex items-start gap-3.5 text-slate-700 text-sm sm:text-base">
+                    <CheckCircle className="w-5 h-5 text-teal-600 mt-0.5 shrink-0" />
                     <span>{item}</span>
                   </li>
                 ))}
               </ul>
-              <p className="mt-6 text-gray-400 text-sm leading-relaxed">
+              <p className="text-slate-500 text-xs sm:text-sm leading-relaxed border-t border-slate-200/80 pt-4">
                 Our staff is also available to assist you with insurance-related questions and can help verify your benefits before your appointment.
               </p>
             </div>
 
-            <div className="bg-white rounded-xl shadow-md p-10 border border-gray-100 hover:shadow-xl transition-shadow duration-300">
-              <div className="bg-gradient-to-br from-[#1e4682] to-[#2563eb] w-14 h-14 rounded-xl flex items-center justify-center mb-6 shadow-lg">
-                <CreditCard className="w-7 h-7 text-white" />
+            {/* Out-of-Pocket & Medicare Coverage Card */}
+            <div className="bg-white rounded-3xl p-8 sm:p-10 border border-slate-200/80 shadow-md hover:shadow-xl transition-shadow duration-300">
+              <div className="bg-[#0b192b] w-14 h-14 rounded-2xl flex items-center justify-center mb-6 shadow-lg text-white">
+                <CreditCard className="w-7 h-7 text-teal-300" />
               </div>
-              <h2 className="text-2xl font-bold text-gray-800 mb-6">Out-of-Pocket Costs</h2>
-              <p className="text-gray-500 leading-relaxed mb-8">
+              <h2 className="text-2xl sm:text-3xl font-serif font-bold text-slate-900 mb-6">
+                Out-of-Pocket Costs
+              </h2>
+              <p className="text-slate-600 leading-relaxed text-sm sm:text-base mb-6">
                 Any applicable out-of-pocket costs, such as co-payments or deductibles, are due at the time of service. We accept various payment methods for your convenience.
               </p>
 
-              <h3 className="text-xl font-bold text-gray-800 mb-4">Medicare Coverage for Pain Management</h3>
-              <p className="text-gray-500 leading-relaxed mb-4">
+              <h3 className="text-xl font-serif font-bold text-slate-900 mb-3 pt-2">
+                Medicare Coverage for Pain Management
+              </h3>
+              <p className="text-slate-600 text-sm leading-relaxed mb-4">
                 For our Medicare patients, it's important to note that Medicare Part B covers many pain management services, including:
               </p>
-              <ul className="space-y-2.5">
+              <ul className="space-y-2.5 mb-6">
                 {[
                   'Chronic pain management and treatment services',
                   'Physical therapy',
@@ -177,13 +463,13 @@ export function InsuranceBenefits() {
                   'Chiropractic services (limited coverage)',
                   'Acupuncture for chronic low back pain (limited coverage)',
                 ].map((item, i) => (
-                  <li key={i} className="flex items-center gap-2.5 text-gray-600">
-                    <div className="w-1.5 h-1.5 rounded-full bg-[#17a2b8] shrink-0"></div>
-                    {item}
+                  <li key={i} className="flex items-center gap-2.5 text-slate-700 text-xs sm:text-sm font-medium">
+                    <div className="w-2 h-2 rounded-full bg-teal-600 shrink-0" />
+                    <span>{item}</span>
                   </li>
                 ))}
               </ul>
-              <p className="mt-4 text-gray-400 text-sm">
+              <p className="text-slate-500 text-xs sm:text-sm leading-relaxed border-t border-slate-200/80 pt-4">
                 Medicare patients typically pay 20% of the Medicare-approved amount for these services after meeting their Part B deductible.
               </p>
             </div>
@@ -192,46 +478,113 @@ export function InsuranceBenefits() {
         </div>
       </section>
 
-      {/* Comprehensive Care + Financial Assistance */}
-      <section className="py-20 bg-[#f8fbff] border-t border-gray-100">
-        <div className="container mx-auto px-4 lg:px-8 max-w-6xl">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+      {/* ─── 4. COMPREHENSIVE CARE & CONTACT CARDS ─── */}
+      <section className="py-20 lg:py-28 bg-white">
+        <div className="container mx-auto px-4 lg:px-8 max-w-7xl">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
 
             {[
-              { icon: Heart, title: 'Comprehensive Care Approach', desc: 'At Spine & Pain Institute of Texas, we believe in a comprehensive approach to pain management. While some advanced treatments may not be fully covered by insurance, we work diligently to provide effective care that can reduce your overall healthcare costs in the long run.', gradient: 'from-teal-500 to-teal-600' },
-              { icon: HelpCircle, title: 'Financial Assistance', desc: "We understand that managing chronic pain can be a financial burden. If you're experiencing financial difficulties, please speak with our staff about potential payment plans or financial assistance options.", gradient: 'from-indigo-500 to-indigo-600' },
-              { icon: ShieldCheck, title: 'Stay Informed', desc: 'Insurance policies and coverage can change. We encourage our patients to stay informed about their insurance benefits and to communicate with us about any changes in their coverage.', gradient: 'from-blue-500 to-blue-600' },
+              { 
+                icon: Heart, 
+                title: 'Comprehensive Care Approach', 
+                desc: 'At Spine & Pain Institute of Texas, we believe in a comprehensive approach to pain management. While some advanced treatments may not be fully covered by insurance, we work diligently to provide effective care that can reduce your overall healthcare costs in the long run.' 
+              },
+              { 
+                icon: HelpCircle, 
+                title: 'Financial Assistance', 
+                desc: "We understand that managing chronic pain can be a financial burden. If you're experiencing financial difficulties, please speak with our staff about potential payment plans or financial assistance options." 
+              },
+              { 
+                icon: ShieldCheck, 
+                title: 'Stay Informed', 
+                desc: 'Insurance policies and coverage can change. We encourage our patients to stay informed about their insurance benefits and to communicate with us about any changes in their coverage.' 
+              },
             ].map((card, idx) => (
-              <div key={idx} className="bg-white rounded-xl p-8 shadow-sm border border-gray-100 hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
-                <div className={`bg-gradient-to-br ${card.gradient} w-12 h-12 rounded-xl flex items-center justify-center mb-5 shadow-md`}>
-                  <card.icon className="w-6 h-6 text-white" />
+              <div key={idx} className="bg-slate-50/80 rounded-3xl p-8 shadow-md border border-slate-200 hover:shadow-xl transition-all duration-300">
+                <div className="bg-[#0b192b] text-teal-300 w-12 h-12 rounded-2xl flex items-center justify-center mb-5 shadow-md">
+                  <card.icon className="w-6 h-6" />
                 </div>
-                <h3 className="text-xl font-bold text-gray-800 mb-3">{card.title}</h3>
-                <p className="text-gray-500 leading-relaxed">{card.desc}</p>
+                <h3 className="text-xl font-serif font-bold text-slate-900 mb-3">{card.title}</h3>
+                <p className="text-slate-600 leading-relaxed text-sm sm:text-base">{card.desc}</p>
               </div>
             ))}
 
-            {/* Contact CTA Card */}
-            <div className="bg-gradient-to-br from-[#1e4682] to-[#163566] text-white rounded-xl p-8 shadow-xl relative overflow-hidden hover:shadow-2xl transition-shadow duration-300">
-              <div className="absolute top-0 right-0 w-48 h-48 bg-white/5 rounded-full blur-3xl -translate-y-12 translate-x-12"></div>
-              <div className="absolute bottom-0 left-0 w-32 h-32 bg-white/5 rounded-full blur-2xl translate-y-8 -translate-x-8"></div>
-              
-              <div className="relative z-10">
-                <div className="bg-white/10 w-12 h-12 rounded-xl flex items-center justify-center mb-5 backdrop-blur-sm">
-                  <Mail className="w-6 h-6 text-blue-200" />
+            {/* Direct Contact CTA Card */}
+            <div className="bg-[#0b192b] text-white rounded-3xl p-8 shadow-xl border border-white/10 relative overflow-hidden flex flex-col justify-between">
+              <div>
+                <div className="bg-teal-500/20 text-teal-300 w-12 h-12 rounded-2xl flex items-center justify-center mb-5 border border-teal-500/30">
+                  <Mail className="w-6 h-6" />
                 </div>
-                <h3 className="text-xl font-bold mb-3 text-white">Contact Us for Insurance Information</h3>
-                <p className="text-blue-100 leading-relaxed mb-6 font-light">
-                  If you have any questions about insurance coverage for our pain management services in Dallas, please don't hesitate to contact our office.
+                <h3 className="text-xl font-serif font-bold mb-3 text-white">Contact Us for Insurance Information</h3>
+                <p className="text-slate-300 leading-relaxed text-sm mb-6">
+                  If you have any questions about insurance coverage for our pain management services in Dallas, please don't hesitate to contact our office. Our knowledgeable staff is here to help you navigate your insurance benefits so you can focus on what's most important — your health and well-being.
                 </p>
-                <a href="tel:4693130041" className="bg-[#17a2b8] hover:bg-[#138496] block text-center px-6 py-3.5 rounded-md font-bold transition-colors mb-3 shadow-lg">
-                  Call (469) 313-0041
+              </div>
+              <div>
+                <a 
+                  href="tel:4693130040" 
+                  className="bg-teal-500 hover:bg-teal-400 block text-center px-6 py-3.5 rounded-xl font-bold text-xs uppercase tracking-wider transition-colors mb-3 shadow-lg shadow-teal-500/25"
+                >
+                  Call (469) 313-0040
                 </a>
-                <p className="text-blue-200 text-sm text-center font-light">Your path to pain relief starts here.</p>
+                <p className="text-slate-400 text-xs text-center">Your path to pain relief starts here.</p>
               </div>
             </div>
 
           </div>
+
+          {/* ─── 5. INTERACTIVE 3D INSURERS CAROUSEL & MARQUEE ─── */}
+          <div className="border-t border-slate-200/80 pt-12">
+            <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-8">
+              <div>
+                <span className="text-teal-600 font-bold uppercase tracking-widest text-xs block mb-1">
+                  Trusted Partners
+                </span>
+                <h3 className="text-2xl font-serif font-bold text-slate-900">
+                  Accepted Insurance Networks &amp; Providers
+                </h3>
+              </div>
+
+              {/* Slider Arrow Controls */}
+              <div className="flex items-center gap-2">
+                <button
+                  onClick={scrollLeft}
+                  className="w-11 h-11 rounded-full bg-white border border-slate-200 flex items-center justify-center text-slate-700 hover:bg-[#0b192b] hover:text-white transition-all shadow-md hover:scale-105"
+                  aria-label="Scroll left"
+                >
+                  <ChevronLeft className="w-5 h-5" />
+                </button>
+                <button
+                  onClick={scrollRight}
+                  className="w-11 h-11 rounded-full bg-white border border-slate-200 flex items-center justify-center text-slate-700 hover:bg-[#0b192b] hover:text-white transition-all shadow-md hover:scale-105"
+                  aria-label="Scroll right"
+                >
+                  <ChevronRight className="w-5 h-5" />
+                </button>
+              </div>
+            </div>
+
+            {/* Scrollable Container with Smooth Scroll & Hover Elevation */}
+            <div
+              ref={sliderRef}
+              className="flex items-center gap-8 overflow-x-auto scroll-smooth py-6 px-6 no-scrollbar bg-slate-50/80 rounded-3xl border border-slate-200/90 shadow-md"
+              style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+            >
+              {insuranceImages.map((img, index) => (
+                <div 
+                  key={index}
+                  className="shrink-0 h-16 sm:h-20 w-44 sm:w-52 flex items-center justify-center p-3 grayscale hover:grayscale-0 transition-all duration-300 hover:scale-110"
+                >
+                  <img
+                    src={img.src}
+                    alt={img.alt}
+                    className="max-h-full max-w-full object-contain"
+                  />
+                </div>
+              ))}
+            </div>
+          </div>
+
         </div>
       </section>
 

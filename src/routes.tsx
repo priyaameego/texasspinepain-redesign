@@ -1,25 +1,44 @@
+import { lazy, Suspense } from 'react';
 import { createRootRoute, createRoute, createRouter, Outlet } from '@tanstack/react-router';
 import { Home } from './pages/Home';
-import { About } from './pages/About';
-import { DrPriteshPatel } from './pages/DrPriteshPatel';
-import { Services } from './pages/Services';
-import { MotorVehicleAccidents } from './pages/MotorVehicleAccidents';
-import { WorkersCompensation } from './pages/WorkersCompensation';
-import { LetterOfProtection } from './pages/LetterOfProtection';
-import { TruckAccidents } from './pages/TruckAccidents';
-import { InsuranceBenefits } from './pages/InsuranceBenefits';
-import { FAQ } from './pages/FAQ';
-import { ContactUs } from './pages/ContactUs';
-import {
-  PainManagement, BackPain, LowerBackPain, NeckPain, Headaches,
-  Sciatica, Neuropathy, LegPain, FacePain, KneePain,
-} from './pages/ConditionPages';
 import { Layout } from './components/Layout';
+
+// Lazy-loaded secondary pages for route-level code splitting
+const About = lazy(() => import('./pages/About').then(m => ({ default: m.About })));
+const DrPriteshPatel = lazy(() => import('./pages/DrPriteshPatel').then(m => ({ default: m.DrPriteshPatel })));
+const Services = lazy(() => import('./pages/Services').then(m => ({ default: m.Services })));
+const MotorVehicleAccidents = lazy(() => import('./pages/MotorVehicleAccidents').then(m => ({ default: m.MotorVehicleAccidents })));
+const WorkersCompensation = lazy(() => import('./pages/WorkersCompensation').then(m => ({ default: m.WorkersCompensation })));
+const LetterOfProtection = lazy(() => import('./pages/LetterOfProtection').then(m => ({ default: m.LetterOfProtection })));
+const TruckAccidents = lazy(() => import('./pages/TruckAccidents').then(m => ({ default: m.TruckAccidents })));
+const InsuranceBenefits = lazy(() => import('./pages/InsuranceBenefits').then(m => ({ default: m.InsuranceBenefits })));
+const FAQ = lazy(() => import('./pages/FAQ').then(m => ({ default: m.FAQ })));
+const ContactUs = lazy(() => import('./pages/ContactUs').then(m => ({ default: m.ContactUs })));
+
+// Lazy-loaded condition pages
+const PainManagement = lazy(() => import('./pages/ConditionPages').then(m => ({ default: m.PainManagement })));
+const BackPain = lazy(() => import('./pages/ConditionPages').then(m => ({ default: m.BackPain })));
+const LowerBackPain = lazy(() => import('./pages/ConditionPages').then(m => ({ default: m.LowerBackPain })));
+const NeckPain = lazy(() => import('./pages/ConditionPages').then(m => ({ default: m.NeckPain })));
+const Headaches = lazy(() => import('./pages/ConditionPages').then(m => ({ default: m.Headaches })));
+const Sciatica = lazy(() => import('./pages/ConditionPages').then(m => ({ default: m.Sciatica })));
+const Neuropathy = lazy(() => import('./pages/ConditionPages').then(m => ({ default: m.Neuropathy })));
+const LegPain = lazy(() => import('./pages/ConditionPages').then(m => ({ default: m.LegPain })));
+const FacePain = lazy(() => import('./pages/ConditionPages').then(m => ({ default: m.FacePain })));
+const KneePain = lazy(() => import('./pages/ConditionPages').then(m => ({ default: m.KneePain })));
+
+const PageLoader = () => (
+  <div className="min-h-[60vh] flex items-center justify-center">
+    <div className="w-8 h-8 border-3 border-teal-600 border-t-transparent rounded-full animate-spin"></div>
+  </div>
+);
 
 const rootRoute = createRootRoute({
   component: () => (
     <Layout>
-      <Outlet />
+      <Suspense fallback={<PageLoader />}>
+        <Outlet />
+      </Suspense>
     </Layout>
   ),
 });

@@ -1,5 +1,5 @@
 import { Link } from '@tanstack/react-router';
-import { CheckCircle, Phone, ChevronRight, Calendar } from 'lucide-react';
+import { CheckCircle, Phone, ChevronRight, Calendar, Home } from 'lucide-react';
 
 interface ConditionPageProps {
   title: string;
@@ -16,97 +16,110 @@ function ConditionPage({
   title, subtitle, heroImage, intro, symptoms, treatments, description, causes,
 }: ConditionPageProps) {
   return (
-    <div className="flex flex-col min-h-screen pt-32">
+    <div className="flex flex-col min-h-screen pt-24 bg-white">
 
-      {/* Hero */}
-      <section className="bg-[#1e4682] py-20 lg:py-24 relative overflow-hidden">
-        <div className="absolute inset-0 bg-[#163566]/75 z-10 mix-blend-multiply"></div>
-        <img src={heroImage} alt={title} className="absolute inset-0 w-full h-full object-cover object-center opacity-35 z-0" />
-        <div className="container mx-auto px-4 lg:px-8 text-center text-white relative z-20">
-          <p className="inline-flex items-center bg-white/10 backdrop-blur-md px-4 py-2 rounded-full text-blue-100 font-semibold mb-6 border border-white/20 text-sm">
-            Spine &amp; Pain Institute of Texas
+      {/* Editorial Subpage Hero Header */}
+      <div className="bg-[#0b192b] text-white py-16 lg:py-24 px-4 lg:px-8 relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-r from-[#0b192b] via-[#0b192b]/90 to-teal-950/40" />
+        <img src={heroImage} alt={title} className="absolute inset-0 w-full h-full object-cover opacity-20 pointer-events-none" />
+        <div className="container mx-auto max-w-7xl relative z-10">
+          <div className="flex items-center gap-2 text-xs font-semibold text-teal-300 uppercase tracking-widest mb-4">
+            <Link to="/" className="hover:text-white flex items-center gap-1">
+              <Home className="w-3.5 h-3.5" /> Home
+            </Link>
+            <span className="text-slate-500">/</span>
+            <span className="text-slate-200">{title}</span>
+          </div>
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-serif text-white tracking-tight mb-3">
+            {title} Treatment in Dallas
+          </h1>
+          <p className="text-teal-200 text-base sm:text-lg font-medium max-w-2xl">
+            {subtitle}
           </p>
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4">{title}</h1>
-          <p className="text-xl text-blue-100 max-w-2xl mx-auto font-light leading-relaxed mb-10">{subtitle}</p>
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <a href="#appointment" className="bg-[#17a2b8] hover:bg-[#138496] text-white px-8 py-4 rounded-md font-bold text-lg transition-colors shadow-lg w-full sm:w-auto">
+
+          <div className="mt-8 flex flex-wrap items-center gap-4">
+            <a href="#appointment" className="bg-teal-500 hover:bg-teal-400 text-white font-bold px-6 py-3.5 rounded-xl transition-all shadow-md text-xs uppercase tracking-wider">
               Book Appointment
             </a>
-            <a href="tel:4693130040" className="bg-white/10 hover:bg-white/20 backdrop-blur-md border border-white/30 text-white px-8 py-4 rounded-md font-bold text-lg transition-colors flex items-center justify-center w-full sm:w-auto">
-              <Phone className="w-5 h-5 mr-2" /> 469-313-0040
+            <a href="tel:4693130040" className="bg-white/10 hover:bg-white/20 border border-white/20 text-white font-bold px-6 py-3.5 rounded-xl transition-all text-xs uppercase tracking-wider flex items-center gap-2">
+              <Phone className="w-4 h-4 text-teal-300" /> (469) 313-0040
             </a>
           </div>
         </div>
-      </section>
+      </div>
 
       {/* Intro + Symptoms */}
       <section className="py-20 bg-white">
-        <div className="container mx-auto px-4 lg:px-8 max-w-6xl">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+        <div className="container mx-auto px-4 lg:px-8 max-w-7xl">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
 
-            <div>
-              <h2 className="text-3xl font-bold text-gray-800 mb-6">About {title}</h2>
-              <p className="text-gray-600 leading-relaxed mb-6">{intro}</p>
-              <p className="text-gray-600 leading-relaxed">{description}</p>
+            <div className="lg:col-span-7 space-y-6">
+              <span className="text-teal-600 font-bold uppercase tracking-widest text-xs block mb-1">Condition Overview</span>
+              <h2 className="text-3xl sm:text-4xl font-serif font-bold text-slate-900">About {title}</h2>
+              <p className="text-slate-700 text-base sm:text-lg leading-relaxed bg-slate-50 p-6 rounded-2xl border border-slate-100 font-medium">{intro}</p>
+              <p className="text-slate-600 leading-relaxed text-base">{description}</p>
+              
               {causes && (
-                <div className="mt-8">
-                  <h3 className="font-bold text-[#1e4682] text-lg mb-4">Common Causes</h3>
-                  <ul className="space-y-2">
+                <div className="pt-6 border-t border-slate-100">
+                  <h3 className="font-serif font-bold text-slate-900 text-xl mb-4">Common Causes</h3>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
                     {causes.map((c, i) => (
-                      <li key={i} className="flex items-start gap-2 text-gray-600 text-sm">
-                        <div className="w-1.5 h-1.5 rounded-full bg-[#17a2b8] mt-2 shrink-0"></div>
-                        {c}
-                      </li>
+                      <div key={i} className="flex items-center gap-2.5 text-slate-700 text-sm bg-slate-50 px-4 py-3 rounded-xl border border-slate-100">
+                        <div className="w-1.5 h-1.5 rounded-full bg-teal-500 shrink-0" />
+                        <span>{c}</span>
+                      </div>
                     ))}
-                  </ul>
+                  </div>
                 </div>
               )}
             </div>
 
-            <div className="space-y-6">
-              <div className="bg-[#f4f8ff] rounded-xl p-8 border border-blue-100">
-                <h3 className="text-xl font-bold text-[#1e4682] mb-6">Common Symptoms</h3>
+            <div className="lg:col-span-5 space-y-6">
+              <div className="bg-slate-50 rounded-3xl p-8 border border-slate-200 shadow-sm">
+                <h3 className="text-xl font-serif font-bold text-slate-900 mb-6">Common Symptoms</h3>
                 <ul className="space-y-3">
                   {symptoms.map((s, i) => (
-                    <li key={i} className="flex items-center gap-3 text-gray-700">
-                      <CheckCircle className="w-5 h-5 text-[#17a2b8] shrink-0" />
-                      {s}
+                    <li key={i} className="flex items-start gap-3 text-slate-700 text-sm">
+                      <CheckCircle className="w-4 h-4 text-teal-600 shrink-0 mt-0.5" />
+                      <span>{s}</span>
                     </li>
                   ))}
                 </ul>
               </div>
 
-              <div className="bg-[#1e4682] text-white rounded-xl p-8 shadow-xl">
-                <Calendar className="w-8 h-8 text-blue-300 mb-4" />
-                <h3 className="text-xl font-bold mb-3">Same-Day Appointments</h3>
-                <p className="text-blue-100 text-sm leading-relaxed mb-5">
+              <div className="bg-[#0b192b] text-white rounded-3xl p-8 shadow-xl border border-white/10">
+                <Calendar className="w-8 h-8 text-teal-300 mb-4" />
+                <h3 className="text-xl font-serif font-bold mb-2">Same-Day Appointments</h3>
+                <p className="text-slate-300 text-xs sm:text-sm leading-relaxed mb-6">
                   Don't let {title.toLowerCase()} hold you back. Contact our Dallas clinic today for expert evaluation and personalized treatment.
                 </p>
-                <a href="tel:4693130040" className="bg-[#17a2b8] hover:bg-[#138496] block text-center px-6 py-3 rounded font-bold transition-colors">
+                <a href="tel:4693130040" className="bg-teal-500 hover:bg-teal-400 block text-center px-6 py-3.5 rounded-xl font-bold text-xs uppercase tracking-wider transition-colors shadow-md">
                   Call (469) 313-0040
                 </a>
               </div>
             </div>
+
           </div>
         </div>
       </section>
 
       {/* Treatments */}
-      <section className="py-20 bg-gray-50 border-t border-gray-100">
-        <div className="container mx-auto px-4 lg:px-8 max-w-5xl">
-          <div className="text-center mb-14">
-            <h2 className="text-3xl font-bold text-gray-800 mb-4">Treatment Options</h2>
-            <p className="text-gray-600 max-w-2xl mx-auto">
+      <section className="py-20 bg-slate-50 border-t border-slate-200/60">
+        <div className="container mx-auto px-4 lg:px-8 max-w-7xl">
+          <div className="text-center max-w-3xl mx-auto mb-14">
+            <span className="text-teal-600 font-bold uppercase tracking-widest text-xs block mb-2">Interventional Procedures</span>
+            <h2 className="text-3xl sm:text-4xl font-serif font-bold text-slate-900 mb-4">Treatment Options</h2>
+            <p className="text-slate-500 text-base sm:text-lg">
               At Spine &amp; Pain Institute of Texas, we offer comprehensive, evidence-based treatments tailored to your specific condition and goals.
             </p>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {treatments.map((t, i) => (
-              <div key={i} className="bg-white rounded-xl p-6 shadow-sm border border-gray-100 hover:shadow-md hover:border-[#17a2b8] transition-all">
-                <div className="bg-[#1e4682] w-9 h-9 rounded-full flex items-center justify-center mb-4 shadow">
-                  <CheckCircle className="w-4 h-4 text-white" />
+              <div key={i} className="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 hover:shadow-md hover:border-teal-500 transition-all flex items-center gap-3.5">
+                <div className="bg-[#0b192b] text-teal-300 w-9 h-9 rounded-xl flex items-center justify-center shrink-0">
+                  <CheckCircle className="w-4 h-4" />
                 </div>
-                <p className="font-semibold text-gray-800">{t}</p>
+                <p className="font-serif font-bold text-slate-900 text-sm sm:text-base">{t}</p>
               </div>
             ))}
           </div>
@@ -114,18 +127,19 @@ function ConditionPage({
       </section>
 
       {/* CTA */}
-      <section className="py-20 bg-[#1e4682] text-white">
+      <section className="py-20 bg-[#0b192b] text-white">
         <div className="container mx-auto px-4 lg:px-8 max-w-4xl text-center">
-          <h2 className="text-3xl lg:text-4xl font-bold mb-4">Ready to Get Relief?</h2>
-          <p className="text-blue-100 text-lg mb-10 max-w-2xl mx-auto leading-relaxed">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold mb-4">Ready to Get Relief?</h2>
+          <p className="text-slate-300 text-base sm:text-lg mb-8 max-w-2xl mx-auto leading-relaxed">
             Our board-certified pain management specialists are here to help you find lasting relief from {title.toLowerCase()}. Schedule your consultation today.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <a href="#appointment" className="bg-[#17a2b8] hover:bg-[#138496] text-white px-10 py-4 rounded-md font-bold text-lg transition-colors shadow-lg w-full sm:w-auto">
+            <a href="#appointment" className="bg-teal-500 hover:bg-teal-400 text-white px-8 py-4 rounded-xl font-bold text-xs uppercase tracking-wider transition-all shadow-md w-full sm:w-auto">
               Schedule Consultation
             </a>
-            <Link to="/services" className="bg-white/10 hover:bg-white/20 border border-white/30 text-white px-10 py-4 rounded-md font-bold text-lg transition-colors flex items-center justify-center w-full sm:w-auto">
-              All Services <ChevronRight className="w-5 h-5 ml-1" />
+            <Link to="/services" className="bg-white/10 hover:bg-white/20 border border-white/20 text-white px-8 py-4 rounded-xl font-bold text-xs uppercase tracking-wider transition-all flex items-center justify-center w-full sm:w-auto gap-2">
+              <span>All Services</span>
+              <ChevronRight className="w-4 h-4" />
             </Link>
           </div>
         </div>
