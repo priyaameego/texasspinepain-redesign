@@ -5,6 +5,7 @@ import {
   ChevronDown, Star, Menu, X, ArrowUp,
   Clock, MapPin, ChevronRight, Sparkles, ShieldCheck
 } from 'lucide-react';
+import { ScrollReveal } from './ScrollReveal';
 
 export function Layout({ children }: { children: ReactNode }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -358,7 +359,7 @@ export function Layout({ children }: { children: ReactNode }) {
                 Meet Doctors
                 <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${activeDropdown === 'doctors' ? 'rotate-180 text-teal-600' : 'text-slate-400'}`} />
               </button>
-              <div className={`overflow-hidden transition-all duration-300 bg-slate-50 ${activeDropdown === 'doctors' ? 'max-h-32' : 'max-h-0'}`}>
+              <div className={`overflow-hidden transition-all duration-300 bg-slate-50 ${activeDropdown === 'doctors' ? 'max-h-[300px]' : 'max-h-0'}`}>
                 <Link
                   to="/dr-pritesh-patel"
                   onClick={() => setMobileMenuOpen(false)}
@@ -378,7 +379,7 @@ export function Layout({ children }: { children: ReactNode }) {
                 Services
                 <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${activeDropdown === 'services' ? 'rotate-180 text-teal-600' : 'text-slate-400'}`} />
               </button>
-              <div className={`overflow-hidden transition-all duration-300 bg-slate-50 ${activeDropdown === 'services' ? 'max-h-80' : 'max-h-0'}`}>
+              <div className={`overflow-hidden transition-all duration-300 bg-slate-50 ${activeDropdown === 'services' ? 'max-h-[500px]' : 'max-h-0'}`}>
                 {[
                   { to: '/services', label: 'All Services Overview', bold: true },
                   { to: '/motor-vehicle-accidents', label: 'Motor Vehicle Accidents', bold: false },
@@ -407,7 +408,7 @@ export function Layout({ children }: { children: ReactNode }) {
                 More Information
                 <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${activeDropdown === 'more' ? 'rotate-180 text-teal-600' : 'text-slate-400'}`} />
               </button>
-              <div className={`overflow-hidden transition-all duration-300 bg-slate-50 ${activeDropdown === 'more' ? 'max-h-48' : 'max-h-0'}`}>
+              <div className={`overflow-hidden transition-all duration-300 bg-slate-50 ${activeDropdown === 'more' ? 'max-h-[400px]' : 'max-h-0'}`}>
                 {[
                   { to: '/insurance-benefits', label: 'Insurance & Benefits' },
                   { to: '/frequently-asked-questions', label: "FAQ's" },
@@ -460,7 +461,7 @@ export function Layout({ children }: { children: ReactNode }) {
         <div className="container mx-auto px-4 lg:px-8 max-w-7xl relative z-10">
           
           {/* Pre-Footer Action Banner */}
-          <div className="bg-gradient-to-r from-white/10 via-white/5 to-white/10 backdrop-blur-md rounded-2xl p-6 sm:p-8 mb-14 border border-white/15 shadow-2xl flex flex-col lg:flex-row items-center justify-between gap-6">
+          <ScrollReveal direction="up" className="bg-gradient-to-r from-white/10 via-white/5 to-white/10 backdrop-blur-md rounded-2xl p-6 sm:p-8 mb-14 border border-white/15 shadow-2xl flex flex-col lg:flex-row items-center justify-between gap-6">
             <div className="text-center lg:text-left">
               <span className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-teal-300 mb-1">
                 <Clock className="w-3.5 h-3.5" /> Immediate Pain Care &amp; Accident Consultations
@@ -488,13 +489,13 @@ export function Layout({ children }: { children: ReactNode }) {
                 Book Appointment
               </a>
             </div>
-          </div>
+          </ScrollReveal>
 
           {/* Main 4-Column Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-8 mb-14">
             
             {/* Col 1: Brand & Trust */}
-            <div className="lg:col-span-4 space-y-5">
+            <ScrollReveal direction="up" delay={100} className="lg:col-span-4 space-y-5">
               <Link to="/" className="inline-block">
                 <img 
                   src="https://texasspinepain.com/wp-content/uploads/2024/11/logo.webp" 
@@ -525,10 +526,10 @@ export function Layout({ children }: { children: ReactNode }) {
                 <ShieldCheck className="w-4 h-4 text-teal-300" />
                 Directed by <strong className="text-white font-semibold">Dr. Pritesh Patel, DO</strong>
               </p>
-            </div>
+            </ScrollReveal>
 
             {/* Col 2: Quick Links */}
-            <div className="lg:col-span-2">
+            <ScrollReveal direction="up" delay={200} className="lg:col-span-2">
               <h4 className="text-xs font-bold uppercase tracking-widest text-teal-300 mb-5 flex items-center gap-2">
                 <span className="w-1.5 h-1.5 rounded-full bg-teal-400"></span>
                 Quick Links
@@ -554,10 +555,10 @@ export function Layout({ children }: { children: ReactNode }) {
                   </li>
                 ))}
               </ul>
-            </div>
+            </ScrollReveal>
 
             {/* Col 3: Specialized Care */}
-            <div className="lg:col-span-3">
+            <ScrollReveal direction="up" delay={300} className="lg:col-span-3">
               <h4 className="text-xs font-bold uppercase tracking-widest text-teal-300 mb-5 flex items-center gap-2">
                 <span className="w-1.5 h-1.5 rounded-full bg-teal-400"></span>
                 Specialized Care
@@ -583,10 +584,10 @@ export function Layout({ children }: { children: ReactNode }) {
                   </li>
                 ))}
               </ul>
-            </div>
+            </ScrollReveal>
 
             {/* Col 4: Dallas Clinic Contact */}
-            <div className="lg:col-span-3 space-y-3.5">
+            <ScrollReveal direction="up" delay={400} className="lg:col-span-3 space-y-3.5">
               <h4 className="text-xs font-bold uppercase tracking-widest text-teal-300 mb-5 flex items-center gap-2">
                 <span className="w-1.5 h-1.5 rounded-full bg-teal-400"></span>
                 Dallas Clinic
@@ -634,7 +635,7 @@ export function Layout({ children }: { children: ReactNode }) {
                   <span>Mon – Fri: 8:00 AM – 5:00 PM</span>
                 </div>
               </div>
-            </div>
+            </ScrollReveal>
 
           </div>
 
@@ -656,63 +657,114 @@ export function Layout({ children }: { children: ReactNode }) {
       </footer>
 
       {/* ─── Appointment Form Modal ─── */}
-      <div id="appointment" className="fixed inset-0 z-[100] hidden target:flex items-center justify-center bg-slate-900/70 backdrop-blur-md p-4 sm:p-6">
+      <div id="appointment" className="fixed inset-0 z-[100] hidden target:flex items-center justify-center bg-[#0b192b]/80 backdrop-blur-md p-4 sm:p-6 transition-all duration-500">
         <a href="#" className="absolute inset-0 z-0 cursor-default" aria-label="Close modal background"></a>
-        <div className="bg-white rounded-2xl shadow-2xl w-full max-w-2xl max-h-[90vh] overflow-y-auto relative z-10 border border-slate-100">
-          <div className="p-6 sm:p-10 relative">
-            <a href="#" className="absolute top-5 right-5 text-slate-400 hover:text-slate-800 transition-colors bg-slate-100 rounded-full p-1.5">
-              <X className="w-5 h-5" />
-            </a>
-            <div className="mb-6">
-              <span className="text-teal-600 font-bold uppercase tracking-wider text-xs block mb-1">Online Booking</span>
-              <h3 className="text-2xl sm:text-3xl font-serif text-slate-900">Schedule Your Appointment</h3>
-              <p className="text-slate-500 text-xs sm:text-sm mt-1">Our team will reach out to confirm your requested date and time.</p>
+        
+        {/* Premium Modal Container */}
+        <div className="w-full max-w-2xl relative z-10 transform scale-100 animate-[scaleIn_0.3s_ease-out_forwards]">
+          {/* Subtle 3D background shadow layer */}
+          <div className="absolute inset-0 bg-teal-500/10 rounded-[2rem] transform translate-y-3 translate-x-3 -z-10 blur-lg"></div>
+          
+          <div className="bg-white rounded-[2rem] shadow-2xl overflow-hidden border border-slate-100/80 max-h-[90vh] flex flex-col relative">
+            
+            {/* Modal Header */}
+            <div className="px-8 pt-10 pb-6 relative overflow-hidden shrink-0">
+              <div className="absolute top-0 right-0 w-48 h-48 bg-teal-500/10 rounded-full blur-3xl pointer-events-none -translate-y-1/2 translate-x-1/4"></div>
+              <a href="#" className="absolute top-6 right-6 text-slate-400 hover:text-teal-600 transition-all bg-slate-50 hover:bg-teal-50 rounded-full p-2 z-10 hover:-rotate-90 duration-300">
+                <X className="w-5 h-5" />
+              </a>
+              <div className="relative z-10">
+                <span className="text-teal-600 font-bold uppercase tracking-widest text-xs flex items-center gap-1.5 mb-2">
+                  <Sparkles className="w-3.5 h-3.5" /> Online Booking
+                </span>
+                <h3 className="text-3xl sm:text-4xl font-serif font-bold text-slate-900 tracking-tight">Request Appointment</h3>
+                <p className="text-slate-500 text-sm mt-2 max-w-md">Our clinical team will reach out promptly to confirm your preferred date and time.</p>
+              </div>
             </div>
 
-            <form onSubmit={(e) => {
-              e.preventDefault();
-              const btn = e.currentTarget.querySelector('button[type="submit"]') as HTMLButtonElement;
-              if (btn) {
-                btn.innerText = 'Sending Request...';
-                btn.disabled = true;
-                setTimeout(() => {
-                  btn.innerText = 'Appointment Request Sent!';
-                  btn.classList.add('bg-teal-700');
+            {/* Modal Body (Scrollable) */}
+            <div className="px-8 pb-8 overflow-y-auto overflow-x-hidden relative">
+              <form onSubmit={(e) => {
+                e.preventDefault();
+                const form = e.currentTarget;
+                const btn = form.querySelector('button[type="submit"]') as HTMLButtonElement;
+                if (btn) {
+                  const originalText = btn.innerHTML;
+                  btn.innerHTML = 'Sending Request...';
+                  btn.disabled = true;
+                  btn.classList.add('opacity-80');
                   setTimeout(() => {
-                    window.location.hash = '';
-                  }, 1500);
-                }, 1000);
-              }
-            }}>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5">
-                <div>
-                  <label className="block text-slate-700 font-medium text-xs mb-1.5">Full Name *</label>
-                  <input required type="text" placeholder="John Doe" className="w-full border border-slate-200 rounded-xl p-3 text-sm focus:outline-none focus:ring-2 focus:ring-teal-500 transition-all bg-slate-50/50" />
+                    btn.innerHTML = 'Appointment Request Sent!';
+                    btn.classList.remove('opacity-80');
+                    btn.classList.remove('from-teal-600', 'to-teal-500');
+                    btn.classList.add('bg-teal-700', 'from-teal-700', 'to-teal-700');
+                    setTimeout(() => {
+                      window.location.hash = '';
+                      setTimeout(() => {
+                        btn.innerHTML = originalText;
+                        btn.disabled = false;
+                        btn.classList.add('from-teal-600', 'to-teal-500');
+                        btn.classList.remove('bg-teal-700', 'from-teal-700', 'to-teal-700');
+                        form.reset();
+                      }, 500);
+                    }, 1500);
+                  }, 1000);
+                }
+              }}>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 sm:gap-6">
+                  
+                  <div className="group">
+                    <label className="block text-slate-700 font-bold text-[11px] mb-2 uppercase tracking-widest transition-colors group-focus-within:text-teal-600">
+                      Full Name *
+                    </label>
+                    <input required type="text" placeholder="John Doe" className="w-full bg-slate-50/50 border border-slate-200 rounded-2xl px-4 py-3.5 text-sm text-slate-900 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-teal-500/20 focus:border-teal-500 transition-all hover:bg-white shadow-sm" />
+                  </div>
+                  
+                  <div className="group">
+                    <label className="block text-slate-700 font-bold text-[11px] mb-2 uppercase tracking-widest transition-colors group-focus-within:text-teal-600">
+                      Mobile Number *
+                    </label>
+                    <input required type="tel" placeholder="(469) 000-0000" className="w-full bg-slate-50/50 border border-slate-200 rounded-2xl px-4 py-3.5 text-sm text-slate-900 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-teal-500/20 focus:border-teal-500 transition-all hover:bg-white shadow-sm" />
+                  </div>
+                  
+                  <div className="group">
+                    <label className="block text-slate-700 font-bold text-[11px] mb-2 uppercase tracking-widest transition-colors group-focus-within:text-teal-600">
+                      Email Address *
+                    </label>
+                    <input required type="email" placeholder="john@example.com" className="w-full bg-slate-50/50 border border-slate-200 rounded-2xl px-4 py-3.5 text-sm text-slate-900 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-teal-500/20 focus:border-teal-500 transition-all hover:bg-white shadow-sm" />
+                  </div>
+                  
+                  <div className="group">
+                    <label className="block text-slate-700 font-bold text-[11px] mb-2 uppercase tracking-widest transition-colors group-focus-within:text-teal-600">
+                      Subject
+                    </label>
+                    <input required type="text" placeholder="Back Pain / Consultation" className="w-full bg-slate-50/50 border border-slate-200 rounded-2xl px-4 py-3.5 text-sm text-slate-900 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-teal-500/20 focus:border-teal-500 transition-all hover:bg-white shadow-sm" />
+                  </div>
+                  
+                  <div className="sm:col-span-2 group">
+                    <label className="block text-slate-700 font-bold text-[11px] mb-2 uppercase tracking-widest transition-colors group-focus-within:text-teal-600">
+                      Message / Details
+                    </label>
+                    <textarea rows={4} placeholder="Please describe your condition or preferred appointment time..." className="w-full bg-slate-50/50 border border-slate-200 rounded-2xl px-4 py-3.5 text-sm text-slate-900 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-teal-500/20 focus:border-teal-500 transition-all hover:bg-white shadow-sm resize-y"></textarea>
+                  </div>
+                  
                 </div>
-                <div>
-                  <label className="block text-slate-700 font-medium text-xs mb-1.5">Mobile Number *</label>
-                  <input required type="tel" placeholder="(469) 000-0000" className="w-full border border-slate-200 rounded-xl p-3 text-sm focus:outline-none focus:ring-2 focus:ring-teal-500 transition-all bg-slate-50/50" />
+
+                <div className="mt-8 flex flex-col sm:flex-row items-center justify-between gap-6 pt-6 border-t border-slate-100">
+                  <div className="flex items-center gap-2 text-[11px] text-slate-500 uppercase tracking-widest font-semibold">
+                    <ShieldCheck className="w-4 h-4 text-teal-500" /> HIPAA Secure
+                  </div>
+                  
+                  <button type="submit" className="relative overflow-hidden group w-full sm:w-auto bg-gradient-to-r from-teal-600 to-teal-500 hover:from-teal-500 hover:to-teal-400 text-white px-8 py-4 rounded-2xl font-bold text-sm uppercase tracking-widest transition-all shadow-[0_8px_20px_rgba(20,184,166,0.3)] hover:shadow-[0_12px_25px_rgba(20,184,166,0.4)] active:translate-y-0.5 whitespace-nowrap">
+                    <span className="relative z-10 flex items-center justify-center gap-2">
+                      Submit Request <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                    </span>
+                    <div className="absolute inset-0 h-full w-full bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:animate-[glare_1.5s_ease-in-out_forwards] z-0"></div>
+                  </button>
                 </div>
-                <div>
-                  <label className="block text-slate-700 font-medium text-xs mb-1.5">Email ID *</label>
-                  <input required type="email" placeholder="john@example.com" className="w-full border border-slate-200 rounded-xl p-3 text-sm focus:outline-none focus:ring-2 focus:ring-teal-500 transition-all bg-slate-50/50" />
-                </div>
-                <div>
-                  <label className="block text-slate-700 font-medium text-xs mb-1.5">Subject / Reason *</label>
-                  <input required type="text" placeholder="Back Pain / Consultation" className="w-full border border-slate-200 rounded-xl p-3 text-sm focus:outline-none focus:ring-2 focus:ring-teal-500 transition-all bg-slate-50/50" />
-                </div>
-                <div className="sm:col-span-2">
-                  <label className="block text-slate-700 font-medium text-xs mb-1.5">Message / Details</label>
-                  <textarea rows={3} placeholder="Please describe your condition or preferred appointment time..." className="w-full border border-slate-200 rounded-xl p-3 text-sm focus:outline-none focus:ring-2 focus:ring-teal-500 transition-all bg-slate-50/50 resize-y"></textarea>
-                </div>
-              </div>
-              <div className="mt-6 flex flex-col sm:flex-row items-center justify-between gap-4">
-                <p className="text-xs text-slate-500">Your privacy is protected under HIPAA.</p>
-                <button type="submit" className="bg-teal-600 hover:bg-teal-700 text-white w-full sm:w-auto px-8 py-3.5 rounded-xl font-bold text-sm transition-colors shadow-lg shadow-teal-600/20">
-                  Send Message
-                </button>
-              </div>
-            </form>
+              </form>
+            </div>
+            
           </div>
         </div>
       </div>

@@ -1,5 +1,6 @@
 import { ChevronRight, Check, Play, Home } from 'lucide-react';
 import { Link } from '@tanstack/react-router';
+import { ScrollReveal } from '../components/ScrollReveal';
 
 export function About() {
   return (
@@ -28,21 +29,21 @@ export function About() {
       {/* Main Title & Building Image Section */}
       <section className="py-20 bg-white relative">
         <div className="container mx-auto px-4 lg:px-8 max-w-7xl relative z-10">
-          <div className="text-center max-w-3xl mx-auto mb-12">
+          <ScrollReveal direction="up" className="text-center max-w-3xl mx-auto mb-12">
             <span className="text-teal-600 font-bold uppercase tracking-widest text-xs block mb-2">Clinical Excellence</span>
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-serif text-slate-900 mb-3">
               Expert <span className="text-teal-600">Pain Specialist Dallas</span>
             </h2>
             <p className="text-slate-500 text-lg sm:text-xl font-normal">With over 25 years of experience</p>
-          </div>
+          </ScrollReveal>
           
-          <div className="max-w-5xl mx-auto rounded-3xl overflow-hidden shadow-2xl border border-slate-100 relative">
+          <ScrollReveal direction="up" delay={200} className="max-w-5xl mx-auto rounded-3xl overflow-hidden shadow-2xl border border-slate-100 relative">
             <img 
               src="/Spine-Pain-Institute-of-Texas-2048x899.jpg" 
               alt="Spine and Pain Institute of Texas Building" 
               className="w-full h-auto object-cover"
             />
-          </div>
+          </ScrollReveal>
         </div>
       </section>
 
@@ -50,71 +51,83 @@ export function About() {
       <section className="bg-[#0b192b] py-24 text-white relative overflow-hidden">
         <div className="container mx-auto px-4 lg:px-8 max-w-5xl relative z-10">
           
-          <div className="text-center mb-16">
+          <ScrollReveal direction="up" className="text-center mb-16">
             <span className="text-teal-400 font-bold uppercase tracking-widest text-xs block mb-2">Our Mission</span>
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-serif mb-4">Your Health, Our Expertise</h2>
             <p className="text-slate-300 text-lg font-normal">Caring for the growing needs of our society.</p>
-          </div>
+          </ScrollReveal>
 
           <div className="space-y-10 text-base sm:text-lg text-slate-200 leading-relaxed font-normal">
-            <p className="bg-white/5 p-6 rounded-2xl border border-white/10">
-              At Spine &amp; Pain Institute of Texas, we specialize in <span className="text-teal-300 font-semibold underline underline-offset-4 decoration-teal-400">comprehensive pain management services</span> for the Dallas, TX, community and beyond. Under the expert guidance of Dr. Pritesh Patel, DO, a double board-certified pain management specialist in Dallas, our team is dedicated to helping patients achieve a pain-free, healthier life.
-            </p>
+            <ScrollReveal direction="up">
+              <p className="bg-white/5 p-6 rounded-2xl border border-white/10">
+                At Spine &amp; Pain Institute of Texas, we specialize in <span className="text-teal-300 font-semibold underline underline-offset-4 decoration-teal-400">comprehensive pain management services</span> for the Dallas, TX, community and beyond. Under the expert guidance of Dr. Pritesh Patel, DO, a double board-certified pain management specialist in Dallas, our team is dedicated to helping patients achieve a pain-free, healthier life.
+              </p>
+            </ScrollReveal>
 
-            <div className="bg-white/5 p-6 sm:p-8 rounded-2xl border border-white/10">
-              <h3 className="text-2xl font-serif font-bold text-white mb-4">Our Approach to Pain Management Dallas Texas</h3>
-              <p>
-                We understand that every patient's pain is unique. Our pain management physicians believe in a personalized, patient-centered approach to care, ensuring that you receive the time and attention necessary for effective relief. Our mission is to set the standard for pain management service in Dallas, and throughout Texas by offering compassionate and thorough patient care.
-              </p>
-            </div>
+            <ScrollReveal direction="up">
+              <div className="bg-white/5 p-6 sm:p-8 rounded-2xl border border-white/10">
+                <h3 className="text-2xl font-serif font-bold text-white mb-4">Our Approach to Pain Management Dallas Texas</h3>
+                <p>
+                  We understand that every patient's pain is unique. Our pain management physicians believe in a personalized, patient-centered approach to care, ensuring that you receive the time and attention necessary for effective relief. Our mission is to set the standard for pain management service in Dallas, and throughout Texas by offering compassionate and thorough patient care.
+                </p>
+              </div>
+            </ScrollReveal>
 
-            <div className="bg-white/5 p-6 sm:p-8 rounded-2xl border border-white/10">
-              <h3 className="text-2xl font-serif font-bold text-white mb-4">Conditions Treated by Our Pain Specialist Dallas</h3>
-              <p className="mb-4">Our expertise spans a broad range of pain conditions, including:</p>
-              <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-6 font-medium text-white">
-                {[
-                  'Back and Lower Back Pain',
-                  'Neck Pain',
-                  'Shoulder Pain',
-                  'Knee Pain',
-                  'Headaches and Migraines',
-                  'Leg Pain and Sciatica',
-                  'Neuropathy'
-                ].map((item, idx) => (
-                  <li key={idx} className="flex items-center gap-2.5 bg-white/5 px-4 py-2.5 rounded-xl border border-white/10 text-sm">
-                    <Check className="w-4 h-4 text-teal-400 shrink-0" />
-                    <span>{item}</span>
-                  </li>
-                ))}
-              </ul>
-              <p>
-                Our team of board-certified pain management doctors in Dallas, Texas, is well-equipped to help you with any of these conditions, tailoring our care to address the root cause of your pain.
-              </p>
-            </div>
+            <ScrollReveal direction="up">
+              <div className="bg-white/5 p-6 sm:p-8 rounded-2xl border border-white/10">
+                <h3 className="text-2xl font-serif font-bold text-white mb-4">Conditions Treated by Our Pain Specialist Dallas</h3>
+                <p className="mb-4">Our expertise spans a broad range of pain conditions, including:</p>
+                <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-6 font-medium text-white">
+                  {[
+                    'Back and Lower Back Pain',
+                    'Neck Pain',
+                    'Shoulder Pain',
+                    'Knee Pain',
+                    'Headaches and Migraines',
+                    'Leg Pain and Sciatica',
+                    'Neuropathy'
+                  ].map((item, idx) => (
+                    <li key={idx} className="flex items-center gap-2.5 bg-white/5 px-4 py-2.5 rounded-xl border border-white/10 text-sm">
+                      <Check className="w-4 h-4 text-teal-400 shrink-0" />
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+                <p>
+                  Our team of board-certified pain management doctors in Dallas, Texas, is well-equipped to help you with any of these conditions, tailoring our care to address the root cause of your pain.
+                </p>
+              </div>
+            </ScrollReveal>
 
-            <div className="bg-white/5 p-6 sm:p-8 rounded-2xl border border-white/10">
-              <h3 className="text-2xl font-serif font-bold text-white mb-4">Advanced Diagnostics and Pain Management Treatment</h3>
-              <p>
-                Utilizing the latest advancements in diagnostic testing, we identify the root of your pain to deliver <span className="text-teal-300 font-semibold underline underline-offset-4 decoration-teal-400">accurate and effective treatments</span>. Our techniques include interventional procedures, comprehensive care plans, and behavioral health support. As leading Dallas Pain Clinic, we strive to provide cutting-edge options designed to improve your quality of life.
-              </p>
-            </div>
+            <ScrollReveal direction="up">
+              <div className="bg-white/5 p-6 sm:p-8 rounded-2xl border border-white/10">
+                <h3 className="text-2xl font-serif font-bold text-white mb-4">Advanced Diagnostics and Pain Management Treatment</h3>
+                <p>
+                  Utilizing the latest advancements in diagnostic testing, we identify the root of your pain to deliver <span className="text-teal-300 font-semibold underline underline-offset-4 decoration-teal-400">accurate and effective treatments</span>. Our techniques include interventional procedures, comprehensive care plans, and behavioral health support. As leading Dallas Pain Clinic, we strive to provide cutting-edge options designed to improve your quality of life.
+                </p>
+              </div>
+            </ScrollReveal>
 
-            <div className="bg-white/5 p-6 sm:p-8 rounded-2xl border border-white/10">
-              <h3 className="text-2xl font-serif font-bold text-white mb-4">Compassionate, Qualified Pain Management Team</h3>
-              <p>
-                Led by Dr. Pritesh Patel, our team at Spine &amp; Pain Institute of Texas combines clinical excellence with empathy. Known for his attentive listening and personable approach, Dr. Patel and our carefully selected staff ensure a warm, welcoming experience, reinforcing why we are among the top pain management specialist in Dallas.
-              </p>
-            </div>
+            <ScrollReveal direction="up">
+              <div className="bg-white/5 p-6 sm:p-8 rounded-2xl border border-white/10">
+                <h3 className="text-2xl font-serif font-bold text-white mb-4">Compassionate, Qualified Pain Management Team</h3>
+                <p>
+                  Led by Dr. Pritesh Patel, our team at Spine &amp; Pain Institute of Texas combines clinical excellence with empathy. Known for his attentive listening and personable approach, Dr. Patel and our carefully selected staff ensure a warm, welcoming experience, reinforcing why we are among the top pain management specialist in Dallas.
+                </p>
+              </div>
+            </ScrollReveal>
 
-            <div className="bg-white/5 p-6 sm:p-8 rounded-2xl border border-white/10">
-              <h3 className="text-2xl font-serif font-bold text-white mb-4">Patient-Centered Pain Care in Dallas, TX</h3>
-              <p>
-                At Spine &amp; Pain Institute of Texas, we view our patients as family. Our goal is to create a supportive environment where you feel respected and valued. We aim to make every step, <span className="text-teal-300 font-semibold underline underline-offset-4 decoration-teal-400">from scheduling to treatment</span>, stress-free and convenient.
-              </p>
-              <p className="mt-4">
-                Take the first step toward a pain-free life by scheduling an appointment with a trusted pain specialist in Dallas, TX, today. Join countless others in the Dallas community who have found relief and restored quality of life through our expert care.
-              </p>
-            </div>
+            <ScrollReveal direction="up">
+              <div className="bg-white/5 p-6 sm:p-8 rounded-2xl border border-white/10">
+                <h3 className="text-2xl font-serif font-bold text-white mb-4">Patient-Centered Pain Care in Dallas, TX</h3>
+                <p>
+                  At Spine &amp; Pain Institute of Texas, we view our patients as family. Our goal is to create a supportive environment where you feel respected and valued. We aim to make every step, <span className="text-teal-300 font-semibold underline underline-offset-4 decoration-teal-400">from scheduling to treatment</span>, stress-free and convenient.
+                </p>
+                <p className="mt-4">
+                  Take the first step toward a pain-free life by scheduling an appointment with a trusted pain specialist in Dallas, TX, today. Join countless others in the Dallas community who have found relief and restored quality of life through our expert care.
+                </p>
+              </div>
+            </ScrollReveal>
             
           </div>
         </div>
@@ -126,7 +139,7 @@ export function About() {
           <div className="flex flex-col lg:flex-row gap-16 items-center">
             
             {/* Left Content */}
-            <div className="lg:w-1/2 relative z-10">
+            <ScrollReveal direction="right" className="lg:w-1/2 relative z-10">
               <span className="text-teal-600 font-bold uppercase tracking-widest text-xs block mb-2">Interventional Spine Care</span>
               <h2 className="text-3xl sm:text-4xl md:text-5xl font-serif text-slate-900 leading-tight mb-6">
                 Combining Vast Experience with <span className="text-teal-600">Advanced Medical Knowledge</span>
@@ -145,18 +158,18 @@ export function About() {
                   'Dallas Pain Clinic',
                   'Expert Pain Management in Dallas'
                 ].map((item, idx) => (
-                  <div key={idx} className="flex items-center gap-3 p-3 rounded-xl bg-slate-50 border border-slate-100">
+                  <ScrollReveal key={idx} direction="up" delay={idx * 50} className="flex items-center gap-3 p-3 rounded-xl bg-slate-50 border border-slate-100">
                     <div className="w-6 h-6 rounded-lg bg-teal-600 text-white flex items-center justify-center shrink-0">
                       <Check className="h-4 w-4 stroke-[3]" />
                     </div>
                     <span className="text-slate-800 font-semibold text-sm">{item}</span>
-                  </div>
+                  </ScrollReveal>
                 ))}
               </div>
-            </div>
+            </ScrollReveal>
 
             {/* Right Video / Image */}
-            <div className="lg:w-1/2 relative w-full">
+            <ScrollReveal direction="left" delay={200} className="lg:w-1/2 relative w-full">
                <div className="aspect-[4/3] rounded-3xl overflow-hidden shadow-2xl relative group cursor-pointer border border-slate-100">
                  <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=1000&auto=format&fit=crop" alt="Doctor examining spine model" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
                  <div className="absolute inset-0 bg-slate-900/30 group-hover:bg-slate-900/40 transition-colors flex items-center justify-center">
@@ -165,7 +178,7 @@ export function About() {
                    </div>
                  </div>
                </div>
-            </div>
+            </ScrollReveal>
 
           </div>
         </div>
@@ -177,14 +190,14 @@ export function About() {
           <div className="flex flex-col lg:flex-row gap-16 items-center">
             
             {/* Left Image */}
-            <div className="lg:w-1/2 w-full">
+            <ScrollReveal direction="right" className="lg:w-1/2 w-full">
               <div className="rounded-3xl overflow-hidden shadow-xl aspect-[4/3] sm:aspect-[4/3] border border-slate-200">
                 <img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?q=80&w=1000&auto=format&fit=crop" alt="Doctor consulting patient with spine model" className="w-full h-full object-cover" />
               </div>
-            </div>
+            </ScrollReveal>
 
             {/* Right Checkboxes */}
-            <div className="lg:w-1/2">
+            <ScrollReveal direction="left" delay={200} className="lg:w-1/2">
               <h3 className="text-2xl font-serif font-bold text-slate-900 mb-6">Key Patient Commitments</h3>
               <div className="flex flex-col space-y-4">
                 {[
@@ -194,15 +207,15 @@ export function About() {
                   'Advanced Spine Care, Dallas Experts',
                   'Comprehensive Pain Management, Dallas'
                 ].map((item, idx) => (
-                  <div key={idx} className="flex items-center gap-4 p-3.5 bg-white rounded-2xl border border-slate-100 shadow-sm">
+                  <ScrollReveal key={idx} direction="up" delay={idx * 50} className="flex items-center gap-4 p-3.5 bg-white rounded-2xl border border-slate-100 shadow-sm">
                     <div className="w-7 h-7 rounded-xl bg-teal-600 text-white flex items-center justify-center shrink-0">
                       <Check className="h-4 w-4 stroke-[3]" />
                     </div>
                     <span className="text-slate-800 font-semibold text-base">{item}</span>
-                  </div>
+                  </ScrollReveal>
                 ))}
               </div>
-            </div>
+            </ScrollReveal>
             
           </div>
         </div>
@@ -210,7 +223,7 @@ export function About() {
 
       {/* CTA Banner */}
       <section className="py-20 bg-[#0b192b] text-white">
-        <div className="container mx-auto px-4 lg:px-8 text-center max-w-4xl">
+        <ScrollReveal direction="up" className="container mx-auto px-4 lg:px-8 text-center max-w-4xl">
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-serif mb-6">
             Experienced Pain Specialist in <span className="text-teal-300">Dallas</span>
           </h2>
@@ -224,7 +237,7 @@ export function About() {
             <span>Contact Us Now</span>
             <ChevronRight className="w-4 h-4" />
           </Link>
-        </div>
+        </ScrollReveal>
       </section>
 
     </div>

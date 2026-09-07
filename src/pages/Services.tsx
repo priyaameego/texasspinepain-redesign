@@ -4,6 +4,7 @@ import {
   PhoneCall, Calendar, CheckCircle2, UserCheck, Sparkles, Home, Search, X, Star
 } from 'lucide-react';
 import { Link } from '@tanstack/react-router';
+import { ScrollReveal } from '../components/ScrollReveal';
 
 export function Services() {
   const [activeTab, setActiveTab] = useState(0);
@@ -170,32 +171,33 @@ export function Services() {
         <div className="container mx-auto px-4 lg:px-8 max-w-7xl">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {topBanners.map((banner, idx) => (
-              <div 
-                key={idx} 
-                className="group bg-white rounded-3xl shadow-md hover:shadow-2xl transition-all duration-300 overflow-hidden border border-slate-200 flex flex-col justify-between"
-              >
-                <div className="relative overflow-hidden aspect-[16/10]">
-                  <img 
-                    src={banner.image} 
-                    alt={banner.title} 
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#0b192b]/90 via-[#0b192b]/30 to-transparent flex items-end p-6">
-                    <h3 className="text-xl font-serif font-bold text-white tracking-tight">{banner.title}</h3>
+              <ScrollReveal key={idx} direction="up" delay={idx * 100}>
+                <div 
+                  className="group bg-white rounded-3xl shadow-md hover:shadow-2xl transition-all duration-300 overflow-hidden border border-slate-200 flex flex-col justify-between h-full"
+                >
+                  <div className="relative overflow-hidden aspect-[16/10]">
+                    <img 
+                      src={banner.image} 
+                      alt={banner.title} 
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#0b192b]/90 via-[#0b192b]/30 to-transparent flex items-end p-6">
+                      <h3 className="text-xl font-serif font-bold text-white tracking-tight">{banner.title}</h3>
+                    </div>
+                  </div>
+                  
+                  <div className="p-6 bg-white flex-grow flex flex-col justify-between">
+                    <p className="text-slate-600 text-sm font-medium leading-relaxed mb-6">
+                      {banner.subtitle}
+                    </p>
+                    
+                    <a href="#appointment-section" className="inline-flex items-center text-teal-600 font-bold hover:text-teal-700 text-xs uppercase tracking-wider group-hover:translate-x-1 transition-transform gap-1">
+                      <span>Schedule Evaluation</span>
+                      <ChevronRight className="w-4 h-4" />
+                    </a>
                   </div>
                 </div>
-                
-                <div className="p-6 bg-white flex-grow flex flex-col justify-between">
-                  <p className="text-slate-600 text-sm font-medium leading-relaxed mb-6">
-                    {banner.subtitle}
-                  </p>
-                  
-                  <a href="#appointment-section" className="inline-flex items-center text-teal-600 font-bold hover:text-teal-700 text-xs uppercase tracking-wider group-hover:translate-x-1 transition-transform gap-1">
-                    <span>Schedule Evaluation</span>
-                    <ChevronRight className="w-4 h-4" />
-                  </a>
-                </div>
-              </div>
+              </ScrollReveal>
             ))}
           </div>
         </div>
@@ -204,7 +206,7 @@ export function Services() {
       {/* ─── Interactive Service Search & Filter Section ─── */}
       <section className="py-20 bg-white border-b border-slate-100" id="services-details">
         <div className="container mx-auto px-4 lg:px-8 max-w-7xl">
-          <div className="text-center max-w-3xl mx-auto mb-10">
+          <ScrollReveal direction="up" className="text-center max-w-3xl mx-auto mb-10">
             <span className="text-teal-600 font-bold text-xs uppercase tracking-widest block mb-2">
               Expert Treatments
             </span>
@@ -214,7 +216,7 @@ export function Services() {
             <p className="text-slate-500 text-sm sm:text-base mt-2">
               Search any symptom, condition, or procedure below to find targeted relief options.
             </p>
-          </div>
+          </ScrollReveal>
 
           {/* ─── Premium Keyword Search Bar (Matching Reference Image) ─── */}
           <div className="mb-14 bg-[#0b192b] text-white p-5 sm:p-7 rounded-3xl shadow-2xl border border-teal-500/20 max-w-4xl mx-auto relative overflow-hidden">
@@ -355,20 +357,22 @@ export function Services() {
           {filteredServices.length > 0 ? (
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               {filteredServices.map((sec, idx) => (
-                <div key={idx} className="bg-slate-50 p-8 rounded-3xl border border-slate-200 shadow-sm hover:shadow-md transition-all flex flex-col justify-between">
-                  <div>
-                    <div className="flex items-center justify-between mb-4">
-                      <div className="bg-white p-3 rounded-2xl shadow-xs border border-slate-100">{sec.icon}</div>
-                      <span className="text-xs font-bold uppercase tracking-wider text-teal-700 bg-teal-50 px-3 py-1 rounded-full border border-teal-100">{sec.badge}</span>
+                <ScrollReveal key={idx} direction="up" delay={idx * 50}>
+                  <div className="bg-slate-50 p-8 rounded-3xl border border-slate-200 shadow-sm hover:shadow-md transition-all flex flex-col justify-between h-full">
+                    <div>
+                      <div className="flex items-center justify-between mb-4">
+                        <div className="bg-white p-3 rounded-2xl shadow-xs border border-slate-100">{sec.icon}</div>
+                        <span className="text-xs font-bold uppercase tracking-wider text-teal-700 bg-teal-50 px-3 py-1 rounded-full border border-teal-100">{sec.badge}</span>
+                      </div>
+                      <h3 className="text-xl font-serif font-bold text-slate-900 mb-3">{sec.title}</h3>
+                      <p className="text-slate-600 text-sm leading-relaxed mb-6">{sec.content}</p>
                     </div>
-                    <h3 className="text-xl font-serif font-bold text-slate-900 mb-3">{sec.title}</h3>
-                    <p className="text-slate-600 text-sm leading-relaxed mb-6">{sec.content}</p>
+                    <a href="#appointment-section" className="text-xs font-bold uppercase tracking-wider text-teal-600 hover:text-teal-700 inline-flex items-center gap-1">
+                      <span>Consult Specialist</span>
+                      <ChevronRight className="w-4 h-4" />
+                    </a>
                   </div>
-                  <a href="#appointment-section" className="text-xs font-bold uppercase tracking-wider text-teal-600 hover:text-teal-700 inline-flex items-center gap-1">
-                    <span>Consult Specialist</span>
-                    <ChevronRight className="w-4 h-4" />
-                  </a>
-                </div>
+                </ScrollReveal>
               ))}
             </div>
           ) : (
@@ -405,51 +409,65 @@ export function Services() {
               Dedicated Pain Care
             </span>
             
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold mb-8 text-white tracking-tight">
-              Dallas Pain Clinic | Spine &amp; Pain Institute of Texas
-            </h2>
+            <ScrollReveal direction="up" className="mb-12">
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold mb-8 text-white tracking-tight">
+                Dallas Pain Clinic | Spine &amp; Pain Institute of Texas
+              </h2>
 
-            <div className="space-y-6 text-slate-300 text-base sm:text-lg leading-relaxed font-normal mb-12">
-              <p>
-                Pain can be an incredibly debilitating and challenging experience, especially when it becomes a chronic and persistent issue. However, there is hope for individuals who are grappling with even the most stubborn and severe chronic pain conditions. If you're searching for "pain management doctors near me" or "Dallas pain clinic", you're not alone in your journey.
-              </p>
-              <p>
-                Dr. Patel runs a dedicated pain management clinic at the Spine &amp; Pain Institute of Texas in DeSoto, Texas, is here to provide assistance and support.
-              </p>
-              <p>
-                At Dr. Patel's pain clinic we understand the unique and complex nature of chronic pain, and he is committed to tailoring a treatment plan that is specifically designed to address your individual needs and circumstances. Dr. Patel, who is a pain specialist, has an approach that goes beyond merely prescribing medications; it encompasses a comprehensive range of strategies and therapies to help you regain control over your life despite the challenges of chronic pain.
-              </p>
-              <p className="font-serif font-bold text-white text-lg sm:text-xl pt-2">
-                Here are some key elements of Dr. Patel's pain management approach:
-              </p>
-            </div>
+              <div className="bg-white/5 backdrop-blur-sm border border-white/10 p-8 sm:p-10 rounded-3xl shadow-2xl relative overflow-hidden">
+                <div className="absolute top-0 right-0 w-64 h-64 bg-teal-500/10 rounded-full blur-3xl pointer-events-none -translate-y-1/2 translate-x-1/2"></div>
+                
+                <div className="space-y-6 text-slate-300 text-base sm:text-lg leading-relaxed font-normal relative z-10">
+                  <p className="text-white font-medium text-lg sm:text-xl leading-relaxed">
+                    Pain can be an incredibly debilitating and challenging experience, especially when it becomes a chronic and persistent issue. However, there is hope for individuals who are grappling with even the most stubborn and severe chronic pain conditions. If you're searching for "pain management doctors near me" or "Dallas pain clinic", you're not alone in your journey.
+                  </p>
+                  <p>
+                    Dr. Patel runs a dedicated pain management clinic at the Spine &amp; Pain Institute of Texas in DeSoto, Texas, is here to provide assistance and support.
+                  </p>
+                  <p>
+                    At Dr. Patel's pain clinic we understand the unique and complex nature of chronic pain, and he is committed to tailoring a treatment plan that is specifically designed to address your individual needs and circumstances. Dr. Patel, who is a pain specialist, has an approach that goes beyond merely prescribing medications; it encompasses a comprehensive range of strategies and therapies to help you regain control over your life despite the challenges of chronic pain.
+                  </p>
+                </div>
+              </div>
+            </ScrollReveal>
+
+            <ScrollReveal direction="up" className="mb-8">
+              <h3 className="font-serif font-bold text-white text-2xl sm:text-3xl border-l-4 border-teal-500 pl-4">
+                Key Elements of Dr. Patel's Approach:
+              </h3>
+            </ScrollReveal>
 
             {/* 5 Points */}
-            <div className="space-y-4 mb-12">
+            <div className="space-y-4 mb-16 relative">
+              <div className="absolute left-5 top-8 bottom-8 w-px bg-teal-500/20 hidden sm:block"></div>
               {drPatelPoints.map((pt, i) => (
-                <div key={i} className="bg-white/5 p-6 rounded-2xl border border-white/10 flex items-start gap-4">
-                  <div className="bg-teal-500 text-white text-lg font-bold w-10 h-10 rounded-xl flex items-center justify-center shrink-0">
-                    {pt.step}
+                <ScrollReveal key={i} direction="left" delay={i * 100}>
+                  <div className="group bg-white/5 hover:bg-white/10 p-6 rounded-2xl border border-white/10 hover:border-teal-500/30 flex flex-col sm:flex-row items-start gap-4 sm:gap-6 transition-all duration-300">
+                    <div className="bg-[#0b192b] border-2 border-teal-500 text-teal-400 group-hover:bg-teal-500 group-hover:text-white text-lg font-bold w-12 h-12 rounded-2xl flex items-center justify-center shrink-0 transition-colors duration-300 shadow-lg relative z-10">
+                      {pt.step}
+                    </div>
+                    <div className="pt-1">
+                      <h3 className="text-xl font-bold text-white mb-2">{pt.title}</h3>
+                      <p className="text-slate-300 text-base leading-relaxed">{pt.text}</p>
+                    </div>
                   </div>
-                  <div>
-                    <h3 className="text-lg font-bold text-white mb-1.5">{pt.title}</h3>
-                    <p className="text-slate-300 text-sm leading-relaxed">{pt.text}</p>
-                  </div>
-                </div>
+                </ScrollReveal>
               ))}
             </div>
 
-            <div className="space-y-6 text-slate-300 text-base leading-relaxed font-normal">
+            <ScrollReveal direction="up" className="space-y-6 text-slate-300 text-base sm:text-lg leading-relaxed font-normal bg-gradient-to-r from-teal-900/40 to-[#0b192b] p-8 sm:p-10 rounded-3xl border border-teal-500/20 shadow-2xl">
               <p>
                 By combining these various elements into a holistic treatment plan, Dr. Patel aims to empower you to manage your pain more effectively and improve your overall quality of life.
               </p>
               <p>
-                If you're searching online for 'pain specialist in dallas" or a pain clinic nearby, know that many others are on a similar path to relief. If you are seeking relief from chronic pain and are interested in exploring Dr. Patel's approach to pain management, you can take the first step by <a href="/contact-us" className="text-teal-300 font-bold underline hover:text-white">contacting "Dallas pain center",</a> the Spine &amp; Pain Institute of Texas. They offer the convenience of both phone and online booking to make the process easy and accessible.
+                If you're searching online for 'pain specialist in dallas" or a pain clinic nearby, know that many others are on a similar path to relief. If you are seeking relief from chronic pain and are interested in exploring Dr. Patel's approach to pain management, you can take the first step by <Link to="/contact-us" className="text-teal-400 font-bold underline hover:text-white transition-colors">contacting "Dallas pain center"</Link>, the Spine &amp; Pain Institute of Texas. They offer the convenience of both phone and online booking to make the process easy and accessible.
               </p>
-              <p className="text-white font-semibold">
-                Don't let chronic pain hold you back from enjoying life to the fullest. Reach out to Dr. Patel and his team today to learn more about how they can help you on your journey to pain relief and improved well-being. Your path to a more comfortable and fulfilling life begins with a simple phone call or online appointment request.
-              </p>
-            </div>
+              <div className="bg-teal-500/10 border border-teal-500/30 p-6 rounded-2xl mt-6">
+                <p className="text-white font-semibold text-lg">
+                  Don't let chronic pain hold you back from enjoying life to the fullest. Reach out to Dr. Patel and his team today to learn more about how they can help you on your journey to pain relief and improved well-being. Your path to a more comfortable and fulfilling life begins with a simple phone call or online appointment request.
+                </p>
+              </div>
+            </ScrollReveal>
           </div>
         </div>
       </section>
@@ -460,7 +478,7 @@ export function Services() {
           <div className="bg-white rounded-3xl shadow-xl border border-slate-200 overflow-hidden">
             <div className="grid grid-cols-1 lg:grid-cols-12">
               
-              <div className="lg:col-span-5 bg-[#0b192b] relative min-h-[380px] lg:min-h-[580px] flex items-center justify-center p-8 overflow-hidden">
+              <ScrollReveal direction="right" className="lg:col-span-5 bg-[#0b192b] relative min-h-[380px] lg:min-h-[580px] flex items-center justify-center p-8 overflow-hidden">
                 <img 
                   src="https://texasspinepain.com/wp-content/uploads/2019/09/doctor-2.jpg" 
                   alt="Dr. Pritesh Patel - Spine and Pain Institute" 
@@ -470,10 +488,10 @@ export function Services() {
                 <div className="absolute top-6 left-6 z-20 bg-white/20 backdrop-blur-md px-4 py-2 rounded-full border border-white/30 text-white font-semibold text-xs uppercase tracking-wider flex items-center gap-2">
                   <UserCheck className="w-4 h-4 text-teal-300" /> Dr. Pritesh Patel, DO
                 </div>
-              </div>
+              </ScrollReveal>
 
               {/* Form */}
-              <div className="lg:col-span-7 p-8 sm:p-12 flex flex-col justify-center">
+              <ScrollReveal direction="left" delay={200} className="lg:col-span-7 p-8 sm:p-12 flex flex-col justify-center">
                 <div className="mb-8">
                   <h3 className="text-2xl sm:text-3xl font-serif font-bold text-slate-900 mb-2">
                     Make an Appointment | Pain Clinic Dallas
@@ -547,7 +565,7 @@ export function Services() {
                     <Calendar className="w-4 h-4" /> Send Message
                   </button>
                 </form>
-              </div>
+              </ScrollReveal>
 
             </div>
           </div>

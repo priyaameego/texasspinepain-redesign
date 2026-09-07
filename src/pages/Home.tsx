@@ -2,6 +2,7 @@ import { Link } from '@tanstack/react-router';
 import { ChevronRight, ChevronLeft, Check, Heart, Shield, Award, Calendar, Phone, ArrowUpRight, Clock, Star, Sparkles } from 'lucide-react';
 import { useState, useEffect, useRef } from 'react';
 import { TestimonialSlider } from '../components/TestimonialSlider';
+import { ScrollReveal } from '../components/ScrollReveal';
 import { 
   PainManagementIcon, 
   BackPainIcon, 
@@ -278,7 +279,7 @@ export function Home() {
           <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
             
             {/* Left Image Column with 3-Layer 3D Scroll Depth Composition */}
-            <div className="lg:w-1/2 relative w-full group">
+            <ScrollReveal className="lg:w-1/2 relative w-full group" direction="up">
               
               {/* Back Layer: Soft Background Glow & Decorative Border Frame */}
               <div className="absolute -top-6 -left-6 w-full h-full border-2 border-teal-500/20 rounded-3xl -z-10 hidden sm:block transition-transform duration-700 group-hover:scale-102" />
@@ -321,10 +322,10 @@ export function Home() {
                 </div>
               </div>
 
-            </div>
+            </ScrollReveal>
 
             {/* Right Content Column */}
-            <div className="lg:w-1/2 relative z-10">
+            <ScrollReveal className="lg:w-1/2 relative z-10" direction="up" delay={200}>
               <span className="text-teal-600 font-bold uppercase tracking-widest text-xs sm:text-sm block mb-3">
                 Dallas Pain Management Center
               </span>
@@ -363,7 +364,7 @@ export function Home() {
                   <span>(469) 313-0040</span>
                 </a>
               </div>
-            </div>
+            </ScrollReveal>
 
           </div>
         </div>
@@ -376,7 +377,7 @@ export function Home() {
 
         <div className="container mx-auto px-4 lg:px-8 max-w-7xl relative z-10">
           
-          <div className="text-center max-w-3xl mx-auto mb-16">
+          <ScrollReveal direction="up" className="text-center max-w-3xl mx-auto mb-16">
             <span className="text-teal-400 font-bold uppercase tracking-widest text-xs block mb-2">
               Specialized Care Areas
             </span>
@@ -386,7 +387,7 @@ export function Home() {
             <p className="text-slate-400 text-base sm:text-lg">
               Explore advanced non-surgical and interventional treatments for acute and chronic pain.
             </p>
-          </div>
+          </ScrollReveal>
 
           {/* Cards Grid */}
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
@@ -395,47 +396,48 @@ export function Home() {
               const isHovered = hoveredCondition === index;
 
               return (
-                <Link
-                  key={index}
-                  to={condition.route}
-                  onMouseEnter={() => setHoveredCondition(index)}
-                  onMouseLeave={() => setHoveredCondition(null)}
-                  className={`group relative rounded-2xl p-6 transition-all duration-300 flex flex-col justify-between border ${
-                    isHovered 
-                      ? 'bg-gradient-to-b from-teal-600 to-teal-700 border-teal-400 shadow-xl shadow-teal-500/20 -translate-y-1.5' 
-                      : 'bg-white/5 border-white/10 hover:border-white/20'
-                  }`}
-                >
-                  <div>
-                    {/* Icon */}
-                    <div className={`w-20 h-20 rounded-2xl flex items-center justify-center mb-6 transition-all duration-300 ${
-                      isHovered ? 'bg-white/20 text-white scale-110 shadow-lg shadow-teal-500/30' : 'bg-teal-500/15 border border-teal-400/20 text-teal-300'
-                    }`}>
-                      <Icon className="w-14 h-14 transition-transform duration-300" active={isHovered} />
+                <ScrollReveal key={index} direction="up" delay={index * 50}>
+                  <Link
+                    to={condition.route}
+                    onMouseEnter={() => setHoveredCondition(index)}
+                    onMouseLeave={() => setHoveredCondition(null)}
+                    className={`group relative rounded-2xl p-6 transition-all duration-300 flex flex-col justify-between border h-full ${
+                      isHovered 
+                        ? 'bg-gradient-to-b from-teal-600 to-teal-700 border-teal-400 shadow-xl shadow-teal-500/20 -translate-y-1.5' 
+                        : 'bg-white/5 border-white/10 hover:border-white/20'
+                    }`}
+                  >
+                    <div>
+                      {/* Icon */}
+                      <div className={`w-20 h-20 rounded-2xl flex items-center justify-center mb-6 transition-all duration-300 ${
+                        isHovered ? 'bg-white/20 text-white scale-110 shadow-lg shadow-teal-500/30' : 'bg-teal-500/15 border border-teal-400/20 text-teal-300'
+                      }`}>
+                        <Icon className="w-14 h-14 transition-transform duration-300" active={isHovered} />
+                      </div>
+
+                      {/* Title */}
+                      <h3 className={`font-serif text-lg font-bold mb-2 transition-colors ${
+                        isHovered ? 'text-white' : 'text-slate-100'
+                      }`}>
+                        {condition.name}
+                      </h3>
+
+                      <p className={`text-xs leading-relaxed mb-6 transition-colors ${
+                        isHovered ? 'text-teal-50' : 'text-slate-400'
+                      }`}>
+                        {condition.desc}
+                      </p>
                     </div>
 
-                    {/* Title */}
-                    <h3 className={`font-serif text-lg font-bold mb-2 transition-colors ${
-                      isHovered ? 'text-white' : 'text-slate-100'
+                    {/* CTA Link Arrow */}
+                    <div className={`flex items-center justify-between text-xs font-bold uppercase tracking-wider transition-colors pt-4 border-t ${
+                      isHovered ? 'border-white/20 text-white' : 'border-white/10 text-teal-400'
                     }`}>
-                      {condition.name}
-                    </h3>
-
-                    <p className={`text-xs leading-relaxed mb-6 transition-colors ${
-                      isHovered ? 'text-teal-50' : 'text-slate-400'
-                    }`}>
-                      {condition.desc}
-                    </p>
-                  </div>
-
-                  {/* CTA Link Arrow */}
-                  <div className={`flex items-center justify-between text-xs font-bold uppercase tracking-wider transition-colors pt-4 border-t ${
-                    isHovered ? 'border-white/20 text-white' : 'border-white/10 text-teal-400'
-                  }`}>
-                    <span>More Details</span>
-                    <ArrowUpRight className={`w-4 h-4 transition-transform duration-200 ${isHovered ? 'translate-x-0.5 -translate-y-0.5' : ''}`} />
-                  </div>
-                </Link>
+                      <span>More Details</span>
+                      <ArrowUpRight className={`w-4 h-4 transition-transform duration-200 ${isHovered ? 'translate-x-0.5 -translate-y-0.5' : ''}`} />
+                    </div>
+                  </Link>
+                </ScrollReveal>
               );
             })}
           </div>
@@ -449,7 +451,7 @@ export function Home() {
           <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
             
             {/* Left Side: 3D Depth Layered Medical Image & Floating Card */}
-            <div className="lg:w-1/2 relative w-full group">
+            <ScrollReveal className="lg:w-1/2 relative w-full group" direction="left">
               {/* Back Decorative Frame & Glow */}
               <div className="absolute -top-4 -left-4 w-full h-full border-2 border-teal-500/25 rounded-3xl -z-10 hidden sm:block transition-transform duration-700 group-hover:scale-102 group-hover:-rotate-1" />
               <div className="absolute -bottom-8 -right-8 w-72 h-72 bg-teal-500/15 rounded-full blur-3xl -z-20 pointer-events-none" />
@@ -477,7 +479,7 @@ export function Home() {
 
               {/* Front Layer: Floating Glassmorphism Quote & Badge Card */}
               <div 
-                className="absolute bottom-6 left-6 right-6 sm:bottom-8 sm:left-8 sm:right-8 z-30 transition-transform duration-500 group-hover:-translate-y-1"
+                className="hidden sm:block absolute bottom-8 left-8 right-8 z-30 transition-transform duration-500 group-hover:-translate-y-1"
               >
                 <div className="bg-[#0b192b]/90 backdrop-blur-md p-5 sm:p-6 rounded-2xl border border-white/15 text-white shadow-2xl">
                   <div className="flex items-center justify-between gap-2 mb-2">
@@ -494,10 +496,10 @@ export function Home() {
                   </p>
                 </div>
               </div>
-            </div>
+            </ScrollReveal>
 
             {/* Right Side: Content & Interactive 3D Hover Checklist */}
-            <div className="lg:w-1/2 flex flex-col justify-center">
+            <ScrollReveal className="lg:w-1/2 flex flex-col justify-center" direction="up" delay={200}>
               <span className="text-teal-600 font-bold uppercase tracking-widest text-xs sm:text-sm block mb-2">
                 Why Choose Spine &amp; Pain Institute of Texas
               </span>
@@ -521,17 +523,17 @@ export function Home() {
                   'Advanced Pain Management Techniques',
                   'Comprehensive Pain Management Methods'
                 ].map((reason, idx) => (
-                  <div key={idx} className="group/item flex items-center gap-3 p-3 rounded-2xl bg-white border border-slate-200/80 shadow-xs hover:shadow-md hover:border-teal-500/40 hover:-translate-y-0.5 transition-all duration-200">
+                  <ScrollReveal key={idx} direction="up" delay={idx * 50} className="group/item flex items-center gap-3 p-3 rounded-2xl bg-white border border-slate-200/80 shadow-xs hover:shadow-md hover:border-teal-500/40 hover:-translate-y-0.5 transition-all duration-200">
                     <div className="w-7 h-7 rounded-xl bg-teal-50 text-teal-600 border border-teal-100 flex items-center justify-center shrink-0 group-hover/item:bg-teal-500 group-hover/item:text-white transition-all duration-200">
                       <Check className="w-4 h-4 stroke-[3]" />
                     </div>
                     <span className="text-slate-800 font-semibold text-xs sm:text-sm leading-snug group-hover/item:text-teal-700 transition-colors">
                       {reason}
                     </span>
-                  </div>
+                  </ScrollReveal>
                 ))}
               </div>
-            </div>
+            </ScrollReveal>
 
           </div>
         </div>
@@ -541,14 +543,14 @@ export function Home() {
       <section className="bg-slate-50 py-20 border-b border-slate-200/60">
         <div className="container mx-auto px-4 lg:px-8 max-w-7xl">
           
-          <div className="text-center max-w-2xl mx-auto mb-14">
+          <ScrollReveal direction="up" className="text-center max-w-2xl mx-auto mb-14">
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-serif text-slate-900 mb-2">
               We Take <span className="text-teal-600">the Time</span> You Need
             </h2>
             <p className="text-slate-500 text-base">
               Dedicated pain clinic with over 11 years of clinical excellence in Texas
             </p>
-          </div>
+          </ScrollReveal>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
@@ -557,12 +559,12 @@ export function Home() {
               { label: 'Award-Winning Providers', end: 5, suffix: '+' },
               { label: 'Insurance Company Tie-Ups', end: 50, suffix: '+' },
             ].map((stat, idx) => (
-              <div key={idx} className="bg-white rounded-2xl p-8 text-center shadow-md border border-slate-100 flex flex-col items-center justify-center">
+              <ScrollReveal key={idx} direction="up" delay={idx * 100} className="bg-white rounded-2xl p-8 text-center shadow-md border border-slate-100 flex flex-col items-center justify-center">
                 <div className="text-4xl lg:text-5xl font-serif font-bold text-teal-600 mb-2 tracking-tight">
                   <AnimatedCounter end={stat.end} />{stat.suffix}
                 </div>
                 <div className="text-slate-600 font-medium text-sm uppercase tracking-wider">{stat.label}</div>
-              </div>
+              </ScrollReveal>
             ))}
           </div>
 
@@ -580,7 +582,7 @@ export function Home() {
           <div className="flex flex-col-reverse lg:flex-row items-center gap-12 lg:gap-16">
             
             {/* Left Content Column */}
-            <div className="lg:w-7/12">
+            <ScrollReveal direction="right" className="lg:w-1/2 lg:pr-8">
               <span className="text-teal-600 font-bold uppercase tracking-widest text-xs sm:text-sm block mb-3">
                 Medical Leadership &amp; Expertise
               </span>
@@ -646,10 +648,10 @@ export function Home() {
                   <Calendar className="w-4 h-4" />
                 </a>
               </div>
-            </div>
+            </ScrollReveal>
 
             {/* Right Doctor Photo Column with 3D Depth Studio Card */}
-            <div className="lg:w-5/12 relative w-full group">
+            <ScrollReveal direction="left" delay={200} className="lg:w-1/2 relative w-full group max-w-md mx-auto lg:mx-0 lg:ml-auto">
               
               {/* Back Layer: Decorative 3D Frame & Glow */}
               <div className="absolute -top-5 -right-5 w-full h-full border-2 border-teal-500/25 rounded-[2.5rem] -z-10 hidden sm:block transition-transform duration-700 group-hover:scale-102 group-hover:rotate-1" />
@@ -690,7 +692,7 @@ export function Home() {
                 </div>
               </div>
 
-            </div>
+            </ScrollReveal>
 
           </div>
 
@@ -704,7 +706,7 @@ export function Home() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
             
             {/* Left Info Column */}
-            <div className="lg:col-span-5 space-y-6">
+            <ScrollReveal direction="up" className="lg:col-span-5 space-y-6">
               <span className="text-teal-400 font-bold uppercase tracking-widest text-xs block">
                 Direct Appointment Booking
               </span>
@@ -736,10 +738,10 @@ export function Home() {
                   </div>
                 </div>
               </div>
-            </div>
+            </ScrollReveal>
 
             {/* Right Form Column */}
-            <div className="lg:col-span-7 bg-white/5 backdrop-blur-md p-6 sm:p-10 rounded-3xl border border-white/10 shadow-2xl">
+            <ScrollReveal direction="up" delay={200} className="lg:col-span-7 bg-white/5 backdrop-blur-md p-6 sm:p-10 rounded-3xl border border-white/10 shadow-2xl">
               <form onSubmit={(e) => {
                 e.preventDefault();
                 const btn = e.currentTarget.querySelector('button[type="submit"]') as HTMLButtonElement;
@@ -791,7 +793,7 @@ export function Home() {
                   </button>
                 </div>
               </form>
-            </div>
+            </ScrollReveal>
 
           </div>
 
