@@ -74,7 +74,7 @@ export function DrPriteshPatel() {
                   <p className="text-slate-600 text-base leading-relaxed mb-4">
                     At the Spine &amp; Pain Institute of Texas, Dr. Patel provides comprehensive care for various pain conditions, including:
                   </p>
-                  <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+                  <ul className="list-disc pl-6 space-y-2 text-slate-600 text-base">
                     {[
                       'Back pain and lower back pain',
                       'Neck pain',
@@ -84,9 +84,8 @@ export function DrPriteshPatel() {
                       'Joint pain',
                       'Sports injuries'
                     ].map((item, idx) => (
-                      <li key={idx} className="flex items-center gap-2.5 text-slate-700 text-sm bg-slate-50 px-4 py-2.5 rounded-xl border border-slate-100">
-                        <div className="w-1.5 h-1.5 rounded-full bg-teal-500 shrink-0" />
-                        <span>{item}</span>
+                      <li key={idx} className="pl-1">
+                        {item}
                       </li>
                     ))}
                   </ul>
@@ -135,30 +134,63 @@ export function DrPriteshPatel() {
               </div>
               
               {/* Profile Card */}
-              <div className="w-full bg-[#0b192b] text-white p-8 rounded-3xl shadow-xl border border-white/10">
-                <h4 className="font-serif font-bold text-white text-lg mb-6 text-center">Dr. Pritesh Patel's Profile</h4>
+              <div className="w-full bg-white text-slate-900 p-8 rounded-3xl shadow-[0_8px_30px_rgb(0,0,0,0.08)] border border-slate-100 relative overflow-hidden group">
+                <style>
+                  {`
+                    @keyframes slideInRight {
+                      from { opacity: 0; transform: translateX(20px); }
+                      to { opacity: 1; transform: translateX(0); }
+                    }
+                    .animate-slide-in-1 { animation: slideInRight 0.5s ease-out 1.0s forwards; opacity: 0; }
+                    .animate-slide-in-2 { animation: slideInRight 0.5s ease-out 1.2s forwards; opacity: 0; }
+                    .animate-slide-in-3 { animation: slideInRight 0.5s ease-out 1.4s forwards; opacity: 0; }
+                    .animate-slide-in-4 { animation: slideInRight 0.5s ease-out 1.6s forwards; opacity: 0; }
+                  `}
+                </style>
+                <div className="absolute top-0 right-0 w-32 h-32 bg-blue-50 rounded-bl-full -z-10 opacity-50 transition-transform duration-500 group-hover:scale-110"></div>
                 
-                {/* SVG Semi-Circle Gauge */}
-                <div className="flex justify-center mb-6">
-                  <svg viewBox="0 0 200 120" className="w-52 h-28">
-                    <path d="M 20 110 A 80 80 0 0 1 180 110" fill="none" stroke="rgba(255,255,255,0.1)" strokeWidth="16" strokeLinecap="round" />
-                    <path d="M 20 110 A 80 80 0 0 1 180 110" fill="none" stroke="#14b8a6" strokeWidth="16" strokeLinecap="round" strokeDasharray="251" strokeDashoffset="25">
-                      <animate attributeName="stroke-dashoffset" from="251" to="25" dur="1.5s" fill="freeze" />
-                    </path>
-                    <path d="M 34 110 A 66 66 0 0 1 166 110" fill="none" stroke="#38bdf8" strokeWidth="12" strokeLinecap="round" strokeDasharray="207" strokeDashoffset="30">
-                      <animate attributeName="stroke-dashoffset" from="207" to="30" dur="1.3s" fill="freeze" />
-                    </path>
-                  </svg>
-                </div>
+                <h4 className="font-sans font-bold text-slate-900 text-[17px] mb-10 text-center relative z-10 tracking-tight">
+                  Dr. Pritesh Patel's Professional Profile
+                </h4>
+                
+                <div className="flex justify-center items-end h-48 w-full max-w-sm mx-auto mb-4">
+                  <div className="relative w-[140px] h-[140px] shrink-0 mr-6">
+                    <svg viewBox="0 0 200 200" className="absolute bottom-0 left-0 w-[200px] h-[200px] overflow-visible filter drop-shadow-xl">
+                      {/* Outer: Board Certifications */}
+                      <path d="M 175 200 A 175 175 0 0 0 0 25" fill="none" stroke="#7aa3f5" strokeWidth="50" strokeLinecap="butt" strokeDasharray="275" strokeDashoffset="275">
+                        <animate attributeName="stroke-dashoffset" from="275" to="0" dur="1.2s" fill="freeze" calcMode="spline" keySplines="0.4 0 0.2 1" />
+                      </path>
+                      
+                      {/* Layer 2: Expertise */}
+                      <path d="M 125 200 A 125 125 0 0 0 0 75" fill="none" stroke="#6b8ce6" strokeWidth="50" strokeLinecap="butt" strokeDasharray="197" strokeDashoffset="197">
+                        <animate attributeName="stroke-dashoffset" from="197" to="0" dur="1.2s" fill="freeze" calcMode="spline" keySplines="0.4 0 0.2 1" begin="0.2s" />
+                      </path>
+                      
+                      {/* Layer 3: Education */}
+                      <path d="M 75 200 A 75 75 0 0 0 0 125" fill="none" stroke="#4a6bc7" strokeWidth="50" strokeLinecap="butt" strokeDasharray="118" strokeDashoffset="118">
+                        <animate attributeName="stroke-dashoffset" from="118" to="0" dur="1.2s" fill="freeze" calcMode="spline" keySplines="0.4 0 0.2 1" begin="0.4s" />
+                      </path>
 
-                <div className="space-y-2.5 text-xs text-slate-300">
-                  <div className="flex items-center gap-2.5 bg-white/5 p-2.5 rounded-xl">
-                    <div className="w-3 h-3 rounded-full bg-teal-400 shrink-0" />
-                    <span className="font-semibold text-white">Double Board-Certified Specialist</span>
+                      {/* Inner: Pain Management Specialist */}
+                      <path d="M 25 200 A 25 25 0 0 0 0 175" fill="none" stroke="#365099" strokeWidth="50" strokeLinecap="butt" strokeDasharray="40" strokeDashoffset="40">
+                        <animate attributeName="stroke-dashoffset" from="40" to="0" dur="1.2s" fill="freeze" calcMode="spline" keySplines="0.4 0 0.2 1" begin="0.6s" />
+                      </path>
+                    </svg>
                   </div>
-                  <div className="flex items-center gap-2.5 bg-white/5 p-2.5 rounded-xl">
-                    <div className="w-3 h-3 rounded-full bg-sky-400 shrink-0" />
-                    <span className="font-semibold text-white">11+ Years Clinical Experience</span>
+                  
+                  <div className="flex flex-col justify-between h-[180px] pb-4 shrink-0">
+                    <div className="text-[13px] font-medium text-slate-800 animate-slide-in-1">
+                      Board Certifications
+                    </div>
+                    <div className="text-[13px] font-medium text-slate-800 animate-slide-in-2">
+                      Expertise
+                    </div>
+                    <div className="text-[13px] font-medium text-slate-800 animate-slide-in-3">
+                      Education
+                    </div>
+                    <div className="text-[13px] font-medium text-slate-800 animate-slide-in-4">
+                      Pain Management Specialist
+                    </div>
                   </div>
                 </div>
               </div>

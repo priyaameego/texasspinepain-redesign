@@ -1,5 +1,6 @@
 import { Link } from '@tanstack/react-router';
 import { CheckCircle, Phone, ChevronRight, Calendar, Home } from 'lucide-react';
+import { Helmet } from 'react-helmet-async';
 
 interface ConditionPageProps {
   title: string;
@@ -17,11 +18,21 @@ function ConditionPage({
 }: ConditionPageProps) {
   return (
     <div className="flex flex-col min-h-screen pt-24 bg-white">
+      <Helmet>
+        <title>{title} Treatment Dallas | Spine & Pain Institute of Texas</title>
+        <meta name="description" content={description.length > 155 ? description.substring(0, 155) + '...' : description} />
+      </Helmet>
 
       {/* Editorial Subpage Hero Header */}
       <div className="bg-[#0b192b] text-white py-16 lg:py-24 px-4 lg:px-8 relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-r from-[#0b192b] via-[#0b192b]/90 to-teal-950/40" />
-        <img src={heroImage} alt={title} className="absolute inset-0 w-full h-full object-cover opacity-20 pointer-events-none" />
+        <img 
+          src={heroImage.replace('q=80&w=2000', 'q=30&w=600&blur=10&fm=webp')} 
+          alt={title} 
+          className="absolute inset-0 w-full h-full object-cover opacity-20 pointer-events-none" 
+          fetchPriority="high"
+          loading="eager"
+        />
         <div className="container mx-auto max-w-7xl relative z-10">
           <div className="flex items-center gap-2 text-xs font-semibold text-teal-300 uppercase tracking-widest mb-4">
             <Link to="/" className="hover:text-white flex items-center gap-1">
@@ -271,11 +282,11 @@ export function FacePain() {
 export function KneePain() {
   return <ConditionPage
     title="Knee Pain"
-    subtitle="Advanced knee pain management in Dallas. Restore mobility, reduce pain, and avoid unnecessary surgery."
+    subtitle="Advanced knee pain management in Dallas. Restore your mobility, reduce pain, and explore alternatives to unnecessary surgery."
     heroImage="https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?q=80&w=2000&auto=format&fit=crop"
-    intro="Knee pain is among the most common complaints we treat. Whether caused by arthritis, injury, or overuse, our interventional approach can provide significant pain relief and help you regain function without surgery."
-    description="Our knee pain specialists use advanced imaging and diagnostic techniques to precisely identify the source of your knee pain. From targeted injections to regenerative medicine, we offer a full spectrum of non-surgical treatments designed to restore comfort and mobility."
-    symptoms={['Persistent aching or stiffness in the knee', 'Swelling or inflammation', 'Sharp pain with activity', 'Popping or crunching sounds', 'Inability to fully extend the knee', 'Weakness or instability']}
+    intro="Struggling with knee pain can make simple daily activities like walking, climbing stairs, or playing with your kids feel impossible. We understand how frustrating it is when your body holds you back. At the Spine & Pain Institute of Texas, our goal is to help you find real, lasting relief."
+    description="You don't always have to jump straight into invasive surgery for knee issues. Our specialists take the time to accurately diagnose the root cause of your pain. From cutting-edge regenerative medicine to targeted, minimally invasive treatments, we create personalized care plans designed to help you regain your active lifestyle."
+    symptoms={['Persistent aching or stiffness in the knee', 'Swelling or inflammation that limits movement', 'Sharp pain during normal daily activities', 'Popping or crunching sounds', 'Inability to fully extend the knee', 'Weakness or a feeling of instability']}
     treatments={['Corticosteroid Injections', 'Hyaluronic Acid (Viscosupplementation)', 'Platelet-Rich Plasma (PRP)', 'Genicular Nerve Blocks', 'Radiofrequency Ablation', 'Physical Therapy', 'Medication Management', 'Stem Cell Therapy', 'Regenerative Medicine']}
     causes={['Osteoarthritis', 'Tendinitis', 'Bursitis', 'Meniscus tears', 'Ligament injuries (ACL, MCL)', 'Patellofemoral syndrome']}
   />;
