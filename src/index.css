@@ -197,3 +197,28 @@
   }
 }
 
+/* Premium Service Card Hover Effect */
+@media (hover: hover) and (pointer: fine) {
+  .tilt-card {
+    transition: transform 0.1s ease, box-shadow 0.4s ease, border-color 0.4s ease;
+  }
+  
+  .tilt-card:hover {
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.1), 0 0 0 1px rgba(20, 184, 166, 0.2);
+  }
+
+  .tilt-card .icon-wrapper {
+    transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+
+  .tilt-card:hover .icon-wrapper {
+    transform: translateY(-4px) scale(1.05);
+  }
+}
+
+@media (hover: none) {
+  .tilt-card:active {
+    transform: translateY(-2px) scale(0.99);
+    transition: transform 0.2s ease;
+  }
+}

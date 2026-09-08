@@ -1,10 +1,11 @@
 import { useState } from 'react';
 import { 
-  Activity, Crosshair, Shield, Zap, Users, Brain, Stethoscope, ChevronRight, 
-  PhoneCall, Calendar, CheckCircle2, UserCheck, Sparkles, Home, Search, X, Star
+  Search, PhoneCall, ArrowRight, Activity, Crosshair, Sparkles, CheckCircle2,
+  Syringe, Brain, ShieldCheck, FileCheck, Stethoscope, Briefcase, Pill, Target, Settings, ArrowUpRight, Zap, ChevronRight, Home, X, Star, Users
 } from 'lucide-react';
 import { Link } from '@tanstack/react-router';
 import { ScrollReveal } from '../components/ScrollReveal';
+import { TiltWrapper } from '../components/TiltWrapper';
 
 export function Services() {
   const [activeTab, setActiveTab] = useState(0);
@@ -358,10 +359,10 @@ export function Services() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               {filteredServices.map((sec, idx) => (
                 <ScrollReveal key={idx} direction="up" delay={idx * 50}>
-                  <div className="bg-slate-50 p-8 rounded-3xl border border-slate-200 shadow-sm hover:shadow-md transition-all flex flex-col justify-between h-full">
+                  <TiltWrapper className="bg-slate-50 p-8 rounded-3xl border border-slate-200 shadow-sm hover:shadow-md transition-all flex flex-col justify-between h-full">
                     <div>
                       <div className="flex items-center justify-between mb-4">
-                        <div className="bg-white p-3 rounded-2xl shadow-xs border border-slate-100">{sec.icon}</div>
+                        <div className="bg-white p-3 rounded-2xl shadow-xs border border-slate-100 icon-wrapper">{sec.icon}</div>
                         <span className="text-xs font-bold uppercase tracking-wider text-teal-700 bg-teal-50 px-3 py-1 rounded-full border border-teal-100">{sec.badge}</span>
                       </div>
                       <h3 className="text-xl font-serif font-bold text-slate-900 mb-3">{sec.title}</h3>
@@ -371,7 +372,7 @@ export function Services() {
                       <span>Consult Specialist</span>
                       <ChevronRight className="w-4 h-4" />
                     </a>
-                  </div>
+                  </TiltWrapper>
                 </ScrollReveal>
               ))}
             </div>

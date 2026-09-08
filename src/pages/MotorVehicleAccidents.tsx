@@ -6,6 +6,7 @@ import {
   HelpCircle, Check
 } from 'lucide-react';
 import { Link } from '@tanstack/react-router';
+import { TiltWrapper } from '../components/TiltWrapper';
 
 export function MotorVehicleAccidents() {
   const [openFaq, setOpenFaq] = useState<number | null>(0);
@@ -48,154 +49,101 @@ export function MotorVehicleAccidents() {
   return (
     <div className="flex flex-col min-h-screen pt-24 sm:pt-28 bg-white text-gray-800 antialiased">
       
-      {/* ─── Breadcrumb Banner (matching site theme) ─── */}
-      <div className="bg-[#f8fbff] py-10 sm:py-14 px-4 lg:px-8 border-b border-gray-100">
-        <div className="container mx-auto max-w-6xl">
-          <h1 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4 tracking-tight">
-            Motor Vehicle Accidents
-          </h1>
-          <nav aria-label="Breadcrumb" className="flex items-center text-sm text-[#0b192b] bg-white w-max px-4 py-2 rounded-md shadow-sm border border-gray-100">
-            <Link to="/" className="hover:text-primary-600 transition-colors flex items-center">
-              <Home className="w-4 h-4 mr-1.5 text-[#17a2b8]" />
-              <span>Home</span>
-            </Link>
-            <span className="mx-2 text-gray-400">»</span>
-            <Link to="/services" className="hover:text-primary-600 transition-colors">Services</Link>
-            <span className="mx-2 text-gray-400">»</span>
-            <span className="font-semibold text-gray-600">Motor Vehicle Accidents</span>
-          </nav>
-        </div>
-      </div>
+      {/* ─── Editorial Subpage Hero ─── */}
+      <section className="bg-[#0b192b] text-white py-16 lg:py-24 px-4 lg:px-8 relative overflow-hidden">
+        {/* Subtle Background Glow */}
+        <div className="absolute inset-0 bg-gradient-to-r from-[#0b192b] via-[#0b192b]/95 to-teal-950/40 z-0" />
+        <div className="absolute -top-24 -right-24 w-96 h-96 bg-teal-500/10 rounded-full blur-3xl pointer-events-none" />
 
-      {/* ─── Hero Section ─── */}
-      <section className="relative bg-gradient-to-b from-white via-[#f4f9fd] to-white py-12 md:py-20 overflow-hidden border-b border-gray-100">
-        <div className="container mx-auto px-4 lg:px-8 max-w-6xl">
+        <div className="container mx-auto max-w-7xl relative z-10">
           
-          {/* Eyebrow & Main Title */}
-          <div className="max-w-4xl mb-8">
-            <div className="inline-flex items-center gap-2 bg-[#eef7fa] text-[#17a2b8] px-3.5 py-1.5 rounded-full text-xs sm:text-sm font-bold tracking-wide uppercase border border-[#d4ecf6] mb-4">
-              <Car className="w-4 h-4 text-[#17a2b8]" />
-              <span>Auto Accident Injury Clinic in Dallas, TX</span>
-            </div>
-            
-            <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-gray-900 leading-tight mb-5">
-              Expert Auto Accident Injury Treatment in <span className="text-[#0b192b]">Dallas, Texas</span>
-            </h1>
-
-            {/* Subheading Badges / Highlights */}
-            <div className="flex flex-wrap items-center gap-2 sm:gap-3 text-xs sm:text-sm font-medium text-gray-700">
-              <span className="inline-flex items-center px-3 py-1.5 rounded-md bg-blue-50 text-[#0b192b] font-semibold border border-blue-100">
-                Same-Day Emergency Appointments Available
-              </span>
-              <span className="hidden sm:inline text-gray-300">|</span>
-              <span className="inline-flex items-center px-3 py-1.5 rounded-md bg-teal-50 text-[#17a2b8] font-semibold border border-teal-100">
-                Letter of Protection Accepted
-              </span>
-              <span className="hidden sm:inline text-gray-300">|</span>
-              <span className="inline-flex items-center px-3 py-1.5 rounded-md bg-gray-100 text-gray-800 font-semibold border border-gray-200">
-                No Upfront Costs
-              </span>
-            </div>
+          {/* Breadcrumb Bar */}
+          <div className="flex items-center gap-2 text-xs font-semibold text-teal-300 uppercase tracking-widest mb-6">
+            <Link to="/" className="hover:text-white flex items-center gap-1">
+              <Home className="w-3.5 h-3.5" /> Home
+            </Link>
+            <span className="text-slate-500">/</span>
+            <Link to="/services" className="hover:text-white">Services</Link>
+            <span className="text-slate-500">/</span>
+            <span className="text-slate-200">Motor Vehicle Accidents</span>
           </div>
 
-          {/* Hero Content Grid: Left Text + Right CTA Box */}
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             
-            {/* Left Content */}
-            <div className="lg:col-span-7 xl:col-span-7 space-y-6">
-              <p className="text-base sm:text-lg text-gray-700 leading-relaxed">
-                After a <strong className="font-semibold text-gray-900">motor vehicle accident</strong> in Dallas, getting immediate medical attention isn't just important—it's crucial for your health and legal protection. At <strong className="font-semibold text-[#0b192b]">Spine &amp; Pain Institute of Texas</strong>, Dr. Pritesh Patel, DO, and our specialized team provide comprehensive <strong className="font-semibold text-gray-900">auto accident injury treatment</strong> for patients throughout <strong className="font-semibold text-gray-900">Dallas, Plano, Richardson, Garland, Irving, and North Texas</strong>.
-              </p>
-
-              {/* Doctor / Clinic Credential Trust Chips */}
-              <div className="flex flex-wrap items-center gap-2.5 pt-1">
-                <span className="inline-flex items-center gap-1.5 bg-[#f0f8fb] border border-[#d4ecf6] rounded-full px-3 py-1 text-xs text-gray-700 font-medium shadow-xs">
-                  <ShieldCheck className="w-3.5 h-3.5 text-[#17a2b8]" />
-                  Board-Certified Fellowship-Trained
-                </span>
-                <span className="inline-flex items-center gap-1.5 bg-amber-50 border border-amber-200/70 rounded-full px-3 py-1 text-xs text-amber-900 font-medium shadow-xs">
-                  <span className="text-amber-500 font-bold">★ 4.7/5</span>
-                  Patient Satisfaction
-                </span>
-                <span className="inline-flex items-center gap-1.5 bg-blue-50 border border-blue-100 rounded-full px-3 py-1 text-xs text-[#0b192b] font-medium shadow-xs">
-                  <Clock className="w-3.5 h-3.5 text-[#0b192b]" />
-                  Same-Day Emergency Slots
-                </span>
+            {/* Hero Left Info */}
+            <div className="lg:col-span-7">
+              <div className="inline-flex items-center bg-teal-500/20 text-teal-300 font-bold px-3.5 py-1.5 rounded-full text-xs uppercase tracking-wider mb-6 border border-teal-500/30">
+                <Car className="w-4 h-4 mr-2 text-teal-400" /> Auto Accident Injury Clinic in Dallas, TX
               </div>
 
-              {/* Highlights List */}
-              <div className="bg-white rounded-xl p-5 sm:p-6 border border-gray-200 shadow-sm hover:shadow-md transition-shadow">
-                <h2 className="text-sm font-bold uppercase tracking-wider text-[#0b192b] mb-4">
-                  Why Accident Victims Trust Our Care
-                </h2>
-                <ul className="space-y-3">
-                  {[
-                    "Same-day and emergency appointments for accident victims",
-                    "Comprehensive diagnostics: X-ray, MRI referrals, EMG testing",
-                    "Advanced pain management and rehabilitation treatments",
-                    "Direct coordination with personal injury attorneys",
-                    <span><strong className="font-semibold text-gray-900">Letter of Protection</strong> accepted – no upfront payment required</span>,
-                    "All major insurance, PIP, and workers compensation accepted"
-                  ].map((item, idx) => (
-                    <li key={idx} className="flex items-start text-sm sm:text-base text-gray-700">
-                      <div className="mr-3 mt-0.5 w-5 h-5 rounded-full bg-emerald-50 text-emerald-600 flex items-center justify-center shrink-0 border border-emerald-200">
-                        <Check className="w-3.5 h-3.5 stroke-[2.5]" />
-                      </div>
-                      <div>{item}</div>
-                    </li>
-                  ))}
-                </ul>
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-serif text-white tracking-tight leading-tight mb-6">
+                Expert Auto Accident Injury Treatment in <span className="text-teal-400">Dallas, Texas</span>
+              </h1>
+
+              <p className="text-teal-100 text-base sm:text-lg font-medium mb-6 leading-relaxed">
+                Same-Day Emergency Appointments &nbsp;|&nbsp; Letter of Protection Accepted &nbsp;|&nbsp; No Upfront Costs
+              </p>
+
+              <p className="text-slate-300 text-sm sm:text-base leading-relaxed font-normal mb-8">
+                After a <strong className="text-white font-semibold">motor vehicle accident</strong> in Dallas, getting immediate medical attention isn't just important—it's crucial for your health and legal protection. At <strong className="text-white font-semibold">Spine &amp; Pain Institute of Texas</strong>, Dr. Pritesh Patel, DO, and our specialized team provide comprehensive <strong className="text-white font-semibold">auto accident injury treatment</strong> for patients throughout <strong className="text-white font-semibold">Dallas, Plano, Richardson, Garland, Irving, and North Texas</strong>.
+              </p>
+
+              {/* 6 Key Highlights */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs sm:text-sm font-medium">
+                {[
+                  "Same-day and emergency appointments",
+                  "Comprehensive diagnostics (X-ray, MRI, EMG)",
+                  "Advanced pain management & rehab",
+                  "Direct attorney coordination",
+                  "Letter of Protection accepted",
+                  "All major insurance & PIP accepted"
+                ].map((item, idx) => (
+                  <div key={idx} className="flex items-center gap-2.5 bg-white/5 backdrop-blur-sm p-3 rounded-xl border border-white/10 text-slate-200">
+                    <CheckCircle2 className="w-4 h-4 text-teal-400 shrink-0" />
+                    <span>{item}</span>
+                  </div>
+                ))}
               </div>
             </div>
 
-            {/* Right: CTA Box */}
-            <div className="lg:col-span-5 xl:col-span-5">
-              <div className="bg-white rounded-2xl p-6 sm:p-8 shadow-xl border-2 border-[#17a2b8]/20 relative overflow-hidden">
-                <div className="absolute top-0 right-0 w-32 h-32 bg-[#17a2b8]/10 rounded-full blur-2xl -z-0"></div>
-                <div className="relative z-10">
-                  <div className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-[#17a2b8] mb-2">
-                    <Clock className="w-4 h-4" /> Urgent Care Available
-                  </div>
-                  <h2 className="text-2xl font-bold text-gray-900 mb-2">
-                    Call Now for Same-Day Care
-                  </h2>
-                  <div className="my-4">
-                    <a 
-                      href="tel:+14693130040" 
-                      className="inline-flex items-center text-2xl sm:text-3xl font-extrabold text-[#0b192b] hover:text-[#17a2b8] transition-colors"
-                    >
-                      <PhoneCall className="w-6 h-6 mr-3 text-[#17a2b8]" />
-                      (469) 313-0040
-                    </a>
-                  </div>
-                  <p className="text-gray-600 text-sm sm:text-base mb-6 leading-relaxed">
-                    Get immediate medical evaluation after your <strong className="text-gray-900">car accident</strong> in Dallas.
-                  </p>
-                  
-                  <div className="space-y-3">
-                    <a 
-                      href="#appointment" 
-                      className="block w-full text-center bg-[#17a2b8] hover:bg-[#138496] text-white font-bold py-3.5 px-6 rounded-lg transition-all shadow-md hover:shadow-lg text-sm sm:text-base"
-                    >
-                      Request a Same-Day Appointment
-                    </a>
-                    <a 
-                      href="tel:+14693130040" 
-                      className="block w-full text-center bg-gray-50 hover:bg-gray-100 text-gray-800 font-bold py-3 px-6 rounded-lg border border-gray-200 transition-colors text-sm sm:text-base"
-                    >
-                      Call (469) 313-0040
-                    </a>
-                  </div>
+            {/* Hero Right CTA Box */}
+            <div className="lg:col-span-5">
+              <div className="bg-white text-slate-900 p-8 rounded-3xl shadow-2xl border border-slate-100 relative overflow-hidden">
+                <div className="inline-block bg-teal-50 text-teal-800 font-bold text-xs px-3.5 py-1 rounded-full uppercase tracking-wider mb-4 border border-teal-200">
+                  Urgent Care Available
+                </div>
 
-                  <p className="text-xs text-gray-500 mt-5 text-center leading-normal">
-                    No upfront costs with qualifying <strong className="text-gray-700">Letter of Protection (LOP)</strong>.
-                  </p>
+                <h2 className="text-2xl font-serif font-bold text-slate-900 mb-2">
+                  Call Now for Same-Day Care
+                </h2>
+
+                <a 
+                  href="tel:4693130040" 
+                  className="inline-flex items-center text-2xl sm:text-3xl font-extrabold text-teal-600 hover:text-teal-700 transition-colors mb-4"
+                >
+                  <PhoneCall className="w-7 h-7 mr-3 shrink-0 text-teal-600" />
+                  (469) 313-0040
+                </a>
+
+                <p className="text-slate-600 text-sm mb-6 leading-relaxed">
+                  Get immediate medical evaluation after your <strong className="text-slate-800">car accident</strong> in Dallas.
+                </p>
+
+                <a 
+                  href="#appointment-section" 
+                  className="block w-full bg-[#0b192b] hover:bg-teal-600 text-white text-center py-4 rounded-xl font-bold text-xs uppercase tracking-wider transition-colors shadow-md mb-4"
+                >
+                  Request a Same-Day Appointment
+                </a>
+
+                <div className="flex items-center gap-2 text-xs text-slate-600 bg-slate-50 p-3.5 rounded-xl border border-slate-200">
+                  <ShieldCheck className="w-4 h-4 text-teal-600 shrink-0" />
+                  <span>No upfront costs with qualifying <strong className="text-slate-800">Letter of Protection (LOP)</strong>.</span>
                 </div>
               </div>
             </div>
 
           </div>
-
         </div>
       </section>
 
@@ -203,15 +151,15 @@ export function MotorVehicleAccidents() {
       <section className="py-16 md:py-24 bg-[#f8fbff] border-b border-gray-100">
         <div className="container mx-auto px-4 lg:px-8 max-w-6xl">
           <div className="text-center max-w-3xl mx-auto mb-14">
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Why Choose Our Dallas <span className="text-[#0b192b]">Auto Accident Clinic</span>?
+            <h2 className="text-3xl sm:text-4xl font-serif font-bold text-slate-900 tracking-tight">
+              Why Choose Our Dallas <span className="text-teal-600">Auto Accident Clinic</span>?
             </h2>
-            <p className="text-gray-600 text-base sm:text-lg leading-relaxed">
-              Our clinic is dedicated to helping victims of <strong className="text-gray-800">motor vehicle accidents</strong> in Dallas and across North Texas recover safely and return to daily life as quickly as possible.
+            <p className="text-slate-600 text-base sm:text-lg mt-3">
+              Our clinic is dedicated to helping victims of <strong className="text-slate-800">motor vehicle accidents</strong> in Dallas and across North Texas recover safely and return to daily life as quickly as possible.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {[
               {
                 icon: Activity,
@@ -262,20 +210,19 @@ export function MotorVehicleAccidents() {
                 desc: "Serving patients from Dallas, Plano, Richardson, Garland, Mesquite, Irving, Carrollton, Farmers Branch, Addison, and beyond."
               }
             ].map((item, idx) => (
-              <div 
-                key={idx} 
-                className={`bg-white rounded-xl p-6 sm:p-7 shadow-sm hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 ${item.border} border-x border-b border-gray-100 group`}
-              >
-                <div className={`w-12 h-12 rounded-lg ${item.bg} ${item.color} flex items-center justify-center mb-5 group-hover:scale-110 transition-transform duration-300`}>
-                  <item.icon className="w-6 h-6" />
+              <TiltWrapper key={idx} className="bg-white p-8 rounded-3xl shadow-sm hover:shadow-xl transition-all border border-slate-200 flex flex-col justify-between group h-full">
+                <div>
+                  <div className="bg-teal-50 w-14 h-14 rounded-2xl flex items-center justify-center mb-6 border border-teal-100 icon-wrapper">
+                    <item.icon className="w-6 h-6 text-teal-600" />
+                  </div>
+                  <h3 className="text-xl font-serif font-bold text-slate-900 mb-3">
+                    {item.title}
+                  </h3>
+                  <p className="text-slate-600 text-sm leading-relaxed">
+                    {item.desc}
+                  </p>
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-2.5">
-                  {item.title}
-                </h3>
-                <p className="text-gray-600 text-sm sm:text-base leading-relaxed">
-                  {item.desc}
-                </p>
-              </div>
+              </TiltWrapper>
             ))}
           </div>
         </div>

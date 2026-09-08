@@ -327,6 +327,423 @@ export function TruckAccidents() {
         </div>
       </section>
 
+      {/* ─── Critical Actions After an 18 Wheeler Accident ─── */}
+      <section className="py-20 bg-slate-50 border-b border-slate-200/60">
+        <div className="container mx-auto px-4 lg:px-8 max-w-7xl">
+          <div className="text-center max-w-3xl mx-auto mb-16">
+            <span className="text-teal-600 font-bold text-xs uppercase tracking-widest block mb-2">
+              Emergency Response
+            </span>
+            <h2 className="text-3xl sm:text-4xl font-serif font-bold text-slate-900 tracking-tight">
+              Critical Actions After an <span className="text-teal-600">18 Wheeler Accident</span>
+            </h2>
+            <p className="text-slate-600 text-base sm:text-lg mt-3">
+              Time is of the essence following a commercial truck collision. Follow these critical steps to protect your health and legal rights.
+            </p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+            <div>
+              <h3 className="text-xl font-bold text-slate-900 mb-6">At the Scene (If Physically Able)</h3>
+              <ul className="space-y-4 text-slate-700 text-sm sm:text-base">
+                <li className="flex items-start gap-3">
+                  <div className="w-1.5 h-1.5 rounded-full bg-slate-700 shrink-0 mt-2"></div>
+                  <div><strong>Ensure Safety First</strong> - Move away from traffic, watch for fuel spills or fire hazards</div>
+                </li>
+                <li className="flex items-start gap-3">
+                  <div className="w-1.5 h-1.5 rounded-full bg-slate-700 shrink-0 mt-2"></div>
+                  <div><strong>Call Emergency Services</strong> - 911 for police and medical response, request ambulance even if you feel "okay"</div>
+                </li>
+                <li className="flex items-start gap-3">
+                  <div className="w-1.5 h-1.5 rounded-full bg-slate-700 shrink-0 mt-2"></div>
+                  <div><strong>Document Everything</strong> - Photos of truck, trailer, your vehicle, and injuries</div>
+                </li>
+                <li className="flex items-start gap-3">
+                  <div className="w-1.5 h-1.5 rounded-full bg-slate-700 shrink-0 mt-2"></div>
+                  <div><strong>Get Truck Information</strong> - Commercial license, trucking company name, DOT numbers</div>
+                </li>
+                <li className="flex items-start gap-3">
+                  <div className="w-1.5 h-1.5 rounded-full bg-slate-700 shrink-0 mt-2"></div>
+                  <div><strong>Preserve Evidence</strong> - Don't move vehicles, photograph skid marks and debris</div>
+                </li>
+              </ul>
+            </div>
+            <div>
+              <h3 className="text-xl font-bold text-slate-900 mb-6">Within 24 Hours</h3>
+              <ul className="space-y-4 text-slate-700 text-sm sm:text-base mb-8">
+                <li className="flex items-start gap-3">
+                  <div className="w-1.5 h-1.5 rounded-full bg-slate-700 shrink-0 mt-2"></div>
+                  <div><strong>Seek Immediate Medical Attention</strong> - Many truck accident injuries have delayed symptoms</div>
+                </li>
+                <li className="flex items-start gap-3">
+                  <div className="w-1.5 h-1.5 rounded-full bg-slate-700 shrink-0 mt-2"></div>
+                  <div><strong>Contact Legal Representation</strong> - Truck accidents involve complex liability issues</div>
+                </li>
+                <li className="flex items-start gap-3">
+                  <div className="w-1.5 h-1.5 rounded-full bg-slate-700 shrink-0 mt-2"></div>
+                  <div><strong>Call Our Emergency Line</strong> - (469) 313-0040 for immediate medical evaluation</div>
+                </li>
+                <li className="flex items-start gap-3">
+                  <div className="w-1.5 h-1.5 rounded-full bg-slate-700 shrink-0 mt-2"></div>
+                  <div><strong>Document Symptoms</strong> - Keep detailed records of pain and limitations</div>
+                </li>
+                <li className="flex items-start gap-3">
+                  <div className="w-1.5 h-1.5 rounded-full bg-slate-700 shrink-0 mt-2"></div>
+                  <div><strong>Preserve Medical Evidence</strong> - Early documentation is crucial for legal cases</div>
+                </li>
+              </ul>
+              <p className="text-sm text-slate-600 italic">
+                Critical: Adrenaline can mask severe injuries for hours or days. Some injuries worsen without prompt treatment.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ─── Common Causes of 18 Wheeler Accidents ─── */}
+      <section className="py-20 bg-slate-50 border-b border-slate-200/60">
+        <div className="container mx-auto px-4 lg:px-8 max-w-7xl">
+          <div className="text-center max-w-3xl mx-auto mb-16">
+            <span className="text-teal-600 font-bold text-xs uppercase tracking-widest block mb-2">
+              Accident Factors
+            </span>
+            <h2 className="text-3xl sm:text-4xl font-serif font-bold text-slate-900 tracking-tight">
+              Common Causes of <span className="text-teal-600">18 Wheeler Accidents</span>
+            </h2>
+            <p className="text-slate-600 text-base sm:text-lg mt-3">
+              Understanding the factors that contribute to commercial trucking accidents is crucial for your recovery and legal case.
+            </p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="bg-white p-8 rounded-2xl border border-slate-200 shadow-sm">
+              <h3 className="text-xl font-bold text-slate-900 mb-4">Driver-Related Factors</h3>
+              <ul className="space-y-3 text-slate-700 text-sm">
+                <li className="flex items-start gap-2">
+                  <div className="w-1.5 h-1.5 rounded-full bg-slate-700 shrink-0 mt-2"></div>
+                  <div><strong>Driver Fatigue:</strong> Hours of Service violations, inadequate rest periods</div>
+                </li>
+                <li className="flex items-start gap-2">
+                  <div className="w-1.5 h-1.5 rounded-full bg-slate-700 shrink-0 mt-2"></div>
+                  <div><strong>Distracted Driving:</strong> Cell phone use, GPS navigation, CB radio distractions</div>
+                </li>
+                <li className="flex items-start gap-2">
+                  <div className="w-1.5 h-1.5 rounded-full bg-slate-700 shrink-0 mt-2"></div>
+                  <div><strong>Impaired Driving:</strong> Alcohol, drugs, prescription medications</div>
+                </li>
+                <li className="flex items-start gap-2">
+                  <div className="w-1.5 h-1.5 rounded-full bg-slate-700 shrink-0 mt-2"></div>
+                  <div><strong>Reckless Driving:</strong> Excessive speeding, following too closely</div>
+                </li>
+              </ul>
+            </div>
+            <div className="bg-white p-8 rounded-2xl border border-slate-200 shadow-sm">
+              <h3 className="text-xl font-bold text-slate-900 mb-4">Mechanical &amp; Maintenance Issues</h3>
+              <ul className="space-y-3 text-slate-700 text-sm">
+                <li className="flex items-start gap-2">
+                  <div className="w-1.5 h-1.5 rounded-full bg-slate-700 shrink-0 mt-2"></div>
+                  <div><strong>Brake Failures:</strong> Inadequate maintenance, overheated brake systems</div>
+                </li>
+                <li className="flex items-start gap-2">
+                  <div className="w-1.5 h-1.5 rounded-full bg-slate-700 shrink-0 mt-2"></div>
+                  <div><strong>Tire Problems:</strong> Blowouts, inadequate tread depth, improper pressure</div>
+                </li>
+                <li className="flex items-start gap-2">
+                  <div className="w-1.5 h-1.5 rounded-full bg-slate-700 shrink-0 mt-2"></div>
+                  <div><strong>Equipment Malfunctions:</strong> Steering failures, transmission problems</div>
+                </li>
+                <li className="flex items-start gap-2">
+                  <div className="w-1.5 h-1.5 rounded-full bg-slate-700 shrink-0 mt-2"></div>
+                  <div><strong>Coupling Defects:</strong> Trailer separation, hitch failures</div>
+                </li>
+              </ul>
+            </div>
+            <div className="bg-white p-8 rounded-2xl border border-slate-200 shadow-sm">
+              <h3 className="text-xl font-bold text-slate-900 mb-4">Loading &amp; Cargo Issues</h3>
+              <ul className="space-y-3 text-slate-700 text-sm">
+                <li className="flex items-start gap-2">
+                  <div className="w-1.5 h-1.5 rounded-full bg-slate-700 shrink-0 mt-2"></div>
+                  <div><strong>Overloading:</strong> Exceeding weight limits, improper distribution</div>
+                </li>
+                <li className="flex items-start gap-2">
+                  <div className="w-1.5 h-1.5 rounded-full bg-slate-700 shrink-0 mt-2"></div>
+                  <div><strong>Unsecured Cargo:</strong> Shifting loads during transport</div>
+                </li>
+                <li className="flex items-start gap-2">
+                  <div className="w-1.5 h-1.5 rounded-full bg-slate-700 shrink-0 mt-2"></div>
+                  <div><strong>Hazardous Materials:</strong> Improper handling of dangerous cargo</div>
+                </li>
+                <li className="flex items-start gap-2">
+                  <div className="w-1.5 h-1.5 rounded-full bg-slate-700 shrink-0 mt-2"></div>
+                  <div><strong>Loading Violations:</strong> Failure to follow federal regulations</div>
+                </li>
+              </ul>
+            </div>
+            <div className="bg-white p-8 rounded-2xl border border-slate-200 shadow-sm">
+              <h3 className="text-xl font-bold text-slate-900 mb-4">Federal Regulation Violations</h3>
+              <ul className="space-y-3 text-slate-700 text-sm">
+                <li className="flex items-start gap-2">
+                  <div className="w-1.5 h-1.5 rounded-full bg-slate-700 shrink-0 mt-2"></div>
+                  <div><strong>Hours of Service:</strong> Exceeding maximum driving time limits</div>
+                </li>
+                <li className="flex items-start gap-2">
+                  <div className="w-1.5 h-1.5 rounded-full bg-slate-700 shrink-0 mt-2"></div>
+                  <div><strong>Driver Qualifications:</strong> Inadequate licensing or training</div>
+                </li>
+                <li className="flex items-start gap-2">
+                  <div className="w-1.5 h-1.5 rounded-full bg-slate-700 shrink-0 mt-2"></div>
+                  <div><strong>Vehicle Inspections:</strong> Failure to maintain proper records</div>
+                </li>
+                <li className="flex items-start gap-2">
+                  <div className="w-1.5 h-1.5 rounded-full bg-slate-700 shrink-0 mt-2"></div>
+                  <div><strong>Drug &amp; Alcohol Testing:</strong> Non-compliance with testing requirements</div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ─── Specialized Treatment for Truck Accident Injuries ─── */}
+      <section className="py-20 bg-white border-b border-slate-200/60">
+        <div className="container mx-auto px-4 lg:px-8 max-w-7xl">
+          <div className="text-center max-w-3xl mx-auto mb-16">
+            <span className="text-teal-600 font-bold text-xs uppercase tracking-widest block mb-2">
+              Comprehensive Care
+            </span>
+            <h2 className="text-3xl sm:text-4xl font-serif font-bold text-slate-900 tracking-tight">
+              Specialized Treatment for <span className="text-teal-600">Truck Accident Injuries</span>
+            </h2>
+            <p className="text-slate-600 text-base sm:text-lg mt-3">
+              Truck accident injuries require intensive, multidisciplinary treatment approaches. Our comprehensive care addresses both immediate trauma and long-term rehabilitation needs.
+            </p>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className="bg-white p-8 rounded-2xl border border-slate-200 shadow-sm">
+              <h3 className="text-xl font-bold text-slate-900 mb-4">Emergency Assessment</h3>
+              <ul className="space-y-3 text-slate-700 text-sm">
+                <li className="flex items-start gap-2">
+                  <div className="w-1.5 h-1.5 rounded-full bg-slate-700 shrink-0 mt-2"></div>
+                  <div>Full trauma assessment</div>
+                </li>
+                <li className="flex items-start gap-2">
+                  <div className="w-1.5 h-1.5 rounded-full bg-slate-700 shrink-0 mt-2"></div>
+                  <div>Neurological examination</div>
+                </li>
+                <li className="flex items-start gap-2">
+                  <div className="w-1.5 h-1.5 rounded-full bg-slate-700 shrink-0 mt-2"></div>
+                  <div>Spinal imaging (X-ray, CT, MRI)</div>
+                </li>
+                <li className="flex items-start gap-2">
+                  <div className="w-1.5 h-1.5 rounded-full bg-slate-700 shrink-0 mt-2"></div>
+                  <div>Cognitive function testing</div>
+                </li>
+                <li className="flex items-start gap-2">
+                  <div className="w-1.5 h-1.5 rounded-full bg-slate-700 shrink-0 mt-2"></div>
+                  <div>Emergency stabilization</div>
+                </li>
+              </ul>
+            </div>
+            <div className="bg-white p-8 rounded-2xl border border-slate-200 shadow-sm">
+              <h3 className="text-xl font-bold text-slate-900 mb-4">Pain Management</h3>
+              <ul className="space-y-3 text-slate-700 text-sm">
+                <li className="flex items-start gap-2">
+                  <div className="w-1.5 h-1.5 rounded-full bg-slate-700 shrink-0 mt-2"></div>
+                  <div>Epidural steroid injections</div>
+                </li>
+                <li className="flex items-start gap-2">
+                  <div className="w-1.5 h-1.5 rounded-full bg-slate-700 shrink-0 mt-2"></div>
+                  <div>Facet joint blocks</div>
+                </li>
+                <li className="flex items-start gap-2">
+                  <div className="w-1.5 h-1.5 rounded-full bg-slate-700 shrink-0 mt-2"></div>
+                  <div>Nerve blocks and ablations</div>
+                </li>
+                <li className="flex items-start gap-2">
+                  <div className="w-1.5 h-1.5 rounded-full bg-slate-700 shrink-0 mt-2"></div>
+                  <div>Trigger point injections</div>
+                </li>
+                <li className="flex items-start gap-2">
+                  <div className="w-1.5 h-1.5 rounded-full bg-slate-700 shrink-0 mt-2"></div>
+                  <div>Regenerative medicine therapies</div>
+                </li>
+              </ul>
+            </div>
+            <div className="bg-white p-8 rounded-2xl border border-slate-200 shadow-sm">
+              <h3 className="text-xl font-bold text-slate-900 mb-4">Rehabilitation Services</h3>
+              <ul className="space-y-3 text-slate-700 text-sm">
+                <li className="flex items-start gap-2">
+                  <div className="w-1.5 h-1.5 rounded-full bg-slate-700 shrink-0 mt-2"></div>
+                  <div>Physical therapy for mobility restoration</div>
+                </li>
+                <li className="flex items-start gap-2">
+                  <div className="w-1.5 h-1.5 rounded-full bg-slate-700 shrink-0 mt-2"></div>
+                  <div>Occupational therapy for daily living</div>
+                </li>
+                <li className="flex items-start gap-2">
+                  <div className="w-1.5 h-1.5 rounded-full bg-slate-700 shrink-0 mt-2"></div>
+                  <div>Cognitive rehabilitation for brain injuries</div>
+                </li>
+                <li className="flex items-start gap-2">
+                  <div className="w-1.5 h-1.5 rounded-full bg-slate-700 shrink-0 mt-2"></div>
+                  <div>Speech therapy coordination</div>
+                </li>
+                <li className="flex items-start gap-2">
+                  <div className="w-1.5 h-1.5 rounded-full bg-slate-700 shrink-0 mt-2"></div>
+                  <div>Psychological trauma support</div>
+                </li>
+              </ul>
+            </div>
+            <div className="bg-white p-8 rounded-2xl border border-slate-200 shadow-sm">
+              <h3 className="text-xl font-bold text-slate-900 mb-4">Long-Term Care Planning</h3>
+              <ul className="space-y-3 text-slate-700 text-sm">
+                <li className="flex items-start gap-2">
+                  <div className="w-1.5 h-1.5 rounded-full bg-slate-700 shrink-0 mt-2"></div>
+                  <div>Functional capacity evaluations</div>
+                </li>
+                <li className="flex items-start gap-2">
+                  <div className="w-1.5 h-1.5 rounded-full bg-slate-700 shrink-0 mt-2"></div>
+                  <div>Permanent impairment assessment</div>
+                </li>
+                <li className="flex items-start gap-2">
+                  <div className="w-1.5 h-1.5 rounded-full bg-slate-700 shrink-0 mt-2"></div>
+                  <div>Adaptive equipment needs</div>
+                </li>
+                <li className="flex items-start gap-2">
+                  <div className="w-1.5 h-1.5 rounded-full bg-slate-700 shrink-0 mt-2"></div>
+                  <div>Quality of life evaluation</div>
+                </li>
+                <li className="flex items-start gap-2">
+                  <div className="w-1.5 h-1.5 rounded-full bg-slate-700 shrink-0 mt-2"></div>
+                  <div>Future medical needs planning</div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ─── Legal Coordination for Truck Accident Cases ─── */}
+      <section className="py-20 bg-slate-50 border-b border-slate-200/60">
+        <div className="container mx-auto px-4 lg:px-8 max-w-7xl">
+          <div className="text-center max-w-3xl mx-auto mb-16">
+            <span className="text-teal-600 font-bold text-xs uppercase tracking-widest block mb-2">
+              Case Support
+            </span>
+            <h2 className="text-3xl sm:text-4xl font-serif font-bold text-slate-900 tracking-tight">
+              Legal Coordination for <span className="text-teal-600">Truck Accident Cases</span>
+            </h2>
+            <p className="text-slate-600 text-base sm:text-lg mt-3">
+              We work closely with personal injury attorneys to provide comprehensive medical documentation and expert testimony to support your case.
+            </p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-10">
+            <div>
+              <h3 className="text-xl font-bold text-slate-900 mb-4">Complex Liability Issues</h3>
+              <ul className="space-y-3 text-slate-700 text-sm">
+                <li className="flex items-start gap-2">
+                  <div className="w-1.5 h-1.5 rounded-full bg-slate-700 shrink-0 mt-2"></div>
+                  <div>Truck driver negligence</div>
+                </li>
+                <li className="flex items-start gap-2">
+                  <div className="w-1.5 h-1.5 rounded-full bg-slate-700 shrink-0 mt-2"></div>
+                  <div>Trucking company responsibility</div>
+                </li>
+                <li className="flex items-start gap-2">
+                  <div className="w-1.5 h-1.5 rounded-full bg-slate-700 shrink-0 mt-2"></div>
+                  <div>Vehicle manufacturer defects</div>
+                </li>
+                <li className="flex items-start gap-2">
+                  <div className="w-1.5 h-1.5 rounded-full bg-slate-700 shrink-0 mt-2"></div>
+                  <div>Maintenance company liability</div>
+                </li>
+                <li className="flex items-start gap-2">
+                  <div className="w-1.5 h-1.5 rounded-full bg-slate-700 shrink-0 mt-2"></div>
+                  <div>Cargo loading company fault</div>
+                </li>
+                <li className="flex items-start gap-2">
+                  <div className="w-1.5 h-1.5 rounded-full bg-slate-700 shrink-0 mt-2"></div>
+                  <div>Multiple insurance carriers</div>
+                </li>
+              </ul>
+            </div>
+            <div>
+              <h3 className="text-xl font-bold text-slate-900 mb-4">Comprehensive Medical Documentation</h3>
+              <ul className="space-y-3 text-slate-700 text-sm">
+                <li className="flex items-start gap-2">
+                  <div className="w-1.5 h-1.5 rounded-full bg-slate-700 shrink-0 mt-2"></div>
+                  <div>Detailed injury assessments</div>
+                </li>
+                <li className="flex items-start gap-2">
+                  <div className="w-1.5 h-1.5 rounded-full bg-slate-700 shrink-0 mt-2"></div>
+                  <div>Treatment plans and progress notes</div>
+                </li>
+                <li className="flex items-start gap-2">
+                  <div className="w-1.5 h-1.5 rounded-full bg-slate-700 shrink-0 mt-2"></div>
+                  <div>Diagnostic imaging results</div>
+                </li>
+                <li className="flex items-start gap-2">
+                  <div className="w-1.5 h-1.5 rounded-full bg-slate-700 shrink-0 mt-2"></div>
+                  <div>Expert medical opinions</div>
+                </li>
+                <li className="flex items-start gap-2">
+                  <div className="w-1.5 h-1.5 rounded-full bg-slate-700 shrink-0 mt-2"></div>
+                  <div>Long-term prognosis reports</div>
+                </li>
+                <li className="flex items-start gap-2">
+                  <div className="w-1.5 h-1.5 rounded-full bg-slate-700 shrink-0 mt-2"></div>
+                  <div>Future medical needs assessment</div>
+                </li>
+              </ul>
+            </div>
+            <div>
+              <h3 className="text-xl font-bold text-slate-900 mb-4">Federal Regulation Compliance</h3>
+              <ul className="space-y-3 text-slate-700 text-sm">
+                <li className="flex items-start gap-2">
+                  <div className="w-1.5 h-1.5 rounded-full bg-slate-700 shrink-0 mt-2"></div>
+                  <div>Hours of Service violations</div>
+                </li>
+                <li className="flex items-start gap-2">
+                  <div className="w-1.5 h-1.5 rounded-full bg-slate-700 shrink-0 mt-2"></div>
+                  <div>Drug and alcohol testing</div>
+                </li>
+                <li className="flex items-start gap-2">
+                  <div className="w-1.5 h-1.5 rounded-full bg-slate-700 shrink-0 mt-2"></div>
+                  <div>Vehicle inspection requirements</div>
+                </li>
+                <li className="flex items-start gap-2">
+                  <div className="w-1.5 h-1.5 rounded-full bg-slate-700 shrink-0 mt-2"></div>
+                  <div>Driver qualification standards</div>
+                </li>
+              </ul>
+            </div>
+            <div>
+              <h3 className="text-xl font-bold text-slate-900 mb-4">Expert Testimony Services</h3>
+              <ul className="space-y-3 text-slate-700 text-sm">
+                <li className="flex items-start gap-2">
+                  <div className="w-1.5 h-1.5 rounded-full bg-slate-700 shrink-0 mt-2"></div>
+                  <div>Medical causation opinions</div>
+                </li>
+                <li className="flex items-start gap-2">
+                  <div className="w-1.5 h-1.5 rounded-full bg-slate-700 shrink-0 mt-2"></div>
+                  <div>Injury severity documentation</div>
+                </li>
+                <li className="flex items-start gap-2">
+                  <div className="w-1.5 h-1.5 rounded-full bg-slate-700 shrink-0 mt-2"></div>
+                  <div>Treatment necessity justification</div>
+                </li>
+                <li className="flex items-start gap-2">
+                  <div className="w-1.5 h-1.5 rounded-full bg-slate-700 shrink-0 mt-2"></div>
+                  <div>Permanent impairment ratings</div>
+                </li>
+                <li className="flex items-start gap-2">
+                  <div className="w-1.5 h-1.5 rounded-full bg-slate-700 shrink-0 mt-2"></div>
+                  <div>Life care planning support</div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* ─── Letter of Protection for Truck Accidents ─── */}
       <section className="py-20 bg-slate-50 border-b border-slate-200/60" id="letter-of-protection">
         <div className="container mx-auto px-4 lg:px-8 max-w-7xl">

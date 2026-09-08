@@ -209,25 +209,42 @@ export function FAQ() {
                   </div>
                 </div>
 
-                <form onSubmit={(e) => e.preventDefault()} className="space-y-3.5">
+                <form onSubmit={(e) => {
+                  e.preventDefault();
+                  const btn = e.currentTarget.querySelector('button[type="submit"]') as HTMLButtonElement;
+                  if (btn) {
+                    btn.innerText = 'Sending...';
+                    btn.disabled = true;
+                    setTimeout(() => {
+                      btn.innerText = 'Question Sent!';
+                      btn.classList.add('!bg-teal-600');
+                      e.currentTarget.reset();
+                      setTimeout(() => {
+                        btn.innerText = 'Send Question';
+                        btn.disabled = false;
+                        btn.classList.remove('!bg-teal-600');
+                      }, 3000);
+                    }, 1000);
+                  }
+                }} className="space-y-3.5">
                   <div>
                     <label className="block text-slate-300 text-xs font-semibold mb-1 uppercase tracking-wider">Full Name</label>
-                    <input type="text" className="w-full bg-white/10 border border-white/15 rounded-xl px-3.5 py-2.5 text-sm text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-teal-400" />
+                    <input required type="text" className="w-full bg-white/10 border border-white/15 rounded-xl px-3.5 py-2.5 text-sm text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-teal-400" />
                   </div>
                   <div>
                     <label className="block text-slate-300 text-xs font-semibold mb-1 uppercase tracking-wider">Mobile Number</label>
-                    <input type="tel" className="w-full bg-white/10 border border-white/15 rounded-xl px-3.5 py-2.5 text-sm text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-teal-400" />
+                    <input required type="tel" className="w-full bg-white/10 border border-white/15 rounded-xl px-3.5 py-2.5 text-sm text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-teal-400" />
                   </div>
                   <div>
                     <label className="block text-slate-300 text-xs font-semibold mb-1 uppercase tracking-wider">Email ID</label>
-                    <input type="email" className="w-full bg-white/10 border border-white/15 rounded-xl px-3.5 py-2.5 text-sm text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-teal-400" />
+                    <input required type="email" className="w-full bg-white/10 border border-white/15 rounded-xl px-3.5 py-2.5 text-sm text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-teal-400" />
                   </div>
                   <div>
                     <label className="block text-slate-300 text-xs font-semibold mb-1 uppercase tracking-wider">Question</label>
-                    <textarea rows={3} className="w-full bg-white/10 border border-white/15 rounded-xl px-3.5 py-2.5 text-sm text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-teal-400 resize-none"></textarea>
+                    <textarea required rows={3} className="w-full bg-white/10 border border-white/15 rounded-xl px-3.5 py-2.5 text-sm text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-teal-400 resize-none"></textarea>
                   </div>
 
-                  <button type="submit" className="w-full mt-4 bg-teal-500 hover:bg-teal-400 text-white py-3.5 rounded-xl font-bold text-xs uppercase tracking-wider transition-colors shadow-md">
+                  <button type="submit" className="w-full mt-4 bg-teal-500 hover:bg-teal-400 text-white py-3.5 rounded-xl font-bold text-xs uppercase tracking-wider transition-colors shadow-md disabled:opacity-70 disabled:cursor-not-allowed">
                     Send Question
                   </button>
                 </form>

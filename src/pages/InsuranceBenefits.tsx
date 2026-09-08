@@ -151,7 +151,7 @@ export function InsuranceBenefits() {
       </div>
 
       {/* ─── LUXURY INTERACTIVE 3D RADIAL SEMI-CIRCLE DIAGRAM SECTION ─── */}
-      <section className="py-20 lg:py-28 bg-slate-50 border-b border-slate-200/70 relative overflow-hidden">
+      <section className="py-12 lg:py-16 bg-slate-50 border-b border-slate-200/70 relative overflow-hidden">
         
         {/* Ambient Radial Background Glows */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-teal-500/5 rounded-full blur-3xl pointer-events-none" />
@@ -355,7 +355,7 @@ export function InsuranceBenefits() {
       </section>
 
       {/* ─── 2. ACCEPTED INSURANCE PLANS GRID ─── */}
-      <section className="py-20 lg:py-28 bg-white border-b border-slate-200/70 relative overflow-hidden">
+      <section className="py-12 lg:py-16 bg-white border-b border-slate-200/70 relative overflow-hidden">
         
         {/* Subtle Background Glow */}
         <div className="absolute -top-40 -left-40 w-96 h-96 bg-teal-500/5 rounded-full blur-3xl pointer-events-none" />
@@ -398,14 +398,14 @@ export function InsuranceBenefits() {
 
           <div className="bg-slate-50 border border-slate-200/90 rounded-2xl p-6 text-center shadow-sm max-w-3xl mx-auto">
             <p className="text-slate-600 text-sm font-medium">
-              Please note that this list is not exhaustive. We recommend contacting our office at <a href="tel:4693130040" className="text-teal-600 font-bold hover:underline">(469) 313-0040</a> to verify if we accept your specific insurance plan.
+              <strong>Please note that</strong> this list is not exhaustive. We recommend contacting our office at <a href="tel:4693130040" className="text-teal-600 font-bold hover:underline">(469) 313-0040</a> to verify if we accept your specific insurance plan.
             </p>
           </div>
         </div>
       </section>
 
       {/* ─── 3. VERIFYING COVERAGE & OUT-OF-POCKET COSTS ─── */}
-      <section className="py-20 lg:py-28 bg-slate-50 border-b border-slate-200/70">
+      <section className="py-12 lg:py-16 bg-slate-50 border-b border-slate-200/70">
         <div className="container mx-auto px-4 lg:px-8 max-w-7xl">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
 
@@ -479,7 +479,7 @@ export function InsuranceBenefits() {
       </section>
 
       {/* ─── 4. COMPREHENSIVE CARE & CONTACT CARDS ─── */}
-      <section className="py-20 lg:py-28 bg-white">
+      <section className="py-12 lg:py-16 bg-white">
         <div className="container mx-auto px-4 lg:px-8 max-w-7xl">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
 

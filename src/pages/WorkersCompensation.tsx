@@ -5,6 +5,7 @@ import {
   AlertCircle, FileCheck, Zap, UserCheck, Sparkles, Home, ArrowRight, CheckCircle
 } from 'lucide-react';
 import { Link } from '@tanstack/react-router';
+import { TiltWrapper } from '../components/TiltWrapper';
 
 export function WorkersCompensation() {
   const [activeFaq, setActiveFaq] = useState<number | null>(null);
@@ -193,15 +194,15 @@ export function WorkersCompensation() {
                 icon: <MapPin className="w-7 h-7 text-teal-600" />
               }
             ].map((feat, idx) => (
-              <div key={idx} className="bg-white p-8 rounded-3xl shadow-sm hover:shadow-xl transition-all border border-slate-200 flex flex-col justify-between group">
+              <TiltWrapper key={idx} className="bg-white p-8 rounded-3xl shadow-sm hover:shadow-xl transition-all border border-slate-200 flex flex-col justify-between group h-full">
                 <div>
-                  <div className="bg-teal-50 w-14 h-14 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-105 transition-transform border border-teal-100">
+                  <div className="bg-teal-50 w-14 h-14 rounded-2xl flex items-center justify-center mb-6 border border-teal-100 icon-wrapper">
                     {feat.icon}
                   </div>
                   <h3 className="text-xl font-serif font-bold text-slate-900 mb-3">{feat.title}</h3>
                   <p className="text-slate-600 text-sm leading-relaxed">{feat.desc}</p>
                 </div>
-              </div>
+              </TiltWrapper>
             ))}
           </div>
         </div>
@@ -505,9 +506,9 @@ export function WorkersCompensation() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {/* Col 1 */}
-            <div className="bg-white p-7 rounded-3xl shadow-sm border border-slate-200 flex flex-col justify-between">
+            <TiltWrapper className="bg-white p-7 rounded-3xl shadow-sm border border-slate-200 flex flex-col justify-between h-full">
               <div>
-                <div className="bg-teal-50 text-teal-700 p-3 rounded-2xl w-12 h-12 flex items-center justify-center mb-6 border border-teal-100">
+                <div className="bg-teal-50 text-teal-700 p-3 rounded-2xl w-12 h-12 flex items-center justify-center mb-6 border border-teal-100 icon-wrapper">
                   <Activity className="w-6 h-6" />
                 </div>
                 <h3 className="text-xl font-serif font-bold text-slate-900 mb-4">Diagnostics</h3>
@@ -517,12 +518,12 @@ export function WorkersCompensation() {
                   ))}
                 </ul>
               </div>
-            </div>
+            </TiltWrapper>
 
             {/* Col 2 */}
-            <div className="bg-white p-7 rounded-3xl shadow-sm border border-slate-200 flex flex-col justify-between">
+            <TiltWrapper className="bg-white p-7 rounded-3xl shadow-sm border border-slate-200 flex flex-col justify-between h-full">
               <div>
-                <div className="bg-teal-50 text-teal-700 p-3 rounded-2xl w-12 h-12 flex items-center justify-center mb-6 border border-teal-100">
+                <div className="bg-teal-50 text-teal-700 p-3 rounded-2xl w-12 h-12 flex items-center justify-center mb-6 border border-teal-100 icon-wrapper">
                   <Stethoscope className="w-6 h-6" />
                 </div>
                 <h3 className="text-xl font-serif font-bold text-slate-900 mb-4">Non-Invasive Care</h3>
@@ -532,12 +533,12 @@ export function WorkersCompensation() {
                   ))}
                 </ul>
               </div>
-            </div>
+            </TiltWrapper>
 
             {/* Col 3 */}
-            <div className="bg-white p-7 rounded-3xl shadow-sm border border-slate-200 flex flex-col justify-between">
+            <TiltWrapper className="bg-white p-7 rounded-3xl shadow-sm border border-slate-200 flex flex-col justify-between h-full">
               <div>
-                <div className="bg-teal-50 text-teal-700 p-3 rounded-2xl w-12 h-12 flex items-center justify-center mb-6 border border-teal-100">
+                <div className="bg-teal-50 text-teal-700 p-3 rounded-2xl w-12 h-12 flex items-center justify-center mb-6 border border-teal-100 icon-wrapper">
                   <Briefcase className="w-6 h-6" />
                 </div>
                 <h3 className="text-xl font-serif font-bold text-slate-900 mb-4">Return-to-Work</h3>
@@ -547,12 +548,12 @@ export function WorkersCompensation() {
                   ))}
                 </ul>
               </div>
-            </div>
+            </TiltWrapper>
 
             {/* Col 4 */}
-            <div className="bg-white p-7 rounded-3xl shadow-sm border border-slate-200 flex flex-col justify-between">
+            <TiltWrapper className="bg-white p-7 rounded-3xl shadow-sm border border-slate-200 flex flex-col justify-between h-full">
               <div>
-                <div className="bg-teal-50 text-teal-700 p-3 rounded-2xl w-12 h-12 flex items-center justify-center mb-6 border border-teal-100">
+                <div className="bg-teal-50 text-teal-700 p-3 rounded-2xl w-12 h-12 flex items-center justify-center mb-6 border border-teal-100 icon-wrapper">
                   <Crosshair className="w-6 h-6" />
                 </div>
                 <h3 className="text-xl font-serif font-bold text-slate-900 mb-4">Spine Injections</h3>
@@ -562,7 +563,7 @@ export function WorkersCompensation() {
                   ))}
                 </ul>
               </div>
-            </div>
+            </TiltWrapper>
           </div>
         </div>
       </section>
