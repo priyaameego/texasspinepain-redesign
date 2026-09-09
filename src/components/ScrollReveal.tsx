@@ -76,7 +76,9 @@ export function ScrollReveal({
     opacity: isVisible ? 1 : 0,
     transform: getTransform(),
     transition: `opacity ${duration}ms cubic-bezier(0.16, 1, 0.3, 1) ${delay}ms, transform ${duration}ms cubic-bezier(0.16, 1, 0.3, 1) ${delay}ms`,
-    willChange: 'opacity, transform',
+    // Only apply will-change while not yet visible (during animation prep)
+    // Once visible, remove it to free up GPU layers
+    willChange: isVisible ? 'auto' : 'opacity, transform',
   };
 
   return (

@@ -102,6 +102,10 @@ export function Layout({ children }: { children: ReactNode }) {
                 <img 
                   src="https://texasspinepain.com/wp-content/uploads/2024/11/logo.webp" 
                   alt="Spine & Pain Institute of Texas" 
+                  fetchPriority="high"
+                  loading="eager"
+                  width="200"
+                  height="64"
                   className={`transition-all duration-300 object-contain ${
                     scrolled ? 'h-12 sm:h-14' : 'h-14 sm:h-16'
                   } ${isTransparent ? 'brightness-0 invert drop-shadow-md' : ''}`}
@@ -317,6 +321,9 @@ export function Layout({ children }: { children: ReactNode }) {
             src="https://texasspinepain.com/wp-content/uploads/2024/11/logo.webp"
             alt="Spine & Pain Institute of Texas"
             className="h-9 brightness-0 invert object-contain"
+            width="150"
+            height="36"
+            loading="lazy"
           />
           <button
             onClick={() => setMobileMenuOpen(false)}

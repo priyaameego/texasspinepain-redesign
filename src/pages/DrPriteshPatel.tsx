@@ -1,10 +1,27 @@
 import { Check, ShieldCheck, Home } from 'lucide-react';
 import { Link } from '@tanstack/react-router';
 import { ScrollReveal } from '../components/ScrollReveal';
+import { SEO } from '../components/SEO';
 
 export function DrPriteshPatel() {
   return (
     <div className="flex flex-col min-h-screen pt-24 bg-white">
+      <SEO 
+        title="Dr. Pritesh Patel | Interventional Pain Specialist Dallas"
+        description="Meet Dr. Pritesh Patel, DO, a double board-certified interventional pain management specialist in Dallas. Dedicated to minimally invasive spine and joint care."
+        canonical="/dr-pritesh-patel"
+        structuredData={{
+          "@context": "https://schema.org",
+          "@type": "Physician",
+          "name": "Dr. Pritesh Patel, DO",
+          "jobTitle": "Interventional Pain Specialist",
+          "description": "Double board-certified in Anesthesiology and Interventional Pain Management.",
+          "worksFor": {
+            "@type": "MedicalBusiness",
+            "name": "Spine & Pain Institute of Texas"
+          }
+        }}
+      />
       
       {/* Editorial Subpage Hero Banner */}
       <div className="bg-[#0b192b] text-white py-16 lg:py-24 px-4 lg:px-8 relative overflow-hidden">

@@ -3,10 +3,16 @@ import {
   Car, Briefcase, Scale, AlertCircle, Building2, MapPin, Activity, Stethoscope, Crosshair,
   UserCheck, Zap, FileCheck, Award
 } from 'lucide-react';
+import { SEO } from '../components/SEO';
 
 export function LetterOfProtection() {
   return (
     <div className="flex flex-col min-h-screen pt-32">
+      <SEO 
+        title="Letter of Protection Doctor Dallas | LOP Medical Care"
+        description="We accept Letters of Protection (LOP) in Dallas. Get the pain management and injury treatment you need now, with no upfront costs, while your personal injury case settles."
+        canonical="/letter-of-protection"
+      />
       {/* ─── Hero Section ─── */}
       <section className="bg-gradient-to-br from-[#0b192b] via-[#163566] to-[#0f2447] py-16 lg:py-24 relative overflow-hidden text-white">
         <div className="absolute inset-0 bg-[#163566]/80 z-10 mix-blend-multiply"></div>

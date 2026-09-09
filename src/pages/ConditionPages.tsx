@@ -1,6 +1,6 @@
 import { Link } from '@tanstack/react-router';
 import { CheckCircle, Phone, ChevronRight, Calendar, Home } from 'lucide-react';
-import { Helmet } from 'react-helmet-async';
+import { SEO } from '../components/SEO';
 
 interface ConditionPageProps {
   title: string;
@@ -18,10 +18,11 @@ function ConditionPage({
 }: ConditionPageProps) {
   return (
     <div className="flex flex-col min-h-screen pt-24 bg-white">
-      <Helmet>
-        <title>{title} Treatment Dallas | Spine & Pain Institute of Texas</title>
-        <meta name="description" content={description.length > 155 ? description.substring(0, 155) + '...' : description} />
-      </Helmet>
+      <SEO 
+        title={`${title} Treatment Dallas | Spine & Pain Institute of Texas`}
+        description={description.length > 155 ? description.substring(0, 155) + '...' : description}
+        canonical={`/${title.toLowerCase().replace(/\s+/g, '-')}`}
+      />
 
       {/* Editorial Subpage Hero Header */}
       <div className="bg-[#0b192b] text-white py-16 lg:py-24 px-4 lg:px-8 relative overflow-hidden">

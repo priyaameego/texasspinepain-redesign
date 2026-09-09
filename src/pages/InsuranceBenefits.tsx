@@ -1,6 +1,7 @@
 import { useState, useRef, useEffect } from 'react';
 import { ShieldCheck, Phone, Mail, CheckCircle, CreditCard, Heart, HelpCircle, ClipboardCheck, Umbrella, CircleDollarSign, HeartPulse, Stethoscope, Home, ChevronLeft, ChevronRight, Sparkles, Plus } from 'lucide-react';
 import { Link } from '@tanstack/react-router';
+import { SEO } from '../components/SEO';
 
 const insurers = [
   { name: 'Aetna', detail: 'Including Aetna Better Health and Aetna Healthcare' },
@@ -13,17 +14,17 @@ const insurers = [
 ];
 
 const insuranceImages = [
-  { src: '/insurance1.jpg', alt: 'Insurance Partner 1' },
-  { src: '/insurance2.jpg', alt: 'Insurance Partner 2' },
-  { src: '/insurance3.jpg', alt: 'Insurance Partner 3' },
-  { src: '/insurance5.jpg', alt: 'Insurance Partner 4' },
-  { src: '/insurance6.jpg', alt: 'Insurance Partner 5' },
-  { src: '/insurance9.jpg', alt: 'Galaxy Health Insurance' },
-  { src: '/insurance14.jpg', alt: 'First Health Network' },
-  { src: '/insurance16.jpg', alt: 'Coventry Health Care' },
-  { src: '/insurance18.jpg', alt: 'Insurance Partner 18' },
-  { src: '/insurance20.jpg', alt: 'Insurance Partner 20' },
-  { src: '/insurance21.jpg', alt: 'Insurance Partner 21' },
+  { src: '/insurance1.webp', alt: 'Aetna Insurance' },
+  { src: '/insurance2.webp', alt: 'Blue Cross Blue Shield' },
+  { src: '/insurance3.webp', alt: 'Cigna Insurance' },
+  { src: '/insurance5.webp', alt: 'Humana Insurance' },
+  { src: '/insurance6.webp', alt: 'UnitedHealthcare' },
+  { src: '/insurance9.webp', alt: 'Galaxy Health Insurance' },
+  { src: '/insurance14.webp', alt: 'First Health Network' },
+  { src: '/insurance16.webp', alt: 'Coventry Health Care' },
+  { src: '/insurance18.webp', alt: 'Medicare Coverage' },
+  { src: '/insurance20.webp', alt: 'Tricare Insurance' },
+  { src: '/insurance21.webp', alt: 'Additional Insurance Partner' },
 ];
 
 const guidanceItems = [
@@ -98,6 +99,11 @@ export function InsuranceBenefits() {
 
   return (
     <div className="flex flex-col min-h-screen pt-24 bg-white">
+      <SEO 
+        title="Insurance & Billing Dallas | Accepted Health Plans"
+        description="We accept Medicare, BCBS, Aetna, Cigna, UnitedHealthcare, and more. Transparent billing and insurance verification at Spine & Pain Institute of Texas."
+        canonical="/insurance-benefits"
+      />
 
       {/* Editorial Subpage 3D Animated Hero Header */}
       <div className="bg-[#0b192b] text-white py-16 lg:py-24 px-4 lg:px-8 relative overflow-hidden">

@@ -231,3 +231,4 @@ export function KneePainIcon({ className = "w-16 h-16", active = false, ...props
     </svg>
   );
 }
+

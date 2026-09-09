@@ -6,6 +6,7 @@ import {
 } from 'lucide-react';
 import { Link } from '@tanstack/react-router';
 import { TiltWrapper } from '../components/TiltWrapper';
+import { SEO } from '../components/SEO';
 
 export function WorkersCompensation() {
   const [activeFaq, setActiveFaq] = useState<number | null>(null);
@@ -46,7 +47,12 @@ export function WorkersCompensation() {
   ];
 
   return (
-    <div className="flex flex-col min-h-screen pt-24 bg-white">
+    <div className="flex flex-col min-h-screen bg-white">
+      <SEO 
+        title="Workers Comp Doctor Dallas | Federal & State Work Injuries"
+        description="Expert workers compensation doctors in Dallas treating state and federal (FECA/OWCP) work injuries. Comprehensive injury care, impairment ratings, and rehabilitation."
+        canonical="/workers-compensation"
+      />
       
       {/* ─── Editorial Subpage Hero ─── */}
       <section className="bg-[#0b192b] text-white py-16 lg:py-24 px-4 lg:px-8 relative overflow-hidden">
@@ -629,47 +635,135 @@ export function WorkersCompensation() {
         </div>
       </section>
 
-      {/* ─── Insurance & Serving North Texas ─── */}
-      <section className="py-20 bg-slate-50 border-b border-slate-200/60" id="insurance">
-        <div className="container mx-auto px-4 lg:px-8 max-w-7xl">
-          <div className="text-center max-w-3xl mx-auto mb-16">
-            <span className="text-teal-600 font-bold text-xs uppercase tracking-widest block mb-2">
-              Accessibility
-            </span>
-            <h2 className="text-3xl sm:text-4xl font-serif font-bold text-slate-900 tracking-tight">
-              Insurance, Coverage &amp; <span className="text-teal-600">Service Locations</span>
-            </h2>
+      {/* ─── Insurance & Serving North Texas (Premium Layout) ─── */}
+      <section className="py-20 bg-slate-50 border-b border-slate-200/60 relative overflow-hidden" id="insurance">
+        {/* Subtle background element */}
+        <div className="absolute -top-40 -right-40 w-96 h-96 bg-teal-500/5 rounded-full blur-3xl pointer-events-none" />
+        
+        <div className="container mx-auto px-4 lg:px-8 max-w-7xl relative z-10">
+          
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 mb-16">
+            
+            {/* Insurance & Payment Options Premium Card */}
+            <div className="bg-white p-8 sm:p-10 rounded-3xl shadow-md border border-slate-200 hover:shadow-xl transition-shadow duration-300">
+              <div className="flex items-center gap-4 mb-6">
+                <div className="bg-teal-50 w-14 h-14 rounded-2xl flex items-center justify-center shrink-0 border border-teal-100">
+                  <CreditCard className="w-7 h-7 text-teal-600" />
+                </div>
+                <h2 className="text-2xl sm:text-3xl font-serif font-bold text-slate-900 tracking-tight">
+                  Insurance &amp; Payment
+                </h2>
+              </div>
+              
+              <p className="text-slate-600 text-sm sm:text-base mb-8 leading-relaxed">
+                Our goal is to make <span className="text-teal-700 font-semibold">workers' compensation injury treatment</span> accessible for injured workers across Dallas and North Texas.
+              </p>
+              
+              <div className="mb-8">
+                <h3 className="text-lg font-serif font-bold text-slate-900 mb-4 flex items-center gap-2">
+                  <CheckCircle className="w-5 h-5 text-teal-500" /> We Accept:
+                </h3>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm text-slate-700">
+                  <div className="flex items-center gap-2 bg-slate-50 p-2.5 rounded-xl border border-slate-100"><span className="w-1.5 h-1.5 bg-teal-500 rounded-full shrink-0"></span> All Major Health Plans</div>
+                  <div className="flex items-center gap-2 bg-slate-50 p-2.5 rounded-xl border border-slate-100"><span className="w-1.5 h-1.5 bg-teal-500 rounded-full shrink-0"></span> Workers' Comp Carriers</div>
+                  <div className="flex items-center gap-2 bg-slate-50 p-2.5 rounded-xl border border-slate-100"><span className="w-1.5 h-1.5 bg-teal-500 rounded-full shrink-0"></span> FECA (Federal)</div>
+                  <div className="flex items-center gap-2 bg-slate-50 p-2.5 rounded-xl border border-slate-100"><span className="w-1.5 h-1.5 bg-teal-500 rounded-full shrink-0"></span> Letters of Protection</div>
+                  <div className="flex items-center gap-2 bg-slate-50 p-2.5 rounded-xl border border-slate-100 sm:col-span-2"><span className="w-1.5 h-1.5 bg-teal-500 rounded-full shrink-0"></span> Cash &amp; Payment Plans Available</div>
+                </div>
+              </div>
+
+              <div>
+                <h3 className="text-lg font-serif font-bold text-slate-900 mb-3 flex items-center gap-2">
+                  <ShieldCheck className="w-5 h-5 text-teal-500" /> Workers' Comp Coverage
+                </h3>
+                <p className="text-slate-500 text-xs mb-4 uppercase tracking-wider font-bold">Most claims cover:</p>
+                <ul className="space-y-3 text-sm text-slate-700 font-medium">
+                  <li className="flex items-start gap-3"><ChevronRight className="w-4 h-4 text-teal-600 mt-0.5 shrink-0" /> All medically necessary treatment</li>
+                  <li className="flex items-start gap-3"><ChevronRight className="w-4 h-4 text-teal-600 mt-0.5 shrink-0" /> Diagnostic testing and imaging</li>
+                  <li className="flex items-start gap-3"><ChevronRight className="w-4 h-4 text-teal-600 mt-0.5 shrink-0" /> Prescription medications</li>
+                  <li className="flex items-start gap-3"><ChevronRight className="w-4 h-4 text-teal-600 mt-0.5 shrink-0" /> Physical therapy and rehabilitation</li>
+                  <li className="flex items-start gap-3"><ChevronRight className="w-4 h-4 text-teal-600 mt-0.5 shrink-0" /> Durable medical equipment &amp; Mileage</li>
+                </ul>
+              </div>
+            </div>
+
+            {/* Serving North Texas Communities Premium Card */}
+            <div className="bg-white p-8 sm:p-10 rounded-3xl shadow-md border border-slate-200 hover:shadow-xl transition-shadow duration-300">
+              <div className="flex items-center gap-4 mb-6">
+                <div className="bg-[#0b192b] w-14 h-14 rounded-2xl flex items-center justify-center shrink-0 shadow-md">
+                  <MapPin className="w-7 h-7 text-teal-400" />
+                </div>
+                <h2 className="text-2xl sm:text-3xl font-serif font-bold text-slate-900 tracking-tight">
+                  Service Locations
+                </h2>
+              </div>
+              
+              <p className="text-slate-600 text-sm sm:text-base mb-8 leading-relaxed">
+                Centrally located in Dallas with convenient access from major highways, making it easy for <span className="text-[#0b192b] font-bold">workers' compensation patients</span> across North Texas to receive care.
+              </p>
+
+              <div className="bg-slate-50 rounded-2xl p-6 border border-slate-100 mb-6">
+                <h3 className="text-lg font-serif font-bold text-teal-800 mb-3 flex items-center gap-2">
+                  <Building2 className="w-5 h-5 text-teal-600" /> Primary Areas
+                </h3>
+                <p className="text-slate-700 leading-relaxed text-sm font-medium">Dallas, Plano, Richardson, Garland, Mesquite, Irving, Carrollton</p>
+                
+                <div className="w-full h-px bg-slate-200 my-4" />
+                
+                <h3 className="text-lg font-serif font-bold text-teal-800 mb-3 flex items-center gap-2">
+                  <Home className="w-5 h-5 text-teal-600" /> Suburbs
+                </h3>
+                <p className="text-slate-700 leading-relaxed text-sm font-medium">Frisco, Allen, McKinney, Lewisville, Grand Prairie, Duncanville</p>
+              </div>
+              
+              <div>
+                <h3 className="text-sm font-bold text-slate-500 uppercase tracking-widest mb-4 flex items-center gap-2">
+                  <Activity className="w-4 h-4 text-slate-400" /> Highway Access
+                </h3>
+                <div className="flex flex-wrap gap-2">
+                  <span className="bg-white border border-slate-200 text-slate-700 px-4 py-2 rounded-lg text-sm font-bold shadow-sm">I-35E</span>
+                  <span className="bg-white border border-slate-200 text-slate-700 px-4 py-2 rounded-lg text-sm font-bold shadow-sm">I-635 (LBJ)</span>
+                  <span className="bg-white border border-slate-200 text-slate-700 px-4 py-2 rounded-lg text-sm font-bold shadow-sm">US-75</span>
+                  <span className="bg-white border border-slate-200 text-slate-700 px-4 py-2 rounded-lg text-sm font-bold shadow-sm">Loop 12</span>
+                </div>
+              </div>
+            </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
-            <div className="bg-white p-8 rounded-3xl shadow-sm border border-slate-200">
-              <CreditCard className="w-8 h-8 text-teal-600 mb-4" />
-              <h3 className="text-xl font-serif font-bold text-slate-900 mb-3">Accepted Coverage</h3>
-              <ul className="space-y-2.5 text-xs sm:text-sm text-slate-700 font-medium">
-                <li>&bull; All Major Health Plans</li>
-                <li>&bull; Workers' Comp Carriers</li>
-                <li>&bull; FECA Federal Coverage</li>
-                <li>&bull; Letters of Protection (LOP)</li>
-                <li>&bull; Cash &amp; Flexible Payment Plans</li>
-              </ul>
-            </div>
-
-            <div className="bg-white p-8 rounded-3xl shadow-sm border border-slate-200">
-              <MapPin className="w-8 h-8 text-teal-600 mb-4" />
-              <h3 className="text-xl font-serif font-bold text-slate-900 mb-3">Primary Service Areas</h3>
-              <p className="text-slate-600 text-xs sm:text-sm leading-relaxed font-medium">
-                Dallas, Plano, Richardson, Garland, Mesquite, Irving, Carrollton, Frisco, Allen, McKinney, Lewisville, Grand Prairie, Duncanville.
+          {/* CTA Box (Schedule Your Same-Day...) Premium Style */}
+          <div className="bg-gradient-to-br from-[#0b192b] to-[#15345a] rounded-3xl p-8 lg:p-14 shadow-2xl border border-teal-500/20 max-w-5xl mx-auto text-center mt-12 relative overflow-hidden">
+            {/* Decorative background elements */}
+            <div className="absolute top-0 right-0 w-64 h-64 bg-teal-500/10 rounded-full blur-3xl pointer-events-none" />
+            <div className="absolute bottom-0 left-0 w-64 h-64 bg-[#b32b2b]/10 rounded-full blur-3xl pointer-events-none" />
+            
+            <div className="relative z-10">
+              <div className="inline-block bg-teal-500/20 text-teal-300 font-bold text-xs px-4 py-1.5 rounded-full uppercase tracking-wider mb-6 border border-teal-500/30">
+                Priority Evaluation
+              </div>
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold text-white mb-6 tracking-tight leading-tight">
+                Schedule Your Same-Day<br className="hidden sm:block" /> <span className="text-teal-400">Workers' Compensation</span> Evaluation
+              </h2>
+              <p className="text-teal-50/80 mb-10 max-w-2xl mx-auto text-base sm:text-lg font-light leading-relaxed">
+                If you've been injured at work in Dallas or North Texas, don't wait. Early evaluation protects your health and strengthens your claim.
               </p>
-            </div>
-
-            <div className="bg-white p-8 rounded-3xl shadow-sm border border-slate-200">
-              <AlertCircle className="w-8 h-8 text-teal-600 mb-4" />
-              <h3 className="text-xl font-serif font-bold text-slate-900 mb-3">Major Highway Routes</h3>
-              <p className="text-slate-600 text-xs sm:text-sm leading-relaxed font-medium">
-                Easily accessible via I-35E, I-635 (LBJ Freeway), US-75 (Central Expressway), and Loop 12.
-              </p>
+              
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-5">
+                <a 
+                  href="tel:4693130040" 
+                  className="bg-[#c22e2e] hover:bg-[#a62525] text-white px-8 py-4 rounded-xl font-bold shadow-[0_8px_20px_rgba(194,46,46,0.3)] hover:-translate-y-1 transition-all w-full sm:w-auto text-sm sm:text-base tracking-wide flex items-center justify-center gap-2"
+                >
+                  <PhoneCall className="w-5 h-5" /> Call (469) 313-0040 Now
+                </a>
+                <a 
+                  href="#appointment-section" 
+                  className="bg-white/10 hover:bg-white/20 backdrop-blur-md border border-white/30 text-white px-8 py-4 rounded-xl font-bold transition-all hover:-translate-y-1 w-full sm:w-auto text-sm sm:text-base tracking-wide flex items-center justify-center gap-2"
+                >
+                  Request Appointment Online <ArrowRight className="w-5 h-5" />
+                </a>
+              </div>
             </div>
           </div>
+
         </div>
       </section>
 

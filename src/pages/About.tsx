@@ -1,10 +1,31 @@
-import { ChevronRight, Check, Play, Home } from 'lucide-react';
+import { useState, useRef } from 'react';
+import { ChevronRight, Check, Play, Home, Plus } from 'lucide-react';
 import { Link } from '@tanstack/react-router';
 import { ScrollReveal } from '../components/ScrollReveal';
+import { SEO } from '../components/SEO';
 
 export function About() {
+  const [isPlaying, setIsPlaying] = useState(false);
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  const handlePlayPause = () => {
+    if (videoRef.current) {
+      if (isPlaying) {
+        videoRef.current.pause();
+      } else {
+        videoRef.current.play();
+      }
+      setIsPlaying(!isPlaying);
+    }
+  };
+
   return (
     <div className="flex flex-col min-h-screen pt-24 bg-white">
+      <SEO 
+        title="About Us | Pain Specialist Dallas | Spine & Pain Institute"
+        description="Providing compassionate, board-certified interventional pain care in Dallas, Texas. With over 25 years of experience, Dr. Pritesh Patel offers expert care."
+        canonical="/about-us"
+      />
       
       {/* Editorial Subpage Hero Header */}
       <div className="bg-[#0b192b] text-white py-16 lg:py-24 px-4 lg:px-8 relative overflow-hidden">
@@ -39,8 +60,11 @@ export function About() {
           
           <ScrollReveal direction="up" delay={200} className="max-w-5xl mx-auto rounded-3xl overflow-hidden shadow-2xl border border-slate-100 relative">
             <img 
-              src="/Spine-Pain-Institute-of-Texas-2048x899.jpg" 
-              alt="Spine and Pain Institute of Texas Building" 
+              src="/Spine-Pain-Institute-of-Texas-2048x899.webp" 
+              alt="Spine and Pain Institute of Texas Building in Dallas" 
+              loading="lazy"
+              width="2048"
+              height="899"
               className="w-full h-auto object-cover"
             />
           </ScrollReveal>
@@ -168,15 +192,26 @@ export function About() {
               </div>
             </ScrollReveal>
 
-            {/* Right Video / Image */}
+            {/* Right Video */}
             <ScrollReveal direction="left" delay={200} className="lg:w-1/2 relative w-full">
-               <div className="aspect-[4/3] rounded-3xl overflow-hidden shadow-2xl relative group cursor-pointer border border-slate-100">
-                 <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=1000&auto=format&fit=crop" alt="Doctor examining spine model" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
-                 <div className="absolute inset-0 bg-slate-900/30 group-hover:bg-slate-900/40 transition-colors flex items-center justify-center">
-                   <div className="w-16 h-16 sm:w-20 sm:h-20 bg-white rounded-full flex items-center justify-center shadow-2xl group-hover:scale-110 transition-transform">
-                     <Play className="w-6 h-6 sm:w-8 sm:h-8 text-teal-600 ml-1" fill="currentColor" />
+               <div 
+                 className="aspect-[4/3] rounded-3xl overflow-hidden shadow-2xl relative group border border-slate-100 cursor-pointer"
+                 onClick={handlePlayPause}
+               >
+                 <video 
+                   ref={videoRef}
+                   src="/2.mp4" 
+                   playsInline
+                   loop
+                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                 />
+                 {!isPlaying && (
+                   <div className="absolute inset-0 bg-slate-900/30 group-hover:bg-slate-900/40 transition-colors flex items-center justify-center">
+                     <div className="w-16 h-16 sm:w-20 sm:h-20 bg-white rounded-full flex items-center justify-center shadow-2xl group-hover:scale-110 transition-transform">
+                       <Play className="w-6 h-6 sm:w-8 sm:h-8 text-teal-600 ml-1" fill="currentColor" />
+                     </div>
                    </div>
-                 </div>
+                 )}
                </div>
             </ScrollReveal>
 
@@ -192,7 +227,7 @@ export function About() {
             {/* Left Image */}
             <ScrollReveal direction="right" className="lg:w-1/2 w-full">
               <div className="rounded-3xl overflow-hidden shadow-xl aspect-[4/3] sm:aspect-[4/3] border border-slate-200">
-                <img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?q=80&w=1000&auto=format&fit=crop" alt="Doctor consulting patient with spine model" className="w-full h-full object-cover" />
+                <img src="/pain-management-dallas-3d-new.jpg" alt="Advanced 3D Spine and Pain Management" className="w-full h-full object-cover" />
               </div>
             </ScrollReveal>
 
@@ -221,23 +256,79 @@ export function About() {
         </div>
       </section>
 
-      {/* CTA Banner */}
-      <section className="py-20 bg-[#0b192b] text-white">
-        <ScrollReveal direction="up" className="container mx-auto px-4 lg:px-8 text-center max-w-4xl">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-serif mb-6">
-            Experienced Pain Specialist in <span className="text-teal-300">Dallas</span>
-          </h2>
-          <p className="text-slate-300 text-lg mb-8">
-            Our doctors at the Spine &amp; Pain Institute of Texas cover a comprehensive range of specialties in pain management and spine care.
-          </p>
-          <Link 
-            to="/contact-us" 
-            className="inline-flex items-center bg-teal-500 hover:bg-teal-400 text-white font-bold px-8 py-4 rounded-xl transition-all shadow-lg text-xs uppercase tracking-wider gap-2"
-          >
-            <span>Contact Us Now</span>
-            <ChevronRight className="w-4 h-4" />
-          </Link>
-        </ScrollReveal>
+      {/* Premium 3D Animated CTA Banner */}
+      <section className="py-24 relative overflow-hidden bg-[#0d1e36]">
+        {/* Animated Gradient Background Orbs */}
+        <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
+          <div className="absolute top-[-20%] left-[-10%] w-[50%] h-[70%] bg-[#1a4b82] rounded-full blur-[120px] animate-[pulse_8s_ease-in-out_infinite]" />
+          <div className="absolute bottom-[-20%] right-[-10%] w-[50%] h-[70%] bg-[#0c6b7a] rounded-full blur-[120px] animate-[pulse_10s_ease-in-out_infinite_reverse]" />
+        </div>
+
+        {/* Constellation Particle Layer */}
+        <div className="absolute inset-0 pointer-events-none opacity-40">
+            <svg className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <pattern id="constellation" x="0" y="0" width="300" height="300" patternUnits="userSpaceOnUse">
+                  {/* Nodes */}
+                  <circle cx="40" cy="40" r="2" fill="#7dd3fc" className="animate-[pulse_3s_ease-in-out_infinite]" />
+                  <circle cx="220" cy="80" r="3" fill="#bae6fd" className="animate-[pulse_4s_ease-in-out_infinite]" />
+                  <circle cx="120" cy="200" r="1.5" fill="#38bdf8" />
+                  <circle cx="260" cy="240" r="2.5" fill="#7dd3fc" className="animate-[pulse_5s_ease-in-out_infinite]" />
+                  <circle cx="160" cy="140" r="1" fill="#e0f2fe" />
+                  
+                  {/* Connecting Lines */}
+                  <line x1="40" y1="40" x2="160" y2="140" stroke="#38bdf8" strokeWidth="0.5" strokeOpacity="0.4" />
+                  <line x1="220" y1="80" x2="160" y2="140" stroke="#38bdf8" strokeWidth="0.5" strokeOpacity="0.4" />
+                  <line x1="120" y1="200" x2="160" y2="140" stroke="#38bdf8" strokeWidth="0.5" strokeOpacity="0.4" />
+                  <line x1="260" y1="240" x2="220" y2="80" stroke="#38bdf8" strokeWidth="0.5" strokeOpacity="0.3" />
+                </pattern>
+              </defs>
+              <rect width="100%" height="100%" fill="url(#constellation)" />
+            </svg>
+        </div>
+
+        <div className="container mx-auto px-4 lg:px-8 relative z-10">
+          <ScrollReveal direction="up">
+            <div className="bg-[#15345a]/90 backdrop-blur-xl border border-white/10 p-8 lg:p-12 rounded-xl shadow-[0_20px_50px_rgba(0,0,0,0.4)] flex flex-col lg:flex-row items-center justify-between gap-10 max-w-6xl mx-auto transform hover:-translate-y-1 transition-transform duration-500 relative overflow-hidden">
+              
+              {/* Internal subtle glow for the card */}
+              <div className="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full blur-[80px] pointer-events-none" />
+
+              <div className="flex flex-col sm:flex-row items-center sm:items-start gap-6 text-center sm:text-left relative z-10">
+                {/* Medical Cross Icon block */}
+                <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-lg bg-white/10 border border-white/20 flex items-center justify-center shrink-0 shadow-inner">
+                  <Plus className="w-8 h-8 sm:w-10 sm:h-10 text-white" strokeWidth={3} />
+                </div>
+                <div>
+                  <h2 className="text-2xl sm:text-3xl md:text-4xl font-sans font-bold text-white mb-3 tracking-tight">
+                    Experienced Pain Specialist in Dallas
+                  </h2>
+                  <p className="text-blue-50 text-sm sm:text-base md:text-lg max-w-2xl font-light">
+                    Our doctors at the Spine & Pain Institute of Texas cover a comprehensive range of specialties in pain management and spine care.
+                  </p>
+                </div>
+              </div>
+
+              {/* Action Button */}
+              <div className="shrink-0 w-full lg:w-auto relative z-10">
+                <Link 
+                  to="/contact-us" 
+                  className="group relative flex items-center justify-center overflow-hidden rounded bg-white px-8 py-4 font-bold text-[#15345a] transition-all duration-300 hover:scale-105 hover:shadow-[0_10px_25px_rgba(255,255,255,0.2)] w-full sm:w-auto"
+                >
+                  <span className="flex items-center gap-2 relative z-10 text-[15px]">
+                    <ChevronRight className="w-4 h-4 stroke-[2.5]" />
+                    Contact Us Now
+                  </span>
+                  {/* Subtle shine effect on button */}
+                  <div className="absolute inset-0 flex h-full w-full justify-center [transform:skew(-15deg)_translateX(-150%)] group-hover:duration-700 group-hover:[transform:skew(-15deg)_translateX(150%)] z-0">
+                    <div className="relative h-full w-10 bg-[#15345a]/10" />
+                  </div>
+                </Link>
+              </div>
+
+            </div>
+          </ScrollReveal>
+        </div>
       </section>
 
     </div>

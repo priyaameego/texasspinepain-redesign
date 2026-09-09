@@ -7,6 +7,7 @@ import {
 } from 'lucide-react';
 import { Link } from '@tanstack/react-router';
 import { TiltWrapper } from '../components/TiltWrapper';
+import { SEO } from '../components/SEO';
 
 export function MotorVehicleAccidents() {
   const [openFaq, setOpenFaq] = useState<number | null>(0);
@@ -47,7 +48,12 @@ export function MotorVehicleAccidents() {
   ];
 
   return (
-    <div className="flex flex-col min-h-screen pt-24 sm:pt-28 bg-white text-gray-800 antialiased">
+    <div className="flex flex-col min-h-screen bg-white">
+      <SEO 
+        title="Car Accident Injury Doctor Dallas | Motor Vehicle Accident Care"
+        description="Get specialized pain management for car accident injuries in Dallas. We offer prompt diagnosis, comprehensive treatment plans, and accept LOPs."
+        canonical="/motor-vehicle-accidents"
+      />
       
       {/* ─── Editorial Subpage Hero ─── */}
       <section className="bg-[#0b192b] text-white py-16 lg:py-24 px-4 lg:px-8 relative overflow-hidden">

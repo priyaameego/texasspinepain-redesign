@@ -5,6 +5,7 @@ import {
   MapPin, Building2, UserCheck, AlertCircle, Scale, Clock, Sparkles, Home, User
 } from 'lucide-react';
 import { Link } from '@tanstack/react-router';
+import { SEO } from '../components/SEO';
 
 export function TruckAccidents() {
   const [activeFaq, setActiveFaq] = useState<number | null>(null);
@@ -45,8 +46,13 @@ export function TruckAccidents() {
   ];
 
   return (
-    <div className="flex flex-col min-h-screen pt-24 bg-white">
-      
+    <div className="flex flex-col min-h-screen bg-white">
+      <SEO 
+        title="Truck Accident Injury Doctor Dallas | 18-Wheeler Injury Care"
+        description="Specialized medical care for truck and 18-wheeler accident injuries in Dallas. We accept Letters of Protection (LOP) and work with personal injury attorneys."
+        canonical="/truck-accidents"
+      />
+
       {/* ─── Editorial Subpage Hero ─── */}
       <section className="bg-[#0b192b] text-white py-16 lg:py-24 px-4 lg:px-8 relative overflow-hidden">
         {/* Subtle Background Glow */}

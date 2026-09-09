@@ -1,9 +1,15 @@
 import { Phone, Mail, MapPin, Clock, MessageSquare, ChevronRight, Home, ArrowRight } from 'lucide-react';
 import { Link } from '@tanstack/react-router';
+import { SEO } from '../components/SEO';
 
 export function ContactUs() {
   return (
     <div className="flex flex-col min-h-screen pt-24 bg-[#f8fafc] font-sans">
+      <SEO 
+        title="Contact Us | Spine & Pain Institute of Texas Dallas"
+        description="Contact Dr. Pritesh Patel at the Spine & Pain Institute of Texas in Dallas. Call (469) 313-0040 to schedule an appointment for pain management."
+        canonical="/contact-us"
+      />
       
       {/* ─── PREMIUM HERO SECTION ─── */}
       <div className="relative bg-[#0b192b] text-white py-20 lg:py-32 px-4 lg:px-8 overflow-hidden">

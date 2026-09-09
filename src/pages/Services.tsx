@@ -1,11 +1,12 @@
 import { useState } from 'react';
 import { 
   Search, PhoneCall, ArrowRight, Activity, Crosshair, Sparkles, CheckCircle2,
-  Syringe, Brain, ShieldCheck, FileCheck, Stethoscope, Briefcase, Pill, Target, Settings, ArrowUpRight, Zap, ChevronRight, Home, X, Star, Users
+  Syringe, Brain, ShieldCheck, Shield, FileCheck, Stethoscope, Briefcase, Pill, Target, Settings, ArrowUpRight, Zap, ChevronRight, Home, X, Star, Users, UserCheck, Calendar
 } from 'lucide-react';
 import { Link } from '@tanstack/react-router';
 import { ScrollReveal } from '../components/ScrollReveal';
 import { TiltWrapper } from '../components/TiltWrapper';
+import { SEO } from '../components/SEO';
 
 export function Services() {
   const [activeTab, setActiveTab] = useState(0);
@@ -15,17 +16,17 @@ export function Services() {
     {
       title: "Back Pain Management",
       subtitle: "Expert Back Pain Treatment in Dallas | Spine & Pain Institute of Texas",
-      image: "https://texasspinepain.com/wp-content/uploads/2024/11/Back-Pain-Management-780x480.jpeg"
+      image: "/pain-management-dallas-3d-new.webp"
     },
     {
       title: "Neck Pain Treatment",
       subtitle: "Advanced Neck Pain Solutions | Dallas Pain Specialists",
-      image: "https://texasspinepain.com/wp-content/uploads/2024/11/Neck-Pain-Treatment-780x480.jpeg"
+      image: "/pain-management-dallas-consult.webp"
     },
     {
       title: "Sciatica Pain Relief",
       subtitle: "Sciatica Treatment Dallas | Leg Pain Management Experts",
-      image: "https://texasspinepain.com/wp-content/uploads/2024/11/Sciatica-Pain-Relief-780x480.jpeg"
+      image: "/pain-management-dallas-3d.webp"
     }
   ];
 
@@ -84,7 +85,7 @@ export function Services() {
       icon: <Stethoscope className="w-5 h-5 text-teal-600" />,
       badge: "Leg & Back Relief",
       keywords: ['sciatica', 'leg pain', 'sciatic nerve', 'herniated disc', 'pinched nerve', 'buttock pain', 'radiculopathy', 'lower back pain', 'slipped disc', 'lumbar'],
-      content: `For those struggling with sciatica, the Spine & Pain Institute of Texas provides targeted, specialized care to alleviate leg and lower back pain. Our Dallas team understands the complexities of sciatica, often caused by conditions like herniated discs or nerve compression, and focuses on precise diagnosis and customized treatment plans. By offering minimally invasive techniques such as nerve blocks, physical therapy, and interventional pain management procedures, our goal is to reduce sciatic nerve inflammation and relieve pressure, allowing patients to achieve greater comfort and mobility. Our commitment to addressing sciatica’s unique challenges makes us a trusted choice for leg pain management in Dallas, TX, helping patients regain their quality of life without invasive surgery.`
+      content: `For setups struggling with sciatica, the Spine & Pain Institute of Texas provides targeted, specialized care to alleviate leg and lower back pain. Our Dallas team understands the complexities of sciatica, often caused by conditions like herniated discs or nerve compression, and focuses on precise diagnosis and customized treatment plans. By offering minimally invasive techniques such as nerve blocks, physical therapy, and interventional pain management procedures, our goal is to reduce sciatic nerve inflammation and relieve pressure, allowing patients to achieve greater comfort and mobility. Our commitment to addressing sciatica’s unique challenges makes us a trusted choice for leg pain management in Dallas, TX, helping patients regain their quality of life without invasive surgery.`
     },
     {
       tabTitle: "Neck Pain Treatment",
@@ -102,7 +103,7 @@ export function Services() {
     const inTitle = sec.title.toLowerCase().includes(q);
     const inTab = sec.tabTitle.toLowerCase().includes(q);
     const inBadge = sec.badge.toLowerCase().includes(q);
-    const inContent = sec.content.toLowerCase().includes(q);
+    const inContent = typeof sec.content === 'string' ? String(sec.content).toLowerCase().includes(q) : false;
     const inKeywords = sec.keywords?.some(k => k.toLowerCase().includes(q));
     return inTitle || inTab || inBadge || inContent || inKeywords;
   });
@@ -137,6 +138,12 @@ export function Services() {
 
   return (
     <div className="flex flex-col min-h-screen pt-24 bg-white">
+      <SEO 
+        title="Pain Management Services Dallas | Texas Spine & Pain Institute"
+        description="Comprehensive pain management services in Dallas. Specializing in minimally invasive interventional treatments for back pain, sciatica, neck pain, and joint conditions."
+        canonical="/services"
+      />
+
       {/* ─── Editorial Subpage Hero ─── */}
       <div className="bg-[#0b192b] text-white py-16 lg:py-24 px-4 lg:px-8 relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-r from-[#0b192b] via-[#0b192b]/90 to-teal-950/40" />
@@ -167,37 +174,62 @@ export function Services() {
         </div>
       </div>
 
-      {/* ─── Top 3 Featured Banners ─── */}
-      <section className="py-16 bg-slate-50 border-b border-slate-200/60">
-        <div className="container mx-auto px-4 lg:px-8 max-w-7xl">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+      {/* ─── Top 3 Featured Banners (Premium 3D Layout) ─── */}
+      <section className="py-20 bg-slate-50 border-b border-slate-200/60 relative overflow-hidden">
+        {/* Luxury Background Glows */}
+        <div className="absolute top-0 left-1/4 w-96 h-96 bg-teal-500/5 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-blue-500/5 rounded-full blur-3xl pointer-events-none" />
+
+        <div className="container mx-auto px-4 lg:px-8 max-w-7xl relative z-10">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-10">
             {topBanners.map((banner, idx) => (
-              <ScrollReveal key={idx} direction="up" delay={idx * 100}>
-                <div 
-                  className="group bg-white rounded-3xl shadow-md hover:shadow-2xl transition-all duration-300 overflow-hidden border border-slate-200 flex flex-col justify-between h-full"
-                >
-                  <div className="relative overflow-hidden aspect-[16/10]">
-                    <img 
-                      src={banner.image} 
-                      alt={banner.title} 
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#0b192b]/90 via-[#0b192b]/30 to-transparent flex items-end p-6">
-                      <h3 className="text-xl font-serif font-bold text-white tracking-tight">{banner.title}</h3>
+              <ScrollReveal key={idx} direction="up" delay={idx * 150} className="h-full">
+                <TiltWrapper className="group h-full">
+                  <div className="relative h-full bg-white rounded-[2rem] shadow-[0_8px_30px_rgb(0,0,0,0.06)] hover:shadow-[0_20px_40px_rgba(13,148,136,0.15)] transition-all duration-500 overflow-hidden border border-slate-100 hover:border-teal-200 flex flex-col">
+                    
+                    {/* Animated Image Header */}
+                    <div className="relative overflow-hidden aspect-[4/3] w-full">
+                      <img 
+                        src={banner.image} 
+                        alt={banner.title} 
+                        loading="lazy"
+                        decoding="async"
+                        className="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-110"
+                        style={{ imageRendering: 'auto', backfaceVisibility: 'hidden' }}
+                      />
+                      {/* Gradient Overlay for luxury feel */}
+                      <div className="absolute inset-0 bg-gradient-to-t from-[#0b192b]/95 via-[#0b192b]/40 to-transparent transition-opacity duration-500 group-hover:opacity-90" />
+                      
+                      {/* Title embedded over image */}
+                      <div className="absolute inset-x-0 bottom-0 p-6 sm:p-8 translate-y-2 group-hover:translate-y-0 transition-transform duration-500">
+                        <div className="w-10 h-1 bg-teal-500 mb-4 rounded-full transform origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-500 delay-100" />
+                        <h3 className="text-2xl font-serif font-bold text-white tracking-tight leading-tight">
+                          {banner.title}
+                        </h3>
+                      </div>
+                    </div>
+                    
+                    {/* Content Section */}
+                    <div className="p-6 sm:p-8 bg-white flex-grow flex flex-col justify-between relative z-10">
+                      <p className="text-slate-600 text-sm font-medium leading-relaxed mb-8 opacity-90 group-hover:opacity-100 transition-opacity">
+                        {banner.subtitle}
+                      </p>
+                      
+                      <div className="mt-auto pt-4 border-t border-slate-100 group-hover:border-teal-100 transition-colors">
+                        <a 
+                          href="#appointment-section" 
+                          className="inline-flex items-center text-teal-600 font-bold hover:text-teal-700 text-xs uppercase tracking-wider group-hover:translate-x-2 transition-all duration-300 gap-2"
+                        >
+                          <span className="relative">
+                            Schedule Evaluation
+                            <span className="absolute -bottom-1 left-0 w-full h-[2px] bg-teal-500 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left" />
+                          </span>
+                          <ChevronRight className="w-4 h-4 bg-teal-50 text-teal-600 rounded-full p-0.5 group-hover:bg-teal-100 transition-colors" />
+                        </a>
+                      </div>
                     </div>
                   </div>
-                  
-                  <div className="p-6 bg-white flex-grow flex flex-col justify-between">
-                    <p className="text-slate-600 text-sm font-medium leading-relaxed mb-6">
-                      {banner.subtitle}
-                    </p>
-                    
-                    <a href="#appointment-section" className="inline-flex items-center text-teal-600 font-bold hover:text-teal-700 text-xs uppercase tracking-wider group-hover:translate-x-1 transition-transform gap-1">
-                      <span>Schedule Evaluation</span>
-                      <ChevronRight className="w-4 h-4" />
-                    </a>
-                  </div>
-                </div>
+                </TiltWrapper>
               </ScrollReveal>
             ))}
           </div>
@@ -346,7 +378,7 @@ export function Services() {
                       className="bg-teal-600 hover:bg-teal-500 text-white px-6 py-3 rounded-xl font-bold text-xs uppercase tracking-wider transition-colors shadow-md inline-flex items-center gap-1"
                     >
                       <span>Book Appointment Online</span>
-                      <ChevronRight className="w-4 h-4" />
+                      <ArrowRight className="w-3.5 h-3.5" />
                     </a>
                   </div>
                 </div>

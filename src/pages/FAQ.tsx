@@ -1,6 +1,7 @@
 import { HelpCircle, ChevronDown, ChevronUp, MessageSquare, Home, Bookmark } from 'lucide-react';
 import { Link } from '@tanstack/react-router';
 import { useState } from 'react';
+import { SEO } from '../components/SEO';
 
 const faqs = [
   {
@@ -71,6 +72,11 @@ export function FAQ() {
 
   return (
     <div className="flex flex-col min-h-screen pt-24 bg-white">
+      <SEO 
+        title="FAQ | Dallas Pain Management Questions Answered"
+        description="Find answers to common questions about pain management, treatments, and appointments at Spine & Pain Institute of Texas in Dallas."
+        canonical="/frequently-asked-questions"
+      />
 
       {/* Editorial Subpage Hero Header */}
       <div className="bg-[#0b192b] text-white py-16 lg:py-24 px-4 lg:px-8 relative overflow-hidden">

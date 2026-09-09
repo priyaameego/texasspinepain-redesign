@@ -4,63 +4,46 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     
-    <!-- Preload Critical LCP Hero Image -->
-    <link rel="preload" as="image" href="/hero-slide-1.jpg" fetchpriority="high" type="image/jpeg" />
-
-    <!-- Favicon & Touch Icons -->
-    <link rel="icon" type="image/webp" href="https://texasspinepain.com/wp-content/uploads/2024/11/logo.webp" />
+    <!-- DNS Prefetch for external resources -->
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
+    <link rel="dns-prefetch" href="https://texasspinepain.com" />
     
     <!-- Preconnect External Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet" />
     
-    <!-- Technical SEO Meta Tags -->
-    <title>Pain Management in Dallas, Texas - Spine and Pain Institute</title>
-    <meta name="description" content="Discover expert pain management in Dallas with Dr. Pritesh Patel, DO. Advanced non-surgical interventional treatments for back pain, sciatica, neck pain, and sports injuries." />
-    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
-    <link rel="canonical" href="https://texasspinepain.com/" />
+    <!-- Non-blocking Google Fonts: reduced weights (300 removed, only used weights) -->
+    <link 
+      rel="preload" 
+      as="style" 
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" 
+      onload="this.onload=null;this.rel='stylesheet'"
+    />
+    <noscript>
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" />
+    </noscript>
 
-    <!-- Open Graph / Social Media SEO -->
-    <meta property="og:locale" content="en_US" />
-    <meta property="og:type" content="website" />
-    <meta property="og:title" content="Pain Management in Dallas, Texas - Spine &amp; Pain Institute" />
-    <meta property="og:description" content="Discover expert pain management in Dallas with Dr. Pritesh Patel, DO. Advanced non-surgical interventional treatments for back, neck, and nerve pain." />
-    <meta property="og:url" content="https://texasspinepain.com/" />
-    <meta property="og:site_name" content="Spine &amp; Pain Institute of Texas" />
-    <meta property="og:image" content="https://texasspinepain.com/wp-content/uploads/2024/11/logo.webp" />
+    <!-- Preload Critical LCP Hero Image - mobile sized -->
+    <link rel="preload" as="image" href="/hero-slide-1.webp" fetchpriority="high" type="image/webp"
+      media="(min-width: 768px)" />
+    <!-- Mobile gets a smaller hero for faster LCP -->
+    <link rel="preload" as="image" href="/hero-slide-1-mobile.webp" fetchpriority="high" type="image/webp"
+      media="(max-width: 767px)" />
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/webp" href="https://texasspinepain.com/wp-content/uploads/2024/11/logo.webp" />
 
-    <!-- Twitter Card SEO -->
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Pain Management in Dallas, Texas - Spine &amp; Pain Institute" />
-    <meta name="twitter:description" content="Discover expert pain management in Dallas with Dr. Pritesh Patel, DO." />
-    <meta name="twitter:image" content="https://texasspinepain.com/wp-content/uploads/2024/11/logo.webp" />
-
-    <!-- Schema.org Medical & Local Business Structured Data -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "MedicalBusiness",
-      "name": "Spine & Pain Institute of Texas",
-      "image": "https://texasspinepain.com/wp-content/uploads/2024/11/logo.webp",
-      "@id": "https://texasspinepain.com",
-      "url": "https://texasspinepain.com",
-      "telephone": "(469) 313-0040",
-      "priceRange": "$$",
-      "address": {
-        "@type": "PostalAddress",
-        "addressLocality": "Dallas",
-        "addressRegion": "TX",
-        "addressCountry": "US"
-      },
-      "medicalSpecialty": ["PainManagement", "InterventionalPainManagement", "SpineCare"],
-      "physician": {
-        "@type": "Physician",
-        "name": "Dr. Pritesh Patel, DO",
-        "jobTitle": "Interventional Pain Specialist"
-      }
-    }
-    </script>
+    <!-- Critical above-fold CSS: prevent FOUC -->
+    <style>
+      body { margin: 0; background: #0b192b; }
+      #root { min-height: 100dvh; }
+      .hero-bg { background-color: #0b192b; }
+    </style>
+    
+    <!-- Fallback Meta Tags (In case JS fails) -->
+    <title>Spine and Pain Institute of Texas</title>
+    <meta name="description" content="Expert pain management in Dallas with Dr. Pritesh Patel, DO." />
   </head>
   <body>
     <div id="root"></div>

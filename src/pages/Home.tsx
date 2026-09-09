@@ -1,6 +1,7 @@
 import { Link } from '@tanstack/react-router';
 import { ChevronRight, ChevronLeft, Check, Heart, Shield, Award, Calendar, Phone, ArrowUpRight, Clock, Star, Sparkles } from 'lucide-react';
-import { useState, useEffect, useRef } from 'react';
+import { SEO } from '../components/SEO';
+import { useState, useEffect, useRef, useCallback } from 'react';
 import { TestimonialSlider } from '../components/TestimonialSlider';
 import { ScrollReveal } from '../components/ScrollReveal';
 import { 
@@ -58,25 +59,25 @@ function AnimatedCounter({ end, duration = 2200 }: { end: number, duration?: num
 
 const heroSlides = [
   {
-    url: '/hero-slide-1.jpg',
+    url: '/hero-slide-1.webp',
     tag: 'Double Board-Certified Care',
     title: 'Advanced Spine & Pain Institute of Texas',
     desc: 'Providing personalized, state-of-the-art pain management treatments in Dallas under Dr. Pritesh Patel, DO.'
   },
   {
-    url: '/hero-slide-2.jpg',
+    url: '/hero-slide-2.webp',
     tag: 'Precision Interventional Suite',
     title: 'State-of-the-Art Image Guided Relief',
     desc: 'Targeted spine and joint procedures designed for rapid, long-lasting pain reduction without major surgery.'
   },
   {
-    url: '/hero-slide-3.jpg',
+    url: '/hero-slide-3.webp',
     tag: 'Expert Anatomical Consultation',
     title: 'Personalized Diagnostic Evaluation',
     desc: 'Dr. Pritesh Patel, DO takes the time to thoroughly explain your spinal condition and custom treatment plan.'
   },
   {
-    url: '/hero-slide-4.jpg',
+    url: '/hero-slide-4.webp',
     tag: 'Active Lifestyle & Restored Vitality',
     title: 'Regain Comfort & Mobility',
     desc: 'Dedicated to helping Dallas patients overcome chronic back, neck, and nerve pain to live full, active lives.'
@@ -97,9 +98,9 @@ const conditions = [
 ];
 
 export function Home() {
-  const [hoveredCondition, setHoveredCondition] = useState<number | null>(null);
   const [activeSlide, setActiveSlide] = useState(0);
-  const [scrollY, setScrollY] = useState(0);
+  // Use a ref for the parallax div — eliminates React re-renders on scroll
+  const parallaxRef = useRef<HTMLDivElement>(null);
 
   // Auto-advance slider every 6 seconds
   useEffect(() => {
@@ -109,13 +110,15 @@ export function Home() {
     return () => clearInterval(interval);
   }, []);
 
-  // Real-time 3D parallax scroll listener
+  // Direct DOM mutation for parallax — zero React re-renders
   useEffect(() => {
     let ticking = false;
     const handleScroll = () => {
       if (!ticking) {
         window.requestAnimationFrame(() => {
-          setScrollY(window.scrollY);
+          if (parallaxRef.current) {
+            parallaxRef.current.style.transform = `translate3d(0, ${window.scrollY * 0.2}px, 0)`;
+          }
           ticking = false;
         });
         ticking = true;
@@ -125,21 +128,47 @@ export function Home() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const nextSlide = () => setActiveSlide((prev) => (prev + 1) % heroSlides.length);
-  const prevSlide = () => setActiveSlide((prev) => (prev - 1 + heroSlides.length) % heroSlides.length);
+  const nextSlide = useCallback(() => setActiveSlide((prev) => (prev + 1) % heroSlides.length), []);
+  const prevSlide = useCallback(() => setActiveSlide((prev) => (prev - 1 + heroSlides.length) % heroSlides.length), []);
 
   return (
     <div className="flex flex-col min-h-screen bg-white">
+      <SEO 
+        title="Pain Management in Dallas, Texas - Spine and Pain Institute"
+        description="Discover expert pain management in Dallas with Dr. Pritesh Patel, DO. Advanced non-surgical interventional treatments for back pain, sciatica, neck pain, and sports injuries."
+        canonical="/"
+        structuredData={{
+          "@context": "https://schema.org",
+          "@type": "MedicalBusiness",
+          "name": "Spine & Pain Institute of Texas",
+          "image": "https://texasspinepain.com/wp-content/uploads/2024/11/logo.webp",
+          "@id": "https://texasspinepain.com",
+          "url": "https://texasspinepain.com",
+          "telephone": "(469) 313-0040",
+          "priceRange": "$$",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Dallas",
+            "addressRegion": "TX",
+            "addressCountry": "US"
+          },
+          "medicalSpecialty": ["PainManagement", "InterventionalPainManagement", "SpineCare"],
+          "physician": {
+            "@type": "Physician",
+            "name": "Dr. Pritesh Patel, DO",
+            "jobTitle": "Interventional Pain Specialist"
+          }
+        }}
+      />
+
 
       {/* ─── 1. EDITORIAL 3D ANIMATED HERO SECTION ─── */}
       <section className="relative w-full min-h-[90vh] lg:min-h-screen flex items-center pt-28 sm:pt-32 pb-16 sm:pb-24 overflow-hidden bg-[#0b192b] text-white">
         
-        {/* 3D Scroll Parallax Background Container */}
+        {/* 3D Scroll Parallax Background Container — uses ref, not React state */}
         <div 
-          className="absolute inset-0 z-0 overflow-hidden transition-transform duration-150 ease-out will-change-transform"
-          style={{
-            transform: `translate3d(0, ${scrollY * 0.2}px, 0)`,
-          }}
+          ref={parallaxRef}
+          className="absolute inset-0 z-0 overflow-hidden will-change-transform"
         >
           {heroSlides.map((slide, index) => (
             <div
@@ -151,11 +180,16 @@ export function Home() {
               }`}
             >
               <img 
-                src={slide.url} 
+                src={slide.url}
+                srcSet={index === 0 
+                  ? `/hero-slide-1-mobile.webp 640w, /hero-slide-1.webp 1920w`
+                  : undefined
+                }
+                sizes={index === 0 ? "(max-width: 767px) 640px, 1920px" : undefined}
                 alt={slide.title} 
                 loading={index === 0 ? "eager" : "lazy"}
                 decoding={index === 0 ? "sync" : "async"}
-                {...(index === 0 ? { fetchpriority: "high" } : {})}
+                fetchPriority={index === 0 ? "high" : "auto"}
                 width="1920"
                 height="1080"
                 className="w-full h-full object-cover object-center"
@@ -393,14 +427,14 @@ export function Home() {
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
             {conditions.map((condition, index) => {
               const Icon = condition.icon;
-              const isHovered = hoveredCondition === index;
+              const [isHovered, setIsHovered] = useState(false);
 
               return (
                 <ScrollReveal key={index} direction="up" delay={index * 50}>
                   <Link
                     to={condition.route}
-                    onMouseEnter={() => setHoveredCondition(index)}
-                    onMouseLeave={() => setHoveredCondition(null)}
+                    onMouseEnter={() => setIsHovered(true)}
+                    onMouseLeave={() => setIsHovered(false)}
                     className={`group relative rounded-2xl p-6 transition-all duration-300 flex flex-col justify-between border h-full ${
                       isHovered 
                         ? 'bg-gradient-to-b from-teal-600 to-teal-700 border-teal-400 shadow-xl shadow-teal-500/20 -translate-y-1.5' 
@@ -856,13 +890,29 @@ export function Home() {
           </div>
         </div>
 
-        <div className="text-center">
+        <div className="text-center mt-6 flex justify-center">
           <Link 
             to="/insurance-benefits" 
-            className="inline-flex items-center text-teal-600 hover:text-teal-700 border border-teal-600/30 hover:bg-teal-50 px-6 py-3 rounded-xl font-bold text-xs uppercase tracking-wider transition-colors gap-2"
+            className="group relative inline-flex items-center justify-center overflow-hidden rounded-lg border-[1.5px] border-[#1b3a6b] bg-white px-8 py-3.5 text-[15px] font-semibold text-[#1b3a6b] shadow-[0_10px_40px_-10px_rgba(27,58,107,0.15)] transition-all duration-500 hover:shadow-[0_15px_40px_-10px_rgba(27,58,107,0.3)] hover:-translate-y-1 w-[320px] h-[54px]"
           >
-            <span>See All Insurance Benefits</span>
-            <ChevronRight className="w-4 h-4" />
+            {/* Shimmer Effect on Hover */}
+            <div className="absolute inset-0 flex h-full w-full justify-center [transform:skew(-15deg)_translateX(-150%)] group-hover:duration-1000 group-hover:[transform:skew(-15deg)_translateX(150%)] z-10">
+              <div className="relative h-full w-12 bg-gradient-to-r from-transparent via-[#1b3a6b]/5 to-transparent" />
+            </div>
+
+            {/* Original Text */}
+            <span className="absolute inset-0 flex items-center justify-center transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:-translate-y-[120%] group-hover:opacity-0 group-hover:scale-95">
+              See All Insurance Benefits
+            </span>
+
+            {/* Hover Text */}
+            <span className="absolute inset-0 flex items-center justify-center translate-y-[120%] opacity-0 scale-95 transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:translate-y-0 group-hover:opacity-100 group-hover:scale-100">
+              Get Benefits Now 
+              <span className="flex items-center ml-1.5 opacity-80 group-hover:animate-pulse">
+                <ChevronRight className="w-4 h-4 stroke-[2.5]" />
+                <ChevronRight className="w-4 h-4 -ml-2.5 stroke-[2.5]" />
+              </span>
+            </span>
           </Link>
         </div>
       </section>
